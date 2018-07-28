@@ -15,17 +15,18 @@ public enum UserListRouter: URLRequestConvertible {
     }
     
     case userlist(quantity: Int)
+    case pagination(page: Int, quantity: Int)
     
     var method: HTTPMethod {
         switch self {
-        case .userlist:
+        case .userlist, .pagination:
             return .get
         }
     }
     
     var path: String {
         switch self {
-        case .userlist:
+        case .userlist, .pagination:
             return "/api"
         }
     }
@@ -34,6 +35,8 @@ public enum UserListRouter: URLRequestConvertible {
         switch self {
         case .userlist(let quantity):
             return ["results": quantity]
+        case .pagination(let page, let quantity):
+            return ["page": page, "results": quantity, "seed": "abc"]
         }
     }
     

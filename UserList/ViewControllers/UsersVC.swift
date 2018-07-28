@@ -15,17 +15,13 @@ class UsersVC: BaseViewController {
     var userList: [User] = []
     let segueIdentifier: String = "ShowEditUser"
     let refresher = UIRefreshControl()
-    
-    lazy var noDataLabel: UILabel = {
-        let l = UILabel()
-        l.text = "No data. Pull down to refresh"
-        l.font = UIFont.systemFont(ofSize: 13)
-        l.textAlignment = .center
-        return l
-    }()
 
+    var page: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noDataLabel.text = "No data. Pull down to refresh"
         
         refresher.backgroundColor = .white
         refresher.tintColor = UIColor.lightGray
@@ -55,6 +51,8 @@ class UsersVC: BaseViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastItem = userList.count - 1
         if indexPath.row == lastItem {
+            page += 1
+            print(page)
             getData()
         }
     }
@@ -70,7 +68,7 @@ class UsersVC: BaseViewController {
     }
 
     @objc func getData() {
-        Alamofire.request(UserListRouter.userlist(quantity: 20)).responseObject { (response: DataResponse<UserList>) in
+        Alamofire.request(UserListRouter.pagination(page: page, quantity: 10)).responseObject { (response: DataResponse<UserList>) in
             self.tableView.refreshControl?.endRefreshing()
             response.result.value.map({ (data) in
                 print(data)

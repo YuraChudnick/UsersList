@@ -94,7 +94,7 @@
         <!--Edit user profile-->
         <scene sceneID="0Gr-UW-ED9">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="547-Q1-4al" customClass="EditUserProfileVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="547-Q1-4al" customClass="EditUserProfileVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeX-HD-lnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +109,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="209.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ewy-Go-Gda">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ewy-Go-Gda">
                                                     <rect key="frame" x="145" y="26" width="85" height="85"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="85" id="Cip-wO-V0z"/>

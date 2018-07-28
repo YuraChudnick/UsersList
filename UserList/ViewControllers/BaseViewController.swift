@@ -12,6 +12,13 @@ class BaseViewController: UITableViewController {
 
     let cellId = "UserCell"
     
+    let noDataLabel: UILabel = {
+        let l = UILabel()
+        l.font = UIFont.systemFont(ofSize: 15)
+        l.textAlignment = .center
+        return l
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

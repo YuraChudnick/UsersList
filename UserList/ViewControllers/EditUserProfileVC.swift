@@ -69,7 +69,11 @@ class EditUserProfileVC: UITableViewController {
     
     @IBAction func saveItem(_ sender: UIBarButtonItem) {
         if !isValidate() { return }
-        if !isFromSavedVC, let u = user {
+        if !isFromSavedVC, var u = user {
+            u.name?.first = firstNameTextField.text!
+            u.name?.last = lastNameTextField.text!
+            u.email = emailTextField.text!
+            u.phone = phoneTextField.text!
             _ = UserEntity.with(user: u, userAvatar.image, in: managedObjectContext)
         } else if isFromSavedVC, let u = user2 {
             u.first_name = firstNameTextField.text!
@@ -108,12 +112,12 @@ class EditUserProfileVC: UITableViewController {
     func isValidate() -> Bool {
         if firstNameTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty
             || firstNameTextField.text!.count < 1 || firstNameTextField.text!.count > 30 {
-            showAlert(title: "Message", message: "Din not save. First name can containe 1-30 characters, cannot contain only whitespaces.")
+            showAlert(title: "Message", message: "Not saved. First name can containe 1-30 characters, cannot contain only whitespaces.")
             return false
         }
         if lastNameTextField.text!.trimmingCharacters(in: .whitespaces).isEmpty
             || lastNameTextField.text!.count < 1 || lastNameTextField.text!.count > 30 {
-            showAlert(title: "Message", message: "Din not save. Last name can containe 1-30 characters, cannot contain only whitespaces.")
+            showAlert(title: "Message", message: "Not saved. Last name can containe 1-30 characters, cannot contain only whitespaces.")
             return false
         }
         if !Utils.isValidEmail(emailTextField.text!) {

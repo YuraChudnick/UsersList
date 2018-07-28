@@ -15,20 +15,13 @@ class SavedVC: BaseViewController {
         return UsersFetchedResultsController(managedObjectContext: self.managedObjectContext, tableView: self.tableView, label: self.noDataLabel)
     }()
     
-    let noDataLabel: UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        l.text = "No saved users"
-        l.font = UIFont.systemFont(ofSize: 13)
-        return l
-    }()
-    
     let segueIdentifier: String = "ShowEditUser2"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noDataLabel.text = "No saved users"
 
-        print(usersFetchedResultsController.fetchedObjects)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

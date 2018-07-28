@@ -48,7 +48,7 @@ class PhotoPickerManager: NSObject {
 extension PhotoPickerManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        delegate?.manager(self, didPickImage: image)
+        delegate?.manager(self, didPickImage: Utils.resizeImage(image: image, targetSize: CGSize(width: 200, height: 200)))
     }
 }
 

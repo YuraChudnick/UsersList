@@ -37,8 +37,8 @@ extension UserEntity {
         let userEntity = NSEntityDescription.insertNewObject(forEntityName: UserEntity.entityName, into: context) as! UserEntity
         
         if let name = user.name {
-            userEntity.first_name = name.first.capitalizingFirstLetter()
-            userEntity.last_name = name.last.capitalizingFirstLetter()
+            userEntity.first_name = name.first
+            userEntity.last_name = name.last
         } else {
             userEntity.first_name = ""
             userEntity.last_name = ""
