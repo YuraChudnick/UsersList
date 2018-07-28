@@ -6,5 +6,6 @@ target 'UserList' do
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'Kingfisher'
+  pod 'IQKeyboardManagerSwift'
 
 end

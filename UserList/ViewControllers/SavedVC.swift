@@ -10,37 +10,38 @@ import UIKit
 
 class SavedVC: BaseViewController {
     
+    let managedObjectContext = CoreDataStack().managedObjectContex
+    lazy var usersFetchedResultsController: UsersFetchedResultsController = {
+        return UsersFetchedResultsController(managedObjectContext: self.managedObjectContext, tableView: self.tableView)
+    }()
+    
+    let segueIdentifier: String = "ShowEditUser2"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 10
+        guard let section = usersFetchedResultsController.sections?[section] else { return 0 }
+        return section.numberOfObjects
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
-        
+        cell.initCell2(user: usersFetchedResultsController.object(at: indexPath))
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowEditUser2", sender: nil)
+        performSegue(withIdentifier: segueIdentifier, sender: usersFetchedResultsController.object(at: indexPath))
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == segueIdentifier, let data = sender as? UserEntity {
+            let vc = segue.destination as! EditUserProfileVC
+            vc.user2 = data
+        }
     }
-    */
 
 }
