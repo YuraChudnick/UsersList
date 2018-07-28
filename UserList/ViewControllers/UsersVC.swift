@@ -20,6 +20,7 @@ class UsersVC: BaseViewController {
         let l = UILabel()
         l.text = "No data. Pull down to refresh"
         l.font = UIFont.systemFont(ofSize: 13)
+        l.textAlignment = .center
         return l
     }()
 

@@ -7,5 +7,6 @@ target 'UserList' do
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'
+  pod 'PhoneNumberKit'
 
 end

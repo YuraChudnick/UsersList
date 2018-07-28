@@ -6,13 +6,14 @@
 //  Copyright © 2018 yura. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class CoreDataStack {
     
-    lazy var managedObjectContex: NSManagedObjectContext = {
-        let container = self.persistantContainer
+    static var managedObjectContex: NSManagedObjectContext = {
+        //let container = self.persistantContainer
+        let container = (UIApplication.shared.delegate as! AppDelegate).persistantContainer
         return container.viewContext
     }()
     
@@ -27,4 +28,16 @@ class CoreDataStack {
         return container
     }()
     
+}
+
+extension NSManagedObjectContext {
+    func saveChanges() {
+        if self.hasChanges {
+            do {
+                try save()
+            } catch {
+                fatalError("Error: \(error.localizedDescription)")
+            }
+        }
+    }
 }

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class EditUserProfileVC: UITableViewController {
     
-    lazy var managedObjectContext = CoreDataStack().managedObjectContex
+    lazy var managedObjectContext = CoreDataStack.managedObjectContex
     
     @IBOutlet weak var userAvatar: UIImageView! {
         didSet {
@@ -26,6 +27,14 @@ class EditUserProfileVC: UITableViewController {
     
     var user: User?
     var user2: UserEntity?
+    
+    var isFromSavedVC: Bool = false
+    
+    lazy var photoPickerManager: PhotoPickerManager = {
+        let manager = PhotoPickerManager(presentingViewController: self)
+        manager.delegate = self
+        return manager
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +45,8 @@ class EditUserProfileVC: UITableViewController {
             }
             
             if let name = user!.name {
-                firstNameTextField.text = name.first
-                lastNameTextField.text = name.last
+                firstNameTextField.text = name.first.capitalizingFirstLetter()
+                lastNameTextField.text = name.last.capitalizingFirstLetter()
             }
             
             emailTextField.text = user!.email
@@ -56,5 +65,48 @@ class EditUserProfileVC: UITableViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.tableFooterView = UIView(frame: .zero)
     }
+    
+    @IBAction func saveItem(_ sender: UIBarButtonItem) {
+        if !isFromSavedVC, let u = user {
+            _ = UserEntity.with(user: u, userAvatar.image, in: managedObjectContext)
+            managedObjectContext.saveChanges()
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func changePhoto(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default, handler: { [weak self] (action) in
+            self?.photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Camera", style: UIAlertActionStyle.default, handler: { [weak self] (action) in
+            self?.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+}
 
+extension EditUserProfileVC: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.textColor = .black
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.textColor = .darkGray
+    }
+    
+}
+
+extension EditUserProfileVC: PhotoPickerManagerDelegate {
+    
+    func manager(_ manager: PhotoPickerManager, didPickImage image: UIImage) {
+        userAvatar.image = image
+        manager.dismissPhotoPicker(animated: true, completion:
+            nil)
+    }
+    
 }

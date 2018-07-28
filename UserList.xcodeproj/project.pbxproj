@@ -28,6 +28,7 @@
 		DEAC7902210C992800D4445E /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC7900210C992800D4445E /* UserEntity+CoreDataClass.swift */; };
 		DEAC7903210C992800D4445E /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC7901210C992800D4445E /* UserEntity+CoreDataProperties.swift */; };
 		DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC7904210C9E6300D4445E /* UsersFetchedResultsController.swift */; };
+		DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC7906210CBECC00D4445E /* PhotoPickerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		DEAC7900210C992800D4445E /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DEAC7901210C992800D4445E /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DEAC7904210C9E6300D4445E /* UsersFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersFetchedResultsController.swift; sourceTree = "<group>"; };
+		DEAC7906210CBECC00D4445E /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,15 +110,15 @@
 		DEAC78B7210C32B300D4445E /* UserList */ = {
 			isa = PBXGroup;
 			children = (
-				DEAC78EE210C941C00D4445E /* CoreData */,
-				DEAC78EB210C932C00D4445E /* Helpers */,
-				DEAC78E4210C5CF300D4445E /* Extension */,
-				DEAC78E1210C54E700D4445E /* Model */,
-				DEAC78D8210C3A3000D4445E /* Views */,
-				DEAC78CD210C32FF00D4445E /* ViewControllers */,
 				DEAC78CC210C32ED00D4445E /* Applicaton */,
+				DEAC78EE210C941C00D4445E /* CoreData */,
+				DEAC78E4210C5CF300D4445E /* Extension */,
+				DEAC78EB210C932C00D4445E /* Helpers */,
+				DEAC78E1210C54E700D4445E /* Model */,
 				DEAC78CB210C32DF00D4445E /* Resources */,
 				DEAC78CA210C32BE00D4445E /* Storyboards */,
+				DEAC78CD210C32FF00D4445E /* ViewControllers */,
+				DEAC78D8210C3A3000D4445E /* Views */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -188,6 +190,7 @@
 		DEAC78EB210C932C00D4445E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DEAC7906210CBECC00D4445E /* PhotoPickerManager.swift */,
 				DEAC78EC210C933C00D4445E /* Utils.swift */,
 			);
 			path = Helpers;
@@ -305,6 +308,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -313,6 +317,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,6 +338,7 @@
 				DEAC78D7210C393E00D4445E /* EditUserProfileVC.swift in Sources */,
 				DEAC78F0210C942A00D4445E /* CoreDataStack.swift in Sources */,
 				DEAC78D5210C392800D4445E /* SavedVC.swift in Sources */,
+				DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */,
 				DEAC7902210C992800D4445E /* UserEntity+CoreDataClass.swift in Sources */,
 				DEAC78E0210C50CD00D4445E /* UserListRouter.swift in Sources */,
 				DEAC7903210C992800D4445E /* UserEntity+CoreDataProperties.swift in Sources */,
@@ -487,6 +493,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWAQ64T25E;
 				INFOPLIST_FILE = "$(SRCROOT)/UserList/Applicaton/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWAQ64T25E;
 				INFOPLIST_FILE = "$(SRCROOT)/UserList/Applicaton/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -44,6 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    lazy var persistantContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "UsersList")
+        container.loadPersistentStores() { storeDescription, error in
+            if let error = error as NSError? {
+                fatalError("Unsolved error: \(error), \(error.userInfo)")
+            }
+        }
+        
+        return container
+    }()
 
 }
 

@@ -15,7 +15,7 @@ extension UserEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<UserEntity> {
         let request = NSFetchRequest<UserEntity>(entityName: "UserEntity")
-        request.sortDescriptors = [NSSortDescriptor(key: "UserEntity", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "first_name", ascending: true)]
         return request
     }
 
@@ -33,12 +33,12 @@ extension UserEntity {
         return String(describing: UserEntity.self)
     }
     
-    @nonobjc class func with(user: User, _ image: UIImage, in context: NSManagedObjectContext) -> UserEntity {
+    @nonobjc class func with(user: User, _ image: UIImage?, in context: NSManagedObjectContext) -> UserEntity {
         let userEntity = NSEntityDescription.insertNewObject(forEntityName: UserEntity.entityName, into: context) as! UserEntity
         
         if let name = user.name {
-            userEntity.first_name = name.first
-            userEntity.last_name = name.last
+            userEntity.first_name = name.first.capitalizingFirstLetter()
+            userEntity.last_name = name.last.capitalizingFirstLetter()
         } else {
             userEntity.first_name = ""
             userEntity.last_name = ""
@@ -46,7 +46,9 @@ extension UserEntity {
         userEntity.gender = user.gender
         userEntity.email = user.email
         userEntity.phone = user.phone
-        userEntity.photo = UIImageJPEGRepresentation(image, 1.0)! as NSData
+        if image != nil {
+            userEntity.photo = UIImageJPEGRepresentation(image!, 1.0)! as NSData
+        }
         
         return userEntity
     }

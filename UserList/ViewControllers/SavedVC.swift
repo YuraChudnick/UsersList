@@ -10,9 +10,17 @@ import UIKit
 
 class SavedVC: BaseViewController {
     
-    let managedObjectContext = CoreDataStack().managedObjectContex
+    let managedObjectContext = CoreDataStack.managedObjectContex
     lazy var usersFetchedResultsController: UsersFetchedResultsController = {
-        return UsersFetchedResultsController(managedObjectContext: self.managedObjectContext, tableView: self.tableView)
+        return UsersFetchedResultsController(managedObjectContext: self.managedObjectContext, tableView: self.tableView, label: self.noDataLabel)
+    }()
+    
+    let noDataLabel: UILabel = {
+        let l = UILabel()
+        l.textAlignment = .center
+        l.text = "No saved users"
+        l.font = UIFont.systemFont(ofSize: 13)
+        return l
     }()
     
     let segueIdentifier: String = "ShowEditUser2"
@@ -20,6 +28,7 @@ class SavedVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(usersFetchedResultsController.fetchedObjects)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,10 +46,19 @@ class SavedVC: BaseViewController {
         performSegue(withIdentifier: segueIdentifier, sender: usersFetchedResultsController.object(at: indexPath))
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let item = usersFetchedResultsController.object(at: indexPath)
+        managedObjectContext.delete(item)
+        managedObjectContext.saveChanges()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier, let data = sender as? UserEntity {
             let vc = segue.destination as! EditUserProfileVC
             vc.user2 = data
+            vc.isFromSavedVC = true
         }
     }
 
