@@ -94,7 +94,7 @@
         <!--Edit user profile-->
         <scene sceneID="0Gr-UW-ED9">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="547-Q1-4al" customClass="EditUserProfileVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="547-Q1-4al" customClass="EditUserProfileVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeX-HD-lnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,7 +260,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTJ-M5-ppu">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTJ-M5-ppu" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
                                                     <rect key="frame" x="73" y="11" width="286" height="21"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -299,7 +299,7 @@
                         <outlet property="emailTextField" destination="bxX-4A-3Bf" id="zqS-0l-LSH"/>
                         <outlet property="firstNameTextField" destination="3sv-uU-ZCt" id="lmv-IF-2uN"/>
                         <outlet property="lastNameTextField" destination="jof-RJ-yGR" id="do2-s0-BFZ"/>
-                        <outlet property="phoneTextField" destination="eTJ-M5-ppu" id="hIJ-ZS-9in"/>
+                        <outlet property="phoneTextField" destination="eTJ-M5-ppu" id="Na5-TL-CLD"/>
                         <outlet property="userAvatar" destination="Ewy-Go-Gda" id="agm-N7-a5N"/>
                     </connections>
                 </tableViewController>

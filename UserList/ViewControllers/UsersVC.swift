@@ -64,6 +64,7 @@ class UsersVC: BaseViewController {
         if segue.identifier == segueIdentifier, let data = sender as? User {
             let vc = segue.destination as! EditUserProfileVC
             vc.user = data
+            vc.hidesBottomBarWhenPushed = true
         }
         
     }
