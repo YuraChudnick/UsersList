@@ -52,7 +52,6 @@ class SavedVC: BaseViewController {
             let vc = segue.destination as! EditUserProfileVC
             vc.user2 = data
             vc.isFromSavedVC = true
-            vc.hidesBottomBarWhenPushed = true
         }
     }
 

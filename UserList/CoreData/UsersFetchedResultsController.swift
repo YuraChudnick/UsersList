@@ -58,7 +58,6 @@ class UsersFetchedResultsController: NSFetchedResultsController<UserEntity>, NSF
         showNoDataLabel()
     }
     
-    
     func showNoDataLabel() {
         if let objects = self.fetchedObjects, objects.isEmpty {
             tableView.backgroundView = noDataLabel

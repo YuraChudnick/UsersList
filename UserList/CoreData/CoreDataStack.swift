@@ -11,7 +11,7 @@ import CoreData
 
 class CoreDataStack {
     
-    static var managedObjectContex: NSManagedObjectContext = {
+    static let managedObjectContex: NSManagedObjectContext = {
         //let container = self.persistantContainer
         let container = (UIApplication.shared.delegate as! AppDelegate).persistantContainer
         return container.viewContext

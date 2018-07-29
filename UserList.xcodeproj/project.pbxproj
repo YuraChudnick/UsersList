@@ -143,9 +143,8 @@
 		DEAC78CC210C32ED00D4445E /* Applicaton */ = {
 			isa = PBXGroup;
 			children = (
-				DEAC78C4210C32B400D4445E /* Info.plist */,
 				DEAC78B8210C32B300D4445E /* AppDelegate.swift */,
-				DEAC78DF210C50CD00D4445E /* UserListRouter.swift */,
+				DEAC78C4210C32B400D4445E /* Info.plist */,
 			);
 			path = Applicaton;
 			sourceTree = "<group>";
@@ -191,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				DEAC7906210CBECC00D4445E /* PhotoPickerManager.swift */,
+				DEAC78DF210C50CD00D4445E /* UserListRouter.swift */,
 				DEAC78EC210C933C00D4445E /* Utils.swift */,
 			);
 			path = Helpers;
