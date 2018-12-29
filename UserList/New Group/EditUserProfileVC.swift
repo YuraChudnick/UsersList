@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import PhoneNumberKit
 
-class EditUserProfileVC: UITableViewController {
+class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
     
     lazy var managedObjectContext = CoreDataStack.managedObjectContex
     
@@ -30,6 +30,8 @@ class EditUserProfileVC: UITableViewController {
     var user2: UserEntity?
     
     var isFromSavedVC: Bool = false
+    
+    var presenter: EditUserProfilePresenterProtocol!
     
     lazy var photoPickerManager: PhotoPickerManager = {
         let manager = PhotoPickerManager(presentingViewController: self)
