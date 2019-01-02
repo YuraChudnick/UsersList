@@ -15,5 +15,11 @@ xcuserdata
 *.xcscheme
 Manifest.lock
 
+## Pods
+Pods/*
+!Pods/Cuckoo
+Podfile.lock
+Score777.xcworkspace/contents.xcworkspacedata
+
 ## AppCode
 .idea/
