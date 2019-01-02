@@ -16,12 +16,13 @@ protocol UserProtocol {
     func getEmail()     -> String
     func getPhone()     -> String
     func getImage()     -> UIImage?
+    func getImageData() -> NSData?
     func getImageName() -> String?
     
     mutating func setFirstName(first: String)
     mutating func setLastName(last: String)
     mutating func setEmail(email: String)
     mutating func setPhone(phone: String)
-    mutating func setImage(image: UIImage)
+    mutating func setImage(data: NSData?)
     
 }

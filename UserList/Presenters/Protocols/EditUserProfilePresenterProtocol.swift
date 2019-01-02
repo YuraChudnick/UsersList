@@ -13,5 +13,11 @@ protocol EditUserProfilePresenterProtocol: class {
     init(view: EditUserProfileViewProtocol, model: EditUserProfileModelProtocol)
     
     func showUserInfo()
+    func updateFirstName(first: String)
+    func updateLastName(last: String)
+    func updateEmail(email: String)
+    func updatePhone(phone: String)
+    func updatePhoto(photo: NSData?)
+    func didPressSaveItem()
     
 }

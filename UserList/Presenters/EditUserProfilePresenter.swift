@@ -22,4 +22,28 @@ class EditUserProfilePresenter: EditUserProfilePresenterProtocol {
         view.setUserInfo(info: model.userData)
     }
     
+    func updateFirstName(first: String) {
+        model.userData?.setFirstName(first: first)
+    }
+    
+    func updateLastName(last: String) {
+        model.userData?.setLastName(last: last)
+    }
+    
+    func updateEmail(email: String) {
+        model.userData?.setEmail(email: email)
+    }
+    
+    func updatePhone(phone: String) {
+        model.userData?.setPhone(phone: phone)
+    }
+    
+    func updatePhoto(photo: NSData?) {
+        model.userData?.setImage(data: photo)
+    }
+    
+    func didPressSaveItem() {
+        model.saveItem()
+    }
+    
 }

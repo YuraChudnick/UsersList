@@ -27,6 +27,7 @@ struct User: Mappable, UserProtocol {
     var email: String = ""
     var phone: String = ""
     var picture: Picture?
+    var imageForSaving: NSData?
     
     init?(map: Map) {}
     
@@ -59,11 +60,15 @@ struct User: Mappable, UserProtocol {
     }
     
     func getImage() -> UIImage? {
-        return nil
+        return imageForSaving != nil ? UIImage(data: self.imageForSaving! as Data) : nil
     }
     
     func getImageName() -> String? {
         return picture?.large
+    }
+    
+    func getImageData() -> NSData? {
+        return imageForSaving
     }
     
     mutating func setFirstName(first: String) {
@@ -82,8 +87,8 @@ struct User: Mappable, UserProtocol {
         self.phone = phone
     }
     
-    func setImage(image: UIImage) {
-        return
+    mutating func setImage(data: NSData?) {
+        imageForSaving = data
     }
     
 }

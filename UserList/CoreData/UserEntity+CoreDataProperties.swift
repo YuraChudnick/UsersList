@@ -29,7 +29,7 @@ extension UserEntity {
 }
 
 extension UserEntity: UserProtocol {
-    
+
     func getFirstName() -> String {
         return first_name
     }
@@ -58,6 +58,10 @@ extension UserEntity: UserProtocol {
         return nil
     }
     
+    func getImageData() -> NSData? {
+        return photo
+    }
+    
     func setFirstName(first: String) {
         first_name = first
     }
@@ -74,9 +78,10 @@ extension UserEntity: UserProtocol {
         self.phone = phone
     }
     
-    func setImage(image: UIImage) {
-        photo = UIImageJPEGRepresentation(image, 1.0) as NSData?
+    func setImage(data: NSData?) {
+        photo = data
     }
+    
 }
 
 extension UserEntity {
@@ -84,7 +89,7 @@ extension UserEntity {
         return String(describing: UserEntity.self)
     }
     
-    @nonobjc class func with(user: User, _ image: UIImage?, in context: NSManagedObjectContext) -> UserEntity {
+    @nonobjc class func with(user: User, in context: NSManagedObjectContext) -> UserEntity {
         let userEntity = NSEntityDescription.insertNewObject(forEntityName: UserEntity.entityName, into: context) as! UserEntity
         
         if let name = user.name {
@@ -97,16 +102,14 @@ extension UserEntity {
         userEntity.gender = user.gender
         userEntity.email = user.email
         userEntity.phone = user.phone
-        if image != nil {
-            userEntity.photo = UIImageJPEGRepresentation(image!, 1.0)! as NSData
-        }
+        userEntity.photo = user.getImageData()
         
         return userEntity
     }
 }
 
 extension UserEntity {
-    var image: UIImage {
-        return self.photo != nil ? UIImage(data: self.photo! as Data)! : UIImage()
+    var image: UIImage? {
+        return self.photo != nil ? UIImage(data: self.photo! as Data) : nil
     }
 }

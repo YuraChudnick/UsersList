@@ -10,8 +10,10 @@ import Foundation
 
 protocol EditUserProfileModelProtocol: class {
     
-    var userData: UserProtocol? { get }
+    var userData: UserProtocol? { get set }
     
     init(userData: UserProtocol?)
+    
+    func saveItem()
     
 }

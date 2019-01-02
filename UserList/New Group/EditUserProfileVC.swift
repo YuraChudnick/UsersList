@@ -12,8 +12,6 @@ import PhoneNumberKit
 
 class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
 
-    lazy var managedObjectContext = CoreDataStack.managedObjectContex
-    
     @IBOutlet weak var userAvatar: UIImageView! {
         didSet {
             userAvatar.layer.cornerRadius = userAvatar.bounds.width/2
@@ -26,11 +24,6 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: PhoneNumberTextField!
     
-//    var user: User?
-//    var user2: UserEntity?
-    
-    var isFromSavedVC: Bool = false
-    
     var presenter: EditUserProfilePresenterProtocol!
     
     lazy var photoPickerManager: PhotoPickerManager = {
@@ -38,34 +31,29 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
         manager.delegate = self
         return manager
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
         presenter.showUserInfo()
-        
+    }
+    
+    fileprivate func setupTableView() {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
     @IBAction func saveItem(_ sender: UIBarButtonItem) {
         if !isValidate() { return }
-//        if !isFromSavedVC, var u = user {
-//            u.name?.first = firstNameTextField.text!
-//            u.name?.last = lastNameTextField.text!
-//            u.email = emailTextField.text!
-//            u.phone = phoneTextField.text!
-//            _ = UserEntity.with(user: u, userAvatar.image, in: managedObjectContext)
-//        } else if isFromSavedVC, let u = user2 {
-//            u.first_name = firstNameTextField.text!
-//            u.last_name = lastNameTextField.text!
-//            u.email = emailTextField.text!
-//            u.phone = phoneTextField.text!
-//            if let img = userAvatar.image {
-//                u.photo = UIImageJPEGRepresentation(img, 1.0)! as NSData
-//            }
-//        }
-        managedObjectContext.saveChanges()
+        presenter.updateFirstName(first: firstNameTextField.text!)
+        presenter.updateLastName(last: lastNameTextField.text!)
+        presenter.updateEmail(email: emailTextField.text!)
+        presenter.updatePhone(phone: phoneTextField.text!)
+        if let img = userAvatar.image {
+            presenter.updatePhoto(photo: UIImageJPEGRepresentation(img, 1.0)! as NSData)
+        }
+        presenter.didPressSaveItem()
         navigationController?.popViewController(animated: true)
     }
     
@@ -83,11 +71,9 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
     }
     
     func showAlert(title: String, message: String) {
-        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
-        
     }
     
     func isValidate() -> Bool {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30B7469F838347E7FB99006C /* Pods_UserList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281DE734927B71A83264FA5E /* Pods_UserList.framework */; };
+		CD27F94421DCBE120081A0A0 /* SavedPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD27F94321DCBE120081A0A0 /* SavedPresenterProtocol.swift */; };
 		CDFCB61221D755CB0038E5D1 /* UsersPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */; };
 		CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */; };
 		CDFCB61821D757310038E5D1 /* UsersModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */; };
@@ -55,6 +56,7 @@
 		281DE734927B71A83264FA5E /* Pods_UserList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B336F71C0E353A353CD2B /* Pods-UserList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.debug.xcconfig"; sourceTree = "<group>"; };
 		A01F7124AFDC373F9A94AEFB /* Pods-UserList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.release.xcconfig"; sourceTree = "<group>"; };
+		CD27F94321DCBE120081A0A0 /* SavedPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPresenterProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenterProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol.swift; sourceTree = "<group>"; };
@@ -142,10 +144,14 @@
 		CDFCB61321D756080038E5D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEAC78CA210C32BE00D4445E /* Storyboards */,
+				DEAC78D8210C3A3000D4445E /* Cells */,
 				CDFCB63921D77B080038E5D1 /* Protocols */,
 				DEAC78D2210C390C00D4445E /* UsersVC.swift */,
 				DEAC78D6210C393E00D4445E /* EditUserProfileVC.swift */,
 				CDFCB62D21D770670038E5D1 /* TabBarVC.swift */,
+				DEAC78D4210C392800D4445E /* SavedVC.swift */,
+				DEAC78DD210C3E8A00D4445E /* BaseViewController.swift */,
 			);
 			name = Views;
 			path = "New Group";
@@ -208,6 +214,7 @@
 			children = (
 				CDFCB63521D77A8A0038E5D1 /* EditUserProfilePresenterProtocol.swift */,
 				CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */,
+				CD27F94321DCBE120081A0A0 /* SavedPresenterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -252,9 +259,6 @@
 				DEAC78E4210C5CF300D4445E /* Extension */,
 				DEAC78EB210C932C00D4445E /* Helpers */,
 				DEAC78CB210C32DF00D4445E /* Resources */,
-				DEAC78CA210C32BE00D4445E /* Storyboards */,
-				DEAC78CD210C32FF00D4445E /* ViewControllers */,
-				DEAC78D8210C3A3000D4445E /* Views */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -285,22 +289,13 @@
 			path = Applicaton;
 			sourceTree = "<group>";
 		};
-		DEAC78CD210C32FF00D4445E /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				DEAC78DD210C3E8A00D4445E /* BaseViewController.swift */,
-				DEAC78D4210C392800D4445E /* SavedVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		DEAC78D8210C3A3000D4445E /* Views */ = {
+		DEAC78D8210C3A3000D4445E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				DEAC78D9210C3A4F00D4445E /* UserCell.swift */,
 				DEAC78DA210C3A4F00D4445E /* UserCell.xib */,
 			);
-			path = Views;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DEAC78E4210C5CF300D4445E /* Extension */ = {
@@ -468,6 +463,7 @@
 				CDFCB62621D75D730038E5D1 /* Response.swift in Sources */,
 				DEAC78D7210C393E00D4445E /* EditUserProfileVC.swift in Sources */,
 				DEAC78F0210C942A00D4445E /* CoreDataStack.swift in Sources */,
+				CD27F94421DCBE120081A0A0 /* SavedPresenterProtocol.swift in Sources */,
 				CDFCB62A21D75E3C0038E5D1 /* NetworkTask.swift in Sources */,
 				DEAC78D5210C392800D4445E /* SavedVC.swift in Sources */,
 				CDFCB63E21D77F5C0038E5D1 /* EditUserProfilePresenter.swift in Sources */,

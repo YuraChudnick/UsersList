@@ -10,11 +10,20 @@ import Foundation
 import CoreData
 
 class EditUserProfileModel: EditUserProfileModelProtocol {
-
-    let userData: UserProtocol?
+    
+    private lazy var managedObjectContext = CoreDataStack.managedObjectContex
+    
+    var userData: UserProtocol?
     
     required init(userData: UserProtocol?) {
         self.userData = userData
+    }
+    
+    func saveItem() {
+        if let data = userData as? User {
+            _ = UserEntity.with(user: data, in: managedObjectContext)
+        }
+        managedObjectContext.saveChanges()
     }
     
 }
