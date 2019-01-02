@@ -1,0 +1,19 @@
+## Build generated
+.DS_Store
+build/
+DerivedData
+
+## Tests generated
+GeneratedMocks.swift
+
+## Various settings
+xcuserdata
+
+## Other
+*.xccheckout
+*.xcuserstate
+*.xcscheme
+Manifest.lock
+
+## AppCode
+.idea/
