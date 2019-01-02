@@ -47,23 +47,13 @@ class UsersVC: BaseViewController, UsersViewProtocol {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: segueIdentifier, sender: usersList[indexPath.row])
+        navigationController?.pushViewController(EditUserProfileModuleBuilder().create(with: usersList[indexPath.row]), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == usersList.count - 1 {
             getData()
         }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == segueIdentifier, let data = sender as? User {
-            let vc = segue.destination as! EditUserProfileVC
-            vc.user = data
-            vc.hidesBottomBarWhenPushed = true
-        }
-        
     }
 
     @objc func getData() {

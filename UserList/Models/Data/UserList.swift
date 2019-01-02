@@ -58,8 +58,12 @@ struct User: Mappable, UserProtocol {
         return phone
     }
     
-    func getImage() -> UIImage {
-        return UIImage()
+    func getImage() -> UIImage? {
+        return nil
+    }
+    
+    func getImageName() -> String? {
+        return picture?.large
     }
     
     mutating func setFirstName(first: String) {
@@ -67,15 +71,15 @@ struct User: Mappable, UserProtocol {
     }
     
     mutating func setLastName(last: String) {
-        return
+        name?.last = last
     }
     
     mutating func setEmail(email: String) {
-        return
+        self.email = email
     }
     
     mutating func setPhone(phone: String) {
-        return
+        self.phone = phone
     }
     
     func setImage(image: UIImage) {

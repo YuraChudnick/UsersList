@@ -50,7 +50,7 @@ class SavedVC: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier, let data = sender as? UserEntity {
             let vc = segue.destination as! EditUserProfileVC
-            vc.user2 = data
+            //vc.user2 = data
             vc.isFromSavedVC = true
         }
     }

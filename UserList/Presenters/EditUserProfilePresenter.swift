@@ -18,4 +18,8 @@ class EditUserProfilePresenter: EditUserProfilePresenterProtocol {
         self.model = model
     }
     
+    func showUserInfo() {
+        view.setUserInfo(info: model.userData)
+    }
+    
 }

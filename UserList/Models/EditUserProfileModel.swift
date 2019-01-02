@@ -11,7 +11,7 @@ import CoreData
 
 class EditUserProfileModel: EditUserProfileModelProtocol {
 
-    private let userData: UserProtocol?
+    let userData: UserProtocol?
     
     required init(userData: UserProtocol?) {
         self.userData = userData

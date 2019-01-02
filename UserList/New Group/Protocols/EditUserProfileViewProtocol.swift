@@ -10,6 +10,6 @@ import Foundation
 
 protocol EditUserProfileViewProtocol: class {
     
-    
+    func setUserInfo(info: UserProtocol?)
     
 }

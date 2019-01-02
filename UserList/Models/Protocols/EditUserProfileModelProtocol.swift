@@ -10,6 +10,8 @@ import Foundation
 
 protocol EditUserProfileModelProtocol: class {
     
+    var userData: UserProtocol? { get }
+    
     init(userData: UserProtocol?)
     
 }

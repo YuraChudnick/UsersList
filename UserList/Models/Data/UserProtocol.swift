@@ -15,7 +15,8 @@ protocol UserProtocol {
     func getGender()    -> String
     func getEmail()     -> String
     func getPhone()     -> String
-    func getImage()     -> UIImage
+    func getImage()     -> UIImage?
+    func getImageName() -> String?
     
     mutating func setFirstName(first: String)
     mutating func setLastName(last: String)

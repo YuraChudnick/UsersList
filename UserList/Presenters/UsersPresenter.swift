@@ -9,7 +9,7 @@
 import Foundation
 
 class UsersPresenter: UsersPresenterProtocol {
-    
+
     private unowned let view: UsersViewProtocol
     private let model: UsersModelProtocol
     

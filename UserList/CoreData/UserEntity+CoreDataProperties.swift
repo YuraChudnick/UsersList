@@ -50,8 +50,12 @@ extension UserEntity: UserProtocol {
         return phone
     }
     
-    func getImage() -> UIImage {
+    func getImage() -> UIImage? {
         return image
+    }
+    
+    func getImageName() -> String? {
+        return nil
     }
     
     func setFirstName(first: String) {

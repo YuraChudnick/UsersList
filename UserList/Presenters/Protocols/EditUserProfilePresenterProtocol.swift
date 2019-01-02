@@ -12,4 +12,6 @@ protocol EditUserProfilePresenterProtocol: class {
     
     init(view: EditUserProfileViewProtocol, model: EditUserProfileModelProtocol)
     
+    func showUserInfo()
+    
 }

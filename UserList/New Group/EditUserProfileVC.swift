@@ -11,7 +11,7 @@ import CoreData
 import PhoneNumberKit
 
 class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
-    
+
     lazy var managedObjectContext = CoreDataStack.managedObjectContex
     
     @IBOutlet weak var userAvatar: UIImageView! {
@@ -26,8 +26,8 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: PhoneNumberTextField!
     
-    var user: User?
-    var user2: UserEntity?
+//    var user: User?
+//    var user2: UserEntity?
     
     var isFromSavedVC: Bool = false
     
@@ -41,29 +41,8 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if user != nil {
-            if let picture = user!.picture {
-                userAvatar.kf.setImage(with: URL(string: picture.large))
-            }
-            
-            if let name = user!.name {
-                firstNameTextField.text = name.first.capitalizingFirstLetter()
-                lastNameTextField.text = name.last.capitalizingFirstLetter()
-            }
-            
-            emailTextField.text = user!.email
-            phoneTextField.text = user!.phone
-            
-        } else if user2 != nil {
-            
-            userAvatar.image = user2!.image
-            firstNameTextField.text = user2!.first_name
-            lastNameTextField.text = user2!.last_name
-            emailTextField.text = user2!.email
-            phoneTextField.text = user2!.phone
-            
-        }
+        
+        presenter.showUserInfo()
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.tableFooterView = UIView(frame: .zero)
@@ -71,21 +50,21 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
     
     @IBAction func saveItem(_ sender: UIBarButtonItem) {
         if !isValidate() { return }
-        if !isFromSavedVC, var u = user {
-            u.name?.first = firstNameTextField.text!
-            u.name?.last = lastNameTextField.text!
-            u.email = emailTextField.text!
-            u.phone = phoneTextField.text!
-            _ = UserEntity.with(user: u, userAvatar.image, in: managedObjectContext)
-        } else if isFromSavedVC, let u = user2 {
-            u.first_name = firstNameTextField.text!
-            u.last_name = lastNameTextField.text!
-            u.email = emailTextField.text!
-            u.phone = phoneTextField.text!
-            if let img = userAvatar.image {
-                u.photo = UIImageJPEGRepresentation(img, 1.0)! as NSData
-            }
-        }
+//        if !isFromSavedVC, var u = user {
+//            u.name?.first = firstNameTextField.text!
+//            u.name?.last = lastNameTextField.text!
+//            u.email = emailTextField.text!
+//            u.phone = phoneTextField.text!
+//            _ = UserEntity.with(user: u, userAvatar.image, in: managedObjectContext)
+//        } else if isFromSavedVC, let u = user2 {
+//            u.first_name = firstNameTextField.text!
+//            u.last_name = lastNameTextField.text!
+//            u.email = emailTextField.text!
+//            u.phone = phoneTextField.text!
+//            if let img = userAvatar.image {
+//                u.photo = UIImageJPEGRepresentation(img, 1.0)! as NSData
+//            }
+//        }
         managedObjectContext.saveChanges()
         navigationController?.popViewController(animated: true)
     }
@@ -127,6 +106,18 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
             return false
         }
         return true
+    }
+    
+    func setUserInfo(info: UserProtocol?) {
+        if let image = info?.getImage() {
+            userAvatar.image = image
+        } else if let imgName = info?.getImageName() {
+            userAvatar.kf.setImage(with: URL(string: imgName))
+        }
+        firstNameTextField.text = info?.getFirstName().capitalizingFirstLetter()
+        lastNameTextField.text = info?.getLastName().capitalizingFirstLetter()
+        emailTextField.text = info?.getEmail()
+        phoneTextField.text = info?.getPhone()
     }
     
 }
