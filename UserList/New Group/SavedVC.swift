@@ -21,7 +21,6 @@ class SavedVC: BaseViewController {
         super.viewDidLoad()
         
         noDataLabel.text = "No saved users"
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +35,8 @@ class SavedVC: BaseViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: segueIdentifier, sender: usersFetchedResultsController.object(at: indexPath))
+        let vc = EditUserProfileModuleBuilder().create(with: usersFetchedResultsController.object(at: indexPath))
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
@@ -45,14 +45,6 @@ class SavedVC: BaseViewController {
         let item = usersFetchedResultsController.object(at: indexPath)
         managedObjectContext.delete(item)
         managedObjectContext.saveChanges()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier, let data = sender as? UserEntity {
-            let vc = segue.destination as! EditUserProfileVC
-            vc.user2 = data
-            vc.isFromSavedVC = true
-        }
     }
 
 }

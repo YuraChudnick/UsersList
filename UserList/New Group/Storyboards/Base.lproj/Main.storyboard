@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w2y-AK-wxq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,7 +30,7 @@
         <!--Saved-->
         <scene sceneID="1qf-6U-mwA">
             <objects>
-                <tableViewController id="PhI-51-lA3" customClass="SavedVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SavedUsersVC" id="PhI-51-lA3" customClass="SavedVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SrZ-Tz-t7f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
         <!--Users-->
         <scene sceneID="pfk-k3-hBj">
             <objects>
-                <tableViewController id="cX5-en-96R" customClass="UsersVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UsersVC" id="cX5-en-96R" customClass="UsersVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="AjI-2B-vMv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
         <!--Edit user profile-->
         <scene sceneID="0Gr-UW-ED9">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="547-Q1-4al" customClass="EditUserProfileVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditUserProfileVC" hidesBottomBarWhenPushed="YES" id="547-Q1-4al" customClass="EditUserProfileVC" customModule="UserList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LeX-HD-lnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRi-q3-mgp">
-                                                    <rect key="frame" x="148" y="111" width="80" height="27"/>
+                                                    <rect key="frame" x="147.5" y="111" width="80" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <state key="normal" title="Change photo"/>
                                                     <connections>
@@ -144,7 +144,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DA-Ei-abF">
-                                                    <rect key="frame" x="16" y="12" width="80" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="80" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="vWt-OB-RQn"/>
                                                     </constraints>
@@ -180,7 +180,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdn-1h-ClR">
-                                                    <rect key="frame" x="16" y="12" width="80" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="80" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="AcA-nb-aux"/>
                                                     </constraints>
@@ -189,7 +189,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jof-RJ-yGR">
-                                                    <rect key="frame" x="104" y="12" width="255" height="21"/>
+                                                    <rect key="frame" x="104" y="11.5" width="255" height="21"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
@@ -216,7 +216,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uq4-3b-hw5">
-                                                    <rect key="frame" x="16" y="11" width="41" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="41" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="41" id="AcY-B9-Cq9"/>
                                                     </constraints>
@@ -225,7 +225,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bxX-4A-3Bf">
-                                                    <rect key="frame" x="65" y="12" width="294" height="21"/>
+                                                    <rect key="frame" x="65" y="11.5" width="294" height="21"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
@@ -252,7 +252,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAJ-jQ-Hi3">
-                                                    <rect key="frame" x="16" y="12" width="49" height="21"/>
+                                                    <rect key="frame" x="16" y="11.5" width="49" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="jfh-3a-qY3"/>
                                                     </constraints>
@@ -261,7 +261,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTJ-M5-ppu" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
-                                                    <rect key="frame" x="73" y="11" width="286" height="21"/>
+                                                    <rect key="frame" x="73" y="11.5" width="286" height="21"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" returnKeyType="done" textContentType="tel"/>
@@ -351,6 +351,6 @@
         <image name="tab_users" width="34" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5bi-7X-8T1"/>
+        <segue reference="W4K-ZV-qQU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,13 +20,14 @@ struct UserList: Mappable {
     
 }
 
-struct User: Mappable {
-    
+struct User: Mappable, UserProtocol {
+
     var gender: String = ""
     var name: Name?
     var email: String = ""
     var phone: String = ""
     var picture: Picture?
+    var imageForSaving: NSData?
     
     init?(map: Map) {}
     
@@ -36,6 +37,58 @@ struct User: Mappable {
         email     <-   map["email"]
         phone     <-   map["phone"]
         picture   <-   map["picture"]
+    }
+    
+    func getFirstName() -> String {
+        return name?.first ?? ""
+    }
+    
+    func getLastName() -> String {
+        return name?.last ?? ""
+    }
+    
+    func getGender() -> String {
+        return gender
+    }
+    
+    func getEmail() -> String {
+        return email
+    }
+    
+    func getPhone() -> String {
+        return phone
+    }
+    
+    func getImage() -> UIImage? {
+        return imageForSaving != nil ? UIImage(data: self.imageForSaving! as Data) : nil
+    }
+    
+    func getImageName() -> String? {
+        return picture?.large
+    }
+    
+    func getImageData() -> NSData? {
+        return imageForSaving
+    }
+    
+    mutating func setFirstName(first: String) {
+        name?.first = first
+    }
+    
+    mutating func setLastName(last: String) {
+        name?.last = last
+    }
+    
+    mutating func setEmail(email: String) {
+        self.email = email
+    }
+    
+    mutating func setPhone(phone: String) {
+        self.phone = phone
+    }
+    
+    mutating func setImage(data: NSData?) {
+        imageForSaving = data
     }
     
 }
