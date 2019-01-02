@@ -3,9 +3,6 @@
 build/
 DerivedData
 
-## Tests generated
-GeneratedMocks.swift
-
 ## Various settings
 xcuserdata
 
@@ -17,9 +14,6 @@ Manifest.lock
 
 ## Pods
 Pods/*
-!Pods/Cuckoo
-Podfile.lock
-Score777.xcworkspace/contents.xcworkspacedata
 
 ## AppCode
 .idea/
