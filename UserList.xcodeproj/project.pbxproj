@@ -15,6 +15,9 @@
 		CD432EED22B395CF008533B4 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EEC22B395CF008533B4 /* Name.swift */; };
 		CD432EEF22B396AD008533B4 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EEE22B396AD008533B4 /* Picture.swift */; };
 		CD432EF122B39858008533B4 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EF022B39858008533B4 /* UsersResponse.swift */; };
+		CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EFA22B3C837008533B4 /* UsersViewModel.swift */; };
+		CD432F0122B3C9D0008533B4 /* UsersModelProtocol2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0022B3C9D0008533B4 /* UsersModelProtocol2.swift */; };
+		CD432F0322B3E2D3008533B4 /* UsersModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0222B3E2D3008533B4 /* UsersModel2.swift */; };
 		CDFCB61221D755CB0038E5D1 /* UsersPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */; };
 		CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */; };
 		CDFCB61821D757310038E5D1 /* UsersModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */; };
@@ -67,6 +70,9 @@
 		CD432EEC22B395CF008533B4 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		CD432EEE22B396AD008533B4 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		CD432EF022B39858008533B4 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		CD432EFA22B3C837008533B4 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		CD432F0022B3C9D0008533B4 /* UsersModelProtocol2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol2.swift; sourceTree = "<group>"; };
+		CD432F0222B3E2D3008533B4 /* UsersModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel2.swift; sourceTree = "<group>"; };
 		CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenterProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol.swift; sourceTree = "<group>"; };
@@ -194,6 +200,9 @@
 				CDFCB61C21D759340038E5D1 /* UsersPresenter.swift */,
 				CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */,
 				DEAC78D2210C390C00D4445E /* UsersVC.swift */,
+				CD432EFA22B3C837008533B4 /* UsersViewModel.swift */,
+				CD432F0022B3C9D0008533B4 /* UsersModelProtocol2.swift */,
+				CD432F0222B3E2D3008533B4 /* UsersModel2.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -479,6 +488,7 @@
 				CDFCB63421D77A770038E5D1 /* EditUserProfileViewProtocol.swift in Sources */,
 				DEAC78B9210C32B300D4445E /* AppDelegate.swift in Sources */,
 				CDFCB62221D75C030038E5D1 /* Request.swift in Sources */,
+				CD432F0122B3C9D0008533B4 /* UsersModelProtocol2.swift in Sources */,
 				DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */,
 				CDFCB63221D77A550038E5D1 /* EditUserProfileModelProtocol.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,
@@ -496,6 +506,7 @@
 				DEAC78D5210C392800D4445E /* SavedVC.swift in Sources */,
 				CDFCB63E21D77F5C0038E5D1 /* EditUserProfilePresenter.swift in Sources */,
 				CDFCB61821D757310038E5D1 /* UsersModelProtocol.swift in Sources */,
+				CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */,
 				CD432EEF22B396AD008533B4 /* Picture.swift in Sources */,
 				CD432EEB22B39564008533B4 /* User.swift in Sources */,
 				CD432EE922B394C3008533B4 /* Path.swift in Sources */,
@@ -518,6 +529,7 @@
 				DEAC78D3210C390C00D4445E /* UsersVC.swift in Sources */,
 				CDFCB63C21D77BC90038E5D1 /* EditUserProfileModel.swift in Sources */,
 				DEAC78DE210C3E8A00D4445E /* BaseViewController.swift in Sources */,
+				CD432F0322B3E2D3008533B4 /* UsersModel2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
