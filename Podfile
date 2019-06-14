@@ -1,12 +1,13 @@
 platform :ios, '11.0'
+inhibit_all_warnings!
+use_frameworks!
 
 target 'UserList' do
-  use_frameworks!
 
-  pod 'Alamofire', '~> 4.7'
-  pod 'AlamofireObjectMapper', '~> 5.0'
+  pod 'Alamofire'
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'
   pod 'PhoneNumberKit'
+  pod 'RealmSwift'
 
 end

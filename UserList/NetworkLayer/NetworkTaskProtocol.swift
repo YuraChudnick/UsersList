@@ -10,10 +10,12 @@ import Foundation
 
 protocol NetworkTaskProtocol: class {
     
+    associatedtype ResponseCodable
+    
     var request: Request { get }
     
     init(request: Request)
     
-    func execute(completionHandler: @escaping (Response) -> Void)
+    func execute(completionHandler: @escaping (ResponseCodable) -> Void)
     
 }

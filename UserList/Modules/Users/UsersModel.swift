@@ -14,11 +14,11 @@ class UsersModel: UsersModelProtocol {
     var usersList: [User] = []
     
     func getData(comlete: @escaping (Bool, Error?) -> Void) {
-        NetworkTask<UserList>(request: GetUsersRequest.pagination(page: page, quantity: 10)).execute { [weak self] (response) in
+        NetworkTask<UsersResponse>(request: GetUsersRequest.pagination(page: page, quantity: 10)).execute { [weak self] (response) in
             guard let `self` = self else { return }
             switch response {
             case .data(let data):
-                self.usersList += (data as! UserList).results
+                self.usersList += data.results
                 self.page += 1
                 comlete(true, nil)
             case .error(_ , let error):

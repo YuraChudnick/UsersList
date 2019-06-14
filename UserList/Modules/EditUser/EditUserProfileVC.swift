@@ -94,16 +94,14 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
         return true
     }
     
-    func setUserInfo(info: UserProtocol?) {
-        if let image = info?.getImage() {
-            userAvatar.image = image
-        } else if let imgName = info?.getImageName() {
+    func setUserInfo(info: User?) {
+        if let imgName = info?.picture?.large {
             userAvatar.kf.setImage(with: URL(string: imgName))
         }
-        firstNameTextField.text = info?.getFirstName().capitalizingFirstLetter()
-        lastNameTextField.text = info?.getLastName().capitalizingFirstLetter()
-        emailTextField.text = info?.getEmail()
-        phoneTextField.text = info?.getPhone()
+        firstNameTextField.text = info?.name?.first.capitalizingFirstLetter()
+        lastNameTextField.text = info?.name?.last.capitalizingFirstLetter()
+        emailTextField.text = info?.email
+        phoneTextField.text = info?.phone
     }
     
 }

@@ -13,17 +13,18 @@ class EditUserProfileModel: EditUserProfileModelProtocol {
     
     private lazy var managedObjectContext = CoreDataStack.managedObjectContex
     
-    var userData: UserProtocol?
+    var userData: User?
     
-    required init(userData: UserProtocol?) {
+    required init(userData: User?) {
         self.userData = userData
     }
     
     func saveItem() {
-        if let data = userData as? User {
-            _ = UserEntity.with(user: data, in: managedObjectContext)
-        }
-        managedObjectContext.saveChanges()
+//        if let data = userData as? User {
+//            _ = UserEntity.with(user: data, in: managedObjectContext)
+//        }
+//        managedObjectContext.saveChanges()
+        userData?.save()
     }
     
 }

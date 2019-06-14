@@ -28,62 +28,6 @@ extension UserEntity {
 
 }
 
-extension UserEntity: UserProtocol {
-
-    func getFirstName() -> String {
-        return first_name
-    }
-    
-    func getLastName() -> String {
-        return last_name
-    }
-    
-    func getGender() -> String {
-        return gender
-    }
-    
-    func getEmail() -> String {
-        return email
-    }
-    
-    func getPhone() -> String {
-        return phone
-    }
-    
-    func getImage() -> UIImage? {
-        return image
-    }
-    
-    func getImageName() -> String? {
-        return nil
-    }
-    
-    func getImageData() -> NSData? {
-        return photo
-    }
-    
-    func setFirstName(first: String) {
-        first_name = first
-    }
-    
-    func setLastName(last: String) {
-        last_name = last
-    }
-    
-    func setEmail(email: String) {
-        self.email = email
-    }
-    
-    func setPhone(phone: String) {
-        self.phone = phone
-    }
-    
-    func setImage(data: NSData?) {
-        photo = data
-    }
-    
-}
-
 extension UserEntity {
     static var entityName: String {
         return String(describing: UserEntity.self)
@@ -102,7 +46,7 @@ extension UserEntity {
         userEntity.gender = user.gender
         userEntity.email = user.email
         userEntity.phone = user.phone
-        userEntity.photo = user.getImageData()
+        //userEntity.photo = user.getImageData()
         
         return userEntity
     }

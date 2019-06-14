@@ -13,7 +13,7 @@ class EditUserProfileModuleBuilder: ModuleBuilderProtocol {
     func create(with data: Any) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "EditUserProfileVC") as! EditUserProfileVC
-        vc.presenter = EditUserProfilePresenter(view: vc, model: EditUserProfileModel(userData: data as? UserProtocol))
+        vc.presenter = EditUserProfilePresenter(view: vc, model: EditUserProfileModel(userData: data as? User))
         return vc
     }
     

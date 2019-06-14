@@ -7,10 +7,10 @@
 //
 
 import Alamofire
-import AlamofireObjectMapper
-import ObjectMapper
 
-class NetworkTask<T: Mappable>: NetworkTaskProtocol {
+class NetworkTask<T: Codable>: NetworkTaskProtocol {
+    
+    typealias ResponseCodable = Response<T>
     
     var request: Request
     
@@ -18,9 +18,11 @@ class NetworkTask<T: Mappable>: NetworkTaskProtocol {
         self.request = request
     }
     
-    func execute(completionHandler: @escaping (Response) -> Void) {
-        Alamofire.request(request).responseObject { (response: DataResponse<T>) in
-            completionHandler(Response((r: response.response, data: response.result.value, error: response.result.error)))
+    func execute(completionHandler: @escaping (Response<T>) -> Void) {
+        Alamofire.request(request).responseData { (response) in
+            completionHandler(Response((r: response.response,
+                                        data: response.data,
+                                        error: response.error)))
         }
     }
     
