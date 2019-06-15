@@ -12,6 +12,6 @@ import UIKit
     
     @objc optional func create() -> UIViewController
     
-    @objc optional func create(with data: Any) -> UIViewController
+    @objc optional func create(with data: Any?) -> UIViewController
     
 }

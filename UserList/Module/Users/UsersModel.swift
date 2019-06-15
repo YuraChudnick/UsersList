@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class UsersModel2: UsersModelProtocol2 {
+class UsersModel: UsersModelProtocol {
     
     func getRealm() -> Realm {
         return RealmProvider.users.realm

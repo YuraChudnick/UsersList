@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-protocol UsersModelProtocol2: class {
+protocol UsersModelProtocol: class {
     
     func getRealm() -> Realm
     

@@ -16,14 +16,10 @@
 		CD432EEF22B396AD008533B4 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EEE22B396AD008533B4 /* Picture.swift */; };
 		CD432EF122B39858008533B4 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EF022B39858008533B4 /* UsersResponse.swift */; };
 		CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EFA22B3C837008533B4 /* UsersViewModel.swift */; };
-		CD432F0122B3C9D0008533B4 /* UsersModelProtocol2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0022B3C9D0008533B4 /* UsersModelProtocol2.swift */; };
-		CD432F0322B3E2D3008533B4 /* UsersModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0222B3E2D3008533B4 /* UsersModel2.swift */; };
-		CDFCB61221D755CB0038E5D1 /* UsersPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */; };
+		CD432F0122B3C9D0008533B4 /* UsersModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0022B3C9D0008533B4 /* UsersModelProtocol.swift */; };
+		CD432F0322B3E2D3008533B4 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0222B3E2D3008533B4 /* UsersModel.swift */; };
 		CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */; };
-		CDFCB61821D757310038E5D1 /* UsersModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */; };
 		CDFCB61B21D7579C0038E5D1 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61A21D7579C0038E5D1 /* ModuleBuilderProtocol.swift */; };
-		CDFCB61D21D759340038E5D1 /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61C21D759340038E5D1 /* UsersPresenter.swift */; };
-		CDFCB61F21D75AD50038E5D1 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61E21D75AD50038E5D1 /* UsersModel.swift */; };
 		CDFCB62221D75C030038E5D1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB62121D75C030038E5D1 /* Request.swift */; };
 		CDFCB62421D75C4D0038E5D1 /* GetUsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB62321D75C4D0038E5D1 /* GetUsersRequest.swift */; };
 		CDFCB62621D75D730038E5D1 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB62521D75D730038E5D1 /* Response.swift */; };
@@ -38,6 +34,9 @@
 		CDFCB63C21D77BC90038E5D1 /* EditUserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB63B21D77BC90038E5D1 /* EditUserProfileModel.swift */; };
 		CDFCB63E21D77F5C0038E5D1 /* EditUserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB63D21D77F5C0038E5D1 /* EditUserProfilePresenter.swift */; };
 		CDFCB64021D780730038E5D1 /* EditUserProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB63F21D780730038E5D1 /* EditUserProfileModuleBuilder.swift */; };
+		DE5FE79722B438B800708187 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79622B438B800708187 /* UserCellViewModel.swift */; };
+		DE5FE79A22B5086000708187 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79922B5086000708187 /* Router.swift */; };
+		DE5FE79C22B508C200708187 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79B22B508C200708187 /* UsersRouter.swift */; };
 		DEAC78B9210C32B300D4445E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC78B8210C32B300D4445E /* AppDelegate.swift */; };
 		DEAC78BE210C32B300D4445E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAC78BC210C32B300D4445E /* Main.storyboard */; };
 		DEAC78C0210C32B400D4445E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAC78BF210C32B400D4445E /* Assets.xcassets */; };
@@ -71,14 +70,10 @@
 		CD432EEE22B396AD008533B4 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		CD432EF022B39858008533B4 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
 		CD432EFA22B3C837008533B4 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
-		CD432F0022B3C9D0008533B4 /* UsersModelProtocol2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol2.swift; sourceTree = "<group>"; };
-		CD432F0222B3E2D3008533B4 /* UsersModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel2.swift; sourceTree = "<group>"; };
-		CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenterProtocol.swift; sourceTree = "<group>"; };
+		CD432F0022B3C9D0008533B4 /* UsersModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol.swift; sourceTree = "<group>"; };
+		CD432F0222B3E2D3008533B4 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewProtocol.swift; sourceTree = "<group>"; };
-		CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61A21D7579C0038E5D1 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
-		CDFCB61C21D759340038E5D1 /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
-		CDFCB61E21D75AD50038E5D1 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		CDFCB62121D75C030038E5D1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CDFCB62321D75C4D0038E5D1 /* GetUsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersRequest.swift; sourceTree = "<group>"; };
 		CDFCB62521D75D730038E5D1 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -93,6 +88,9 @@
 		CDFCB63B21D77BC90038E5D1 /* EditUserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileModel.swift; sourceTree = "<group>"; };
 		CDFCB63D21D77F5C0038E5D1 /* EditUserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfilePresenter.swift; sourceTree = "<group>"; };
 		CDFCB63F21D780730038E5D1 /* EditUserProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileModuleBuilder.swift; sourceTree = "<group>"; };
+		DE5FE79622B438B800708187 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
+		DE5FE79922B5086000708187 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DE5FE79B22B508C200708187 /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
 		DEAC78B5210C32B300D4445E /* UserList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAC78B8210C32B300D4445E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEAC78BD210C32B300D4445E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -182,27 +180,24 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		CD432EF422B3B6C7008533B4 /* Modules */ = {
+		CD432EF422B3B6C7008533B4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
 				CD432EF922B3B72E008533B4 /* SavedUsers */,
 				CD432EF822B3B6F2008533B4 /* EditUser */,
 				CD432EF522B3B6D5008533B4 /* Users */,
 			);
-			path = Modules;
+			path = Module;
 			sourceTree = "<group>";
 		};
 		CD432EF522B3B6D5008533B4 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				CDFCB61721D757310038E5D1 /* UsersModelProtocol.swift */,
-				CDFCB61E21D75AD50038E5D1 /* UsersModel.swift */,
-				CDFCB61C21D759340038E5D1 /* UsersPresenter.swift */,
-				CDFCB61121D755CB0038E5D1 /* UsersPresenterProtocol.swift */,
+				DE5FE79622B438B800708187 /* UserCellViewModel.swift */,
+				DE5FE79522B4374300708187 /* Protocol */,
 				DEAC78D2210C390C00D4445E /* UsersVC.swift */,
 				CD432EFA22B3C837008533B4 /* UsersViewModel.swift */,
-				CD432F0022B3C9D0008533B4 /* UsersModelProtocol2.swift */,
-				CD432F0222B3E2D3008533B4 /* UsersModel2.swift */,
+				CD432F0222B3E2D3008533B4 /* UsersModel.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -272,6 +267,23 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		DE5FE79522B4374300708187 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CD432F0022B3C9D0008533B4 /* UsersModelProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		DE5FE79822B5084C00708187 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DE5FE79922B5086000708187 /* Router.swift */,
+				DE5FE79B22B508C200708187 /* UsersRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		DEAC78AC210C32B200D4445E = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +305,8 @@
 		DEAC78B7210C32B300D4445E /* UserList */ = {
 			isa = PBXGroup;
 			children = (
-				CD432EF422B3B6C7008533B4 /* Modules */,
+				DE5FE79822B5084C00708187 /* Router */,
+				CD432EF422B3B6C7008533B4 /* Module */,
 				CD432EE422B393C8008533B4 /* Realm */,
 				CDFCB62021D75BEB0038E5D1 /* NetworkLayer */,
 				CDFCB61921D757750038E5D1 /* ModuleBuilders */,
@@ -488,14 +501,14 @@
 				CDFCB63421D77A770038E5D1 /* EditUserProfileViewProtocol.swift in Sources */,
 				DEAC78B9210C32B300D4445E /* AppDelegate.swift in Sources */,
 				CDFCB62221D75C030038E5D1 /* Request.swift in Sources */,
-				CD432F0122B3C9D0008533B4 /* UsersModelProtocol2.swift in Sources */,
+				CD432F0122B3C9D0008533B4 /* UsersModelProtocol.swift in Sources */,
 				DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */,
+				DE5FE79722B438B800708187 /* UserCellViewModel.swift in Sources */,
 				CDFCB63221D77A550038E5D1 /* EditUserProfileModelProtocol.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,
 				DEAC78F3210C94F400D4445E /* UsersList.xcdatamodeld in Sources */,
 				DEAC78E6210C5D1100D4445E /* String+Extension.swift in Sources */,
 				CDFCB63621D77A8A0038E5D1 /* EditUserProfilePresenterProtocol.swift in Sources */,
-				CDFCB61221D755CB0038E5D1 /* UsersPresenterProtocol.swift in Sources */,
 				CDFCB62621D75D730038E5D1 /* Response.swift in Sources */,
 				CD432EF122B39858008533B4 /* UsersResponse.swift in Sources */,
 				DEAC78D7210C393E00D4445E /* EditUserProfileVC.swift in Sources */,
@@ -505,19 +518,18 @@
 				CDFCB62A21D75E3C0038E5D1 /* NetworkTask.swift in Sources */,
 				DEAC78D5210C392800D4445E /* SavedVC.swift in Sources */,
 				CDFCB63E21D77F5C0038E5D1 /* EditUserProfilePresenter.swift in Sources */,
-				CDFCB61821D757310038E5D1 /* UsersModelProtocol.swift in Sources */,
 				CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */,
 				CD432EEF22B396AD008533B4 /* Picture.swift in Sources */,
 				CD432EEB22B39564008533B4 /* User.swift in Sources */,
+				DE5FE79C22B508C200708187 /* UsersRouter.swift in Sources */,
 				CD432EE922B394C3008533B4 /* Path.swift in Sources */,
 				DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */,
 				DEAC7902210C992800D4445E /* UserEntity+CoreDataClass.swift in Sources */,
 				CDFCB63021D773020038E5D1 /* SavedUsersModuleBuilder.swift in Sources */,
 				CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */,
-				CDFCB61D21D759340038E5D1 /* UsersPresenter.swift in Sources */,
 				CDFCB62C21D76F7C0038E5D1 /* UsersModuleBuilder.swift in Sources */,
 				CDFCB62421D75C4D0038E5D1 /* GetUsersRequest.swift in Sources */,
-				CDFCB61F21D75AD50038E5D1 /* UsersModel.swift in Sources */,
+				DE5FE79A22B5086000708187 /* Router.swift in Sources */,
 				DEAC7903210C992800D4445E /* UserEntity+CoreDataProperties.swift in Sources */,
 				CDFCB61B21D7579C0038E5D1 /* ModuleBuilderProtocol.swift in Sources */,
 				CDFCB62E21D770670038E5D1 /* TabBarVC.swift in Sources */,
@@ -529,7 +541,7 @@
 				DEAC78D3210C390C00D4445E /* UsersVC.swift in Sources */,
 				CDFCB63C21D77BC90038E5D1 /* EditUserProfileModel.swift in Sources */,
 				DEAC78DE210C3E8A00D4445E /* BaseViewController.swift in Sources */,
-				CD432F0322B3E2D3008533B4 /* UsersModel2.swift in Sources */,
+				CD432F0322B3E2D3008533B4 /* UsersModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
