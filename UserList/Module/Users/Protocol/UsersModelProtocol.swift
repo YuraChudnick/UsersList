@@ -6,11 +6,9 @@
 //  Copyright © 2019 yura. All rights reserved.
 //
 
-import RealmSwift
+import Foundation
 
-protocol UsersModelProtocol: class {
-    
-    func getRealm() -> Realm
+protocol UsersModelProtocol {
     
     func getUsers(page: Int, complete: @escaping (Response<UsersResponse>) -> Void)
     

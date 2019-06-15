@@ -10,14 +10,8 @@ import UIKit
 
 class UsersVC: BaseViewController {
 
-    lazy var viewModel: UsersViewModel = {
-        return UsersViewModel()
-    }()
-    lazy var router: Router = {
-        return UsersRouter()
-    }()
-    
-    let segueIdentifier: String = "ShowEditUser"
+    var viewModel: UsersViewModelProtocol!
+    var router: Router!
     
     enum Route: String {
         case editUser
@@ -58,7 +52,7 @@ class UsersVC: BaseViewController {
         viewModel.updateLoadingStatus = { [weak self] in
             DispatchQueue.main.async {
                 let isLoading = self?.viewModel.isLoading ?? false
-                if isLoading { self?.tableView.refreshControl?.endRefreshing() }
+                if !isLoading { self?.tableView.refreshControl?.endRefreshing() }
             }
         }
     }

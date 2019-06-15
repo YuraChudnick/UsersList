@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UsersViewModel {
+class UsersViewModel: UsersViewModelProtocol {
     
     let model: UsersModelProtocol
     
@@ -43,7 +43,7 @@ class UsersViewModel {
     var updateDataLabel: (() -> Void)?
     var updateLoadingStatus: (() -> Void)?
     
-    init(model: UsersModelProtocol = UsersModel()) {
+    required init(model: UsersModelProtocol = UsersModel()) {
         self.model = model
     }
     

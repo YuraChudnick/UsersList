@@ -13,7 +13,8 @@ class UsersModuleBuilder: ModuleBuilderProtocol {
     func create() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "UsersVC") as! UsersVC
-        //vc.presenter = UsersPresenter(view: vc, model: UsersModel())
+        vc.viewModel = UsersViewModel()
+        vc.router = UsersRouter()
         return vc
     }
     
