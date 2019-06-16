@@ -30,12 +30,4 @@ class UserCell: UITableViewCell {
         userLogo.clipsToBounds = true
     }
     
-    func initCell2(user: UserEntity) {
-        
-        userName.text = user.first_name + " " + user.last_name.capitalizingFirstLetter()
-        userPhone.text = user.phone
-        userLogo.image = user.image
-        
-    }
-    
 }

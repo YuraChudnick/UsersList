@@ -12,7 +12,9 @@ class SavedUsersModuleBuilder: ModuleBuilderProtocol {
     
     func create() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SavedUsersVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: "SavedUsersVC") as! SavedVC
+        vc.viewModel = SavedUsersViewModel()
+        vc.router = UsersRouter()
         return vc
     }
     

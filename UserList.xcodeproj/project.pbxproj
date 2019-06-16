@@ -37,6 +37,10 @@
 		DE5FE79A22B5086000708187 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79922B5086000708187 /* Router.swift */; };
 		DE5FE79C22B508C200708187 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79B22B508C200708187 /* UsersRouter.swift */; };
 		DE5FE79E22B51FF600708187 /* UsersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79D22B51FF600708187 /* UsersViewModelProtocol.swift */; };
+		DE5FE7A122B52AC300708187 /* SavedUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE7A022B52AC300708187 /* SavedUsersViewModel.swift */; };
+		DE5FE7A422B543C600708187 /* SavedUsersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE7A322B543C600708187 /* SavedUsersViewModelProtocol.swift */; };
+		DE5FE7A622B5458F00708187 /* SavedUsersModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE7A522B5458F00708187 /* SavedUsersModelProtocol.swift */; };
+		DE5FE7A822B5464F00708187 /* SavedUsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE7A722B5464F00708187 /* SavedUsersModel.swift */; };
 		DEAC78B9210C32B300D4445E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC78B8210C32B300D4445E /* AppDelegate.swift */; };
 		DEAC78BE210C32B300D4445E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEAC78BC210C32B300D4445E /* Main.storyboard */; };
 		DEAC78C0210C32B400D4445E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAC78BF210C32B400D4445E /* Assets.xcassets */; };
@@ -91,6 +95,10 @@
 		DE5FE79922B5086000708187 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DE5FE79B22B508C200708187 /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
 		DE5FE79D22B51FF600708187 /* UsersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelProtocol.swift; sourceTree = "<group>"; };
+		DE5FE7A022B52AC300708187 /* SavedUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModel.swift; sourceTree = "<group>"; };
+		DE5FE7A322B543C600708187 /* SavedUsersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModelProtocol.swift; sourceTree = "<group>"; };
+		DE5FE7A522B5458F00708187 /* SavedUsersModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersModelProtocol.swift; sourceTree = "<group>"; };
+		DE5FE7A722B5464F00708187 /* SavedUsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersModel.swift; sourceTree = "<group>"; };
 		DEAC78B5210C32B300D4445E /* UserList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAC78B8210C32B300D4445E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEAC78BD210C32B300D4445E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -217,7 +225,10 @@
 		CD432EF922B3B72E008533B4 /* SavedUsers */ = {
 			isa = PBXGroup;
 			children = (
+				DE5FE7A222B543B600708187 /* Protocols */,
 				DEAC78D4210C392800D4445E /* SavedVC.swift */,
+				DE5FE7A022B52AC300708187 /* SavedUsersViewModel.swift */,
+				DE5FE7A722B5464F00708187 /* SavedUsersModel.swift */,
 			);
 			path = SavedUsers;
 			sourceTree = "<group>";
@@ -282,6 +293,15 @@
 				DE5FE79B22B508C200708187 /* UsersRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DE5FE7A222B543B600708187 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DE5FE7A322B543C600708187 /* SavedUsersViewModelProtocol.swift */,
+				DE5FE7A522B5458F00708187 /* SavedUsersModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DEAC78AC210C32B200D4445E = {
@@ -505,6 +525,7 @@
 				CD432F0122B3C9D0008533B4 /* UsersModelProtocol.swift in Sources */,
 				DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */,
 				DE5FE79722B438B800708187 /* UserCellViewModel.swift in Sources */,
+				DE5FE7A622B5458F00708187 /* SavedUsersModelProtocol.swift in Sources */,
 				CDFCB63221D77A550038E5D1 /* EditUserProfileModelProtocol.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,
 				DEAC78F3210C94F400D4445E /* UsersList.xcdatamodeld in Sources */,
@@ -521,6 +542,7 @@
 				CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */,
 				CD432EEF22B396AD008533B4 /* Picture.swift in Sources */,
 				CD432EEB22B39564008533B4 /* User.swift in Sources */,
+				DE5FE7A422B543C600708187 /* SavedUsersViewModelProtocol.swift in Sources */,
 				DE5FE79C22B508C200708187 /* UsersRouter.swift in Sources */,
 				CD432EE922B394C3008533B4 /* Path.swift in Sources */,
 				DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */,
@@ -534,10 +556,12 @@
 				CDFCB61B21D7579C0038E5D1 /* ModuleBuilderProtocol.swift in Sources */,
 				CDFCB62E21D770670038E5D1 /* TabBarVC.swift in Sources */,
 				CDFCB64021D780730038E5D1 /* EditUserProfileModuleBuilder.swift in Sources */,
+				DE5FE7A822B5464F00708187 /* SavedUsersModel.swift in Sources */,
 				DEAC78DB210C3A4F00D4445E /* UserCell.swift in Sources */,
 				DEAC78ED210C933C00D4445E /* Utils.swift in Sources */,
 				CDFCB62821D75DDD0038E5D1 /* NetworkTaskProtocol.swift in Sources */,
 				DEAC78EA210C70FC00D4445E /* UIImage+Extension.swift in Sources */,
+				DE5FE7A122B52AC300708187 /* SavedUsersViewModel.swift in Sources */,
 				DEAC78D3210C390C00D4445E /* UsersVC.swift in Sources */,
 				CDFCB63C21D77BC90038E5D1 /* EditUserProfileModel.swift in Sources */,
 				DEAC78DE210C3E8A00D4445E /* BaseViewController.swift in Sources */,
