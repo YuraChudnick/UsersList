@@ -17,6 +17,12 @@
 		CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EFA22B3C837008533B4 /* UsersViewModel.swift */; };
 		CD432F0122B3C9D0008533B4 /* UsersModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0022B3C9D0008533B4 /* UsersModelProtocol.swift */; };
 		CD432F0322B3E2D3008533B4 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432F0222B3E2D3008533B4 /* UsersModel.swift */; };
+		CDD663ED22DCC5ED00894166 /* UserListUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CDD663DD22DCC5ED00894166 /* UserListUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDD663F022DCC5ED00894166 /* UserListUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD663DB22DCC5ED00894166 /* UserListUIKit.framework */; };
+		CDD663F122DCC5ED00894166 /* UserListUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDD663DB22DCC5ED00894166 /* UserListUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDD663FD22DCC7D500894166 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD663FC22DCC7D500894166 /* NiblessView.swift */; };
+		CDD663FF22DCC80E00894166 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD663FE22DCC80E00894166 /* NiblessViewController.swift */; };
+		CDD6640122DCC83200894166 /* NiblessNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6640022DCC83200894166 /* NiblessNavigationController.swift */; };
 		CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */; };
 		CDFCB61B21D7579C0038E5D1 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61A21D7579C0038E5D1 /* ModuleBuilderProtocol.swift */; };
 		CDFCB62221D75C030038E5D1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB62121D75C030038E5D1 /* Request.swift */; };
@@ -58,6 +64,30 @@
 		DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC7906210CBECC00D4445E /* PhotoPickerManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CDD663EE22DCC5ED00894166 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEAC78AD210C32B200D4445E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDD663DA22DCC5ED00894166;
+			remoteInfo = UserListUIKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDD663F522DCC5ED00894166 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CDD663F122DCC5ED00894166 /* UserListUIKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		281DE734927B71A83264FA5E /* Pods_UserList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B336F71C0E353A353CD2B /* Pods-UserList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +101,12 @@
 		CD432EFA22B3C837008533B4 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		CD432F0022B3C9D0008533B4 /* UsersModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModelProtocol.swift; sourceTree = "<group>"; };
 		CD432F0222B3E2D3008533B4 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		CDD663DB22DCC5ED00894166 /* UserListUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserListUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD663DD22DCC5ED00894166 /* UserListUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListUIKit.h; sourceTree = "<group>"; };
+		CDD663DE22DCC5ED00894166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD663FC22DCC7D500894166 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
+		CDD663FE22DCC80E00894166 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
+		CDD6640022DCC83200894166 /* NiblessNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessNavigationController.swift; sourceTree = "<group>"; };
 		CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewProtocol.swift; sourceTree = "<group>"; };
 		CDFCB61A21D7579C0038E5D1 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
 		CDFCB62121D75C030038E5D1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -115,10 +151,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CDD663D822DCC5ED00894166 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEAC78B2210C32B200D4445E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD663F022DCC5ED00894166 /* UserListUIKit.framework in Frameworks */,
 				30B7469F838347E7FB99006C /* Pods_UserList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +266,42 @@
 			path = SavedUsers;
 			sourceTree = "<group>";
 		};
+		CDD663DC22DCC5ED00894166 /* UserListUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				CDD663F922DCC77300894166 /* Reusable */,
+				CDD663DD22DCC5ED00894166 /* UserListUIKit.h */,
+				CDD663DE22DCC5ED00894166 /* Info.plist */,
+			);
+			path = UserListUIKit;
+			sourceTree = "<group>";
+		};
+		CDD663F922DCC77300894166 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				CDD663FA22DCC78300894166 /* UIKit */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		CDD663FA22DCC78300894166 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				CDD663FB22DCC78A00894166 /* NiblessComponents */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		CDD663FB22DCC78A00894166 /* NiblessComponents */ = {
+			isa = PBXGroup;
+			children = (
+				CDD663FC22DCC7D500894166 /* NiblessView.swift */,
+				CDD663FE22DCC80E00894166 /* NiblessViewController.swift */,
+				CDD6640022DCC83200894166 /* NiblessNavigationController.swift */,
+			);
+			path = NiblessComponents;
+			sourceTree = "<group>";
+		};
 		CDFCB61321D756080038E5D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				DEAC78B7210C32B300D4445E /* UserList */,
+				CDD663DC22DCC5ED00894166 /* UserListUIKit */,
 				DEAC78B6210C32B300D4445E /* Products */,
 				9C0E86524B9ADB5358F6D6C1 /* Pods */,
 				B9A6699A410C926BA99B8BD9 /* Frameworks */,
@@ -298,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				DEAC78B5210C32B300D4445E /* UserList.app */,
+				CDD663DB22DCC5ED00894166 /* UserListUIKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,7 +470,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		CDD663D622DCC5ED00894166 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD663ED22DCC5ED00894166 /* UserListUIKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		CDD663DA22DCC5ED00894166 /* UserListUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD663F222DCC5ED00894166 /* Build configuration list for PBXNativeTarget "UserListUIKit" */;
+			buildPhases = (
+				CDD663D622DCC5ED00894166 /* Headers */,
+				CDD663D722DCC5ED00894166 /* Sources */,
+				CDD663D822DCC5ED00894166 /* Frameworks */,
+				CDD663D922DCC5ED00894166 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UserListUIKit;
+			productName = UserListUIKit;
+			productReference = CDD663DB22DCC5ED00894166 /* UserListUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		DEAC78B4210C32B200D4445E /* UserList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEAC78C7210C32B400D4445E /* Build configuration list for PBXNativeTarget "UserList" */;
@@ -398,10 +509,12 @@
 				DEAC78B2210C32B200D4445E /* Frameworks */,
 				DEAC78B3210C32B200D4445E /* Resources */,
 				9D2606E6C5718480D7A0C182 /* [CP] Embed Pods Frameworks */,
+				CDD663F522DCC5ED00894166 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CDD663EF22DCC5ED00894166 /* PBXTargetDependency */,
 			);
 			name = UserList;
 			productName = UserList;
@@ -414,10 +527,14 @@
 		DEAC78AD210C32B200D4445E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = yura;
 				TargetAttributes = {
+					CDD663DA22DCC5ED00894166 = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
 					DEAC78B4210C32B200D4445E = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -437,11 +554,19 @@
 			projectRoot = "";
 			targets = (
 				DEAC78B4210C32B200D4445E /* UserList */,
+				CDD663DA22DCC5ED00894166 /* UserListUIKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CDD663D922DCC5ED00894166 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEAC78B3210C32B200D4445E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +619,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CDD663D722DCC5ED00894166 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD6640122DCC83200894166 /* NiblessNavigationController.swift in Sources */,
+				CDD663FD22DCC7D500894166 /* NiblessView.swift in Sources */,
+				CDD663FF22DCC80E00894166 /* NiblessViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DEAC78B1210C32B200D4445E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,6 +682,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CDD663EF22DCC5ED00894166 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDD663DA22DCC5ED00894166 /* UserListUIKit */;
+			targetProxy = CDD663EE22DCC5ED00894166 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DEAC78BC210C32B300D4445E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -567,6 +710,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CDD663F322DCC5ED00894166 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UserListUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tfm.UserListUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CDD663F422DCC5ED00894166 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UserListUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tfm.UserListUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		DEAC78C5210C32B400D4445E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -685,6 +892,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 450B336F71C0E353A353CD2B /* Pods-UserList.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -705,6 +913,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A01F7124AFDC373F9A94AEFB /* Pods-UserList.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -724,6 +933,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CDD663F222DCC5ED00894166 /* Build configuration list for PBXNativeTarget "UserListUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD663F322DCC5ED00894166 /* Debug */,
+				CDD663F422DCC5ED00894166 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DEAC78B0210C32B200D4445E /* Build configuration list for PBXProject "UserList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

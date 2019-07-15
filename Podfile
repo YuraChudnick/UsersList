@@ -9,5 +9,7 @@ target 'UserList' do
   pod 'IQKeyboardManagerSwift'
   pod 'PhoneNumberKit'
   pod 'RealmSwift'
-
+  pod 'PromiseKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
