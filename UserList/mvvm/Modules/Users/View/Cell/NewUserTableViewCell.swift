@@ -40,13 +40,29 @@ class NewUserTableViewCell: NiblessTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
+        setupViews()
     }
     
-    func constructHierarchy() {
+    fileprivate func setupViews() {
+        contentView.addSubview(userLogo)
+        userLogo.anchor(top: nil,
+                        leading: contentView.leadingAnchor,
+                        bottom: nil,
+                        trailing: nil,
+                        centerY: contentView.centerYAnchor,
+                        padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0),
+                        size: CGSize(width: 40, height: 40))
         
+        let stackView = UIStackView(arrangedSubviews: [userName, userLogo])
+        stackView.axis = .vertical
+        
+        contentView.addSubview(stackView)
+//        stackView.anchor(top: <#T##NSLayoutYAxisAnchor?#>,
+//                         leading: <#T##NSLayoutXAxisAnchor?#>,
+//                         bottom: <#T##NSLayoutYAxisAnchor?#>,
+//                         trailing: <#T##NSLayoutXAxisAnchor?#>,
+//                         padding: <#T##UIEdgeInsets#>, size: <#T##CGSize#>)
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
