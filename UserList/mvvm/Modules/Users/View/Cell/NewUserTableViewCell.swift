@@ -57,11 +57,13 @@ class NewUserTableViewCell: NiblessTableViewCell {
         stackView.axis = .vertical
         
         contentView.addSubview(stackView)
-//        stackView.anchor(top: <#T##NSLayoutYAxisAnchor?#>,
-//                         leading: <#T##NSLayoutXAxisAnchor?#>,
-//                         bottom: <#T##NSLayoutYAxisAnchor?#>,
-//                         trailing: <#T##NSLayoutXAxisAnchor?#>,
-//                         padding: <#T##UIEdgeInsets#>, size: <#T##CGSize#>)
+        stackView.anchor(top: contentView.topAnchor,
+                         leading: userLogo.trailingAnchor,
+                         bottom: contentView.bottomAnchor,
+                         trailing: contentView.trailingAnchor,
+                         padding: UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8))
+        
+        accessoryType = .disclosureIndicator
     }
     
     override func awakeFromNib() {

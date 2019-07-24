@@ -15,7 +15,9 @@ class TabBarController: UITabBarController {
         
         var tabBarControllers: [UIViewController] = []
         
-        let usersModule = UsersModuleBuilder().create()
+        //let usersModule = UsersModuleBuilder().create()
+        let vm = RxUsersViewModel(usersRepository: UsersRepo())
+        let usersModule = NewUsersVC(viewModel: vm)
         usersModule.tabBarItem = UITabBarItem(title: "Users", image: UIImage(named: "tab_users"), tag: 0)
         tabBarControllers.append(UINavigationController(rootViewController: usersModule))
         

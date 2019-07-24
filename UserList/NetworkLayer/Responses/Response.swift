@@ -12,6 +12,10 @@ public enum BackendError: Error {
     case noData(reason: String)
 }
 
+public enum NetworkError: Error {
+    case unknown(reason: String)
+}
+
 public enum Response<T: Codable> {
     
     case data(_: T)

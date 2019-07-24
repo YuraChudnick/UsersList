@@ -25,6 +25,11 @@
 		CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6640022DCC83200894166 /* NiblessNavigationController.swift */; };
 		CD5D08BF22E2079E00EF7E01 /* NewUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D08BE22E2079E00EF7E01 /* NewUserTableViewCell.swift */; };
 		CD5D08C122E2083D00EF7E01 /* NiblessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D08C022E2083D00EF7E01 /* NiblessTableViewCell.swift */; };
+		CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D08C222E58E0C00EF7E01 /* NSObejct+ClassName.swift */; };
+		CD6E365522E88BA5000D667C /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6E365422E88BA5000D667C /* UsersRepository.swift */; };
+		CD6E365722E88E58000D667C /* NewNetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6E365622E88E58000D667C /* NewNetworkTask.swift */; };
+		CD6E365A22E89BB1000D667C /* UsersRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6E365922E89BB1000D667C /* UsersRepo.swift */; };
+		CD6E365C22E89E66000D667C /* NewUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6E365B22E89E66000D667C /* NewUsersVC.swift */; };
 		CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */; };
 		CDFCB61B21D7579C0038E5D1 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61A21D7579C0038E5D1 /* ModuleBuilderProtocol.swift */; };
 		CDFCB62221D75C030038E5D1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB62121D75C030038E5D1 /* Request.swift */; };
@@ -114,6 +119,11 @@
 		CD5D08B022E1FF9400EF7E01 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5D08BE22E2079E00EF7E01 /* NewUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserTableViewCell.swift; sourceTree = "<group>"; };
 		CD5D08C022E2083D00EF7E01 /* NiblessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessTableViewCell.swift; sourceTree = "<group>"; };
+		CD5D08C222E58E0C00EF7E01 /* NSObejct+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObejct+ClassName.swift"; sourceTree = "<group>"; };
+		CD6E365422E88BA5000D667C /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
+		CD6E365622E88E58000D667C /* NewNetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNetworkTask.swift; sourceTree = "<group>"; };
+		CD6E365922E89BB1000D667C /* UsersRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepo.swift; sourceTree = "<group>"; };
+		CD6E365B22E89E66000D667C /* NewUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUsersVC.swift; sourceTree = "<group>"; };
 		CDD663FC22DCC7D500894166 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		CDD663FE22DCC80E00894166 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		CDD6640022DCC83200894166 /* NiblessNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessNavigationController.swift; sourceTree = "<group>"; };
@@ -291,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				CD5D088922E1F4B800EF7E01 /* UIVIew+AutoLayout.swift */,
+				CD5D08C222E58E0C00EF7E01 /* NSObejct+ClassName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 		CD5D08B222E1FFEF00EF7E01 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				CD6E365122E88B3C000D667C /* DataLayer */,
 				CD5D08B322E1FFFA00EF7E01 /* Modules */,
 				CDD663F922DCC77300894166 /* Reusable */,
 			);
@@ -315,6 +327,7 @@
 		CD5D08B422E2000800EF7E01 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				CD6E365822E89B8F000D667C /* Repositoty */,
 				CD5D08B622E2003A00EF7E01 /* ViewModel */,
 				CD5D08B522E2001400EF7E01 /* View */,
 			);
@@ -326,6 +339,7 @@
 			children = (
 				CD5D08BD22E2076600EF7E01 /* Cell */,
 				CDD6642722DCCB0400894166 /* UsersRootView.swift */,
+				CD6E365B22E89E66000D667C /* NewUsersVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +358,30 @@
 				CD5D08BE22E2079E00EF7E01 /* NewUserTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CD6E365122E88B3C000D667C /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CD6E365322E88B76000D667C /* Repositories */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		CD6E365322E88B76000D667C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CD6E365422E88BA5000D667C /* UsersRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CD6E365822E89B8F000D667C /* Repositoty */ = {
+			isa = PBXGroup;
+			children = (
+				CD6E365922E89BB1000D667C /* UsersRepo.swift */,
+			);
+			path = Repositoty;
 			sourceTree = "<group>";
 		};
 		CDD663F922DCC77300894166 /* Reusable */ = {
@@ -405,6 +443,7 @@
 				CD432EF222B3A8EB008533B4 /* Responses */,
 				CDFCB62921D75E3C0038E5D1 /* NetworkTask.swift */,
 				CDFCB62721D75DDD0038E5D1 /* NetworkTaskProtocol.swift */,
+				CD6E365622E88E58000D667C /* NewNetworkTask.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -659,11 +698,13 @@
 				CD432F0122B3C9D0008533B4 /* UsersModelProtocol.swift in Sources */,
 				DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */,
 				CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */,
+				CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */,
 				DE5FE79722B438B800708187 /* UserCellViewModel.swift in Sources */,
 				CDFCB63221D77A550038E5D1 /* EditUserProfileModelProtocol.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,
 				DEAC78F3210C94F400D4445E /* UsersList.xcdatamodeld in Sources */,
 				DEAC78E6210C5D1100D4445E /* String+Extension.swift in Sources */,
+				CD6E365C22E89E66000D667C /* NewUsersVC.swift in Sources */,
 				CDFCB63621D77A8A0038E5D1 /* EditUserProfilePresenterProtocol.swift in Sources */,
 				CDFCB62621D75D730038E5D1 /* Response.swift in Sources */,
 				CD432EF122B39858008533B4 /* UsersResponse.swift in Sources */,
@@ -687,6 +728,7 @@
 				CDFCB63021D773020038E5D1 /* SavedUsersModuleBuilder.swift in Sources */,
 				CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */,
 				CDFCB62C21D76F7C0038E5D1 /* UsersModuleBuilder.swift in Sources */,
+				CD6E365722E88E58000D667C /* NewNetworkTask.swift in Sources */,
 				CDFCB62421D75C4D0038E5D1 /* GetUsersRequest.swift in Sources */,
 				DE5FE79A22B5086000708187 /* Router.swift in Sources */,
 				DEAC7903210C992800D4445E /* UserEntity+CoreDataProperties.swift in Sources */,
@@ -696,7 +738,9 @@
 				CDFCB62E21D770670038E5D1 /* TabBarVC.swift in Sources */,
 				CDFCB64021D780730038E5D1 /* EditUserProfileModuleBuilder.swift in Sources */,
 				CD5D08BA22E2047800EF7E01 /* NiblessView.swift in Sources */,
+				CD6E365A22E89BB1000D667C /* UsersRepo.swift in Sources */,
 				DEAC78DB210C3A4F00D4445E /* UserCell.swift in Sources */,
+				CD6E365522E88BA5000D667C /* UsersRepository.swift in Sources */,
 				DEAC78ED210C933C00D4445E /* Utils.swift in Sources */,
 				CDFCB62821D75DDD0038E5D1 /* NetworkTaskProtocol.swift in Sources */,
 				DEAC78EA210C70FC00D4445E /* UIImage+Extension.swift in Sources */,
