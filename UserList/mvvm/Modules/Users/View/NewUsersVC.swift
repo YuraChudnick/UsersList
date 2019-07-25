@@ -25,6 +25,7 @@ class NewUsersVC: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Users"
         viewModel.loadData()
     }
     

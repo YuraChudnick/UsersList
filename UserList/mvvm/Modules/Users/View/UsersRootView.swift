@@ -30,22 +30,18 @@ class UsersRootView: NiblessView {
             return
         }
         backgroundColor = .white
-        constructHierarchy()
-        activateConstraints()
         setupTableView()
         hierarchyNotReady = false
         bindViews()
     }
     
-    func constructHierarchy() {
-        addSubview(tableView)
-    }
-    
-    func activateConstraints() {
-        tableView.fillSuperview()
-    }
-    
     func setupTableView() {
+        addSubview(tableView)
+        tableView.fillSuperview()
+        
+        tableView.separatorInset = .zero
+        tableView.rowHeight = 50
+        tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(NewUserTableViewCell.self, forCellReuseIdentifier: NewUserTableViewCell.className)
     }
     

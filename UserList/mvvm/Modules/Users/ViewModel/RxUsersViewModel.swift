@@ -12,9 +12,10 @@ import RxRelay
 class RxUsersViewModel {
     
     let usersRepository: UsersRepository
-    private var users = BehaviorRelay<[User]>(value: [])
+    private let users = BehaviorRelay<[User]>(value: [])
     let userList = BehaviorRelay<[UserCellViewModel]>(value: [])
     let disposeBag = DisposeBag()
+    let isLoading = BehaviorRelay<Bool>(value: false)
     private var page = 0
     
     init(usersRepository: UsersRepository) {
@@ -23,7 +24,8 @@ class RxUsersViewModel {
     }
     
     fileprivate func setup() {
-        users.asObservable()
+        users
+            .asObservable()
             .map({ [weak self] users -> [UserCellViewModel] in
                 return users.compactMap({ self?.createUserCellViewModel(user: $0) })
             })
@@ -40,19 +42,25 @@ class RxUsersViewModel {
     }
     
     func willDisplayUser(at indexPath: IndexPath) {
-        if indexPath.count == userList.value.count - 1 {
-            loadData()
+        guard !isLoading.value, indexPath.row == userList.value.count - 1 else {
+            return
         }
+        loadData()
     }
     
     func loadData() {
+        isLoading.accept(true)
+        print("Start loadind page - \(page).")
         usersRepository.getUsers(page: page)
-            .done { [weak users] data in
-                guard let users = users else { return }
-                users.accept(users.value + data.results)
+            .done { [weak self] data in
+                guard let self = self else { return }
+                self.isLoading.accept(false)
+                self.users.accept(self.users.value + data.results)
+                self.page += 1
             }
-            .catch { error in
+            .catch { [weak self] error in
                 print(error)
+                self?.isLoading.accept(false)
         }
     }
     

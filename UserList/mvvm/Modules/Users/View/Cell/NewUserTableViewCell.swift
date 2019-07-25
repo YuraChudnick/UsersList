@@ -53,7 +53,7 @@ class NewUserTableViewCell: NiblessTableViewCell {
                         padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0),
                         size: CGSize(width: 40, height: 40))
         
-        let stackView = UIStackView(arrangedSubviews: [userName, userLogo])
+        let stackView = UIStackView(arrangedSubviews: [userName, userPhone])
         stackView.axis = .vertical
         
         contentView.addSubview(stackView)
