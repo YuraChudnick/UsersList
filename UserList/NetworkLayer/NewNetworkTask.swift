@@ -19,21 +19,17 @@ class NewNetworkTask<T: Codable> {
     
     func execute() -> Promise<T> {
         return Promise<T> { seal in
-            Alamofire.request(request).responseData { (response) in
+            Alamofire.request(request).responseData(queue: DispatchQueue.global(qos: .background), completionHandler: { (response) in
                 let result = Response<T>((r: response.response,
-                          data: response.data,
-                          error: response.error))
-                DispatchQueue.main.async {
-                    switch result {
-                    case .data(let data):
-                        seal.fulfill(data)
-                    case .error(_, let error):
-                        seal.reject(error ?? NetworkError.unknown(reason: "unknown"))
-                    }
+                                          data: response.data,
+                                          error: response.error))
+                switch result {
+                case .data(let data):
+                    seal.fulfill(data)
+                case .error(_, let error):
+                    seal.reject(error ?? NetworkError.unknown(reason: "unknown"))
                 }
-                
-            }
-            
+            })
         }
     }
     
