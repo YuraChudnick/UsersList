@@ -11,9 +11,9 @@ import RxSwift
 
 class NewUsersVC: NiblessViewController {
     
-    let viewModel: RxUsersViewModel
+    let viewModel: RxUsersViewModelProtocol
     
-    init(viewModel: RxUsersViewModel) {
+    init(viewModel: RxUsersViewModelProtocol) {
         self.viewModel = viewModel
         super.init()
     }
