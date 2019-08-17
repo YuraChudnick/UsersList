@@ -13,13 +13,13 @@ import RxCocoa
 class UsersRootView: NiblessView {
     
     //MARK: - Properties
-    let viewModel: RxUsersViewModel
+    let viewModel: RxUsersViewModelProtocol
     let disposeBag = DisposeBag()
     var hierarchyNotReady = true
     
     let tableView = UITableView()
     
-    init(frame: CGRect = .zero, viewModel: RxUsersViewModel) {
+    init(frame: CGRect = .zero, viewModel: RxUsersViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: frame)
     }

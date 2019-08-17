@@ -9,11 +9,18 @@
 import RxSwift
 import RxRelay
 
-class RxUsersViewModel {
+protocol RxUsersViewModelProtocol {
+    var userList: BehaviorRelay<[UserCellViewModel]> { get }
+    func selectUser(at indexPath: IndexPath)
+    func willDisplayUser(at indexPath: IndexPath)
+    func loadData()
+}
+
+class RxUsersViewModel: RxUsersViewModelProtocol {
     
     let usersRepository: UsersRepository
     private let users = BehaviorRelay<[User]>(value: [])
-    let userList = BehaviorRelay<[UserCellViewModel]>(value: [])
+    var userList = BehaviorRelay<[UserCellViewModel]>(value: [])
     let disposeBag = DisposeBag()
     let isLoading = BehaviorRelay<Bool>(value: false)
     private var page = 0
