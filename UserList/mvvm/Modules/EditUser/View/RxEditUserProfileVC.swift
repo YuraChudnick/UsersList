@@ -10,6 +10,22 @@ import UIKit
 
 class RxEditUserProfileVC: NiblessViewController {
     
+    let viewModel: EditUserProfileViewModelProtocol
+    
+    init(viewModel: EditUserProfileViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    override func loadView() {
+        view = EditUserProfileRootView(viewModel: viewModel)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Edit profile"
+    }
     
     
 }

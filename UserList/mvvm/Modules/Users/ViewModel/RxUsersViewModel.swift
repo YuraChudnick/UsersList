@@ -19,6 +19,7 @@ protocol RxUsersViewModelProtocol {
 class RxUsersViewModel: RxUsersViewModelProtocol {
     
     let usersRepository: UsersRepository
+    var router: UsersRouterProtocol!
     private let users = BehaviorRelay<[User]>(value: [])
     var userList = BehaviorRelay<[UserCellViewModel]>(value: [])
     let disposeBag = DisposeBag()
@@ -45,7 +46,7 @@ class RxUsersViewModel: RxUsersViewModelProtocol {
     }
     
     func selectUser(at indexPath: IndexPath) {
-        print(userList.value[indexPath.row])
+        router.presentEditScreen(with: users.value[indexPath.row])
     }
     
     func willDisplayUser(at indexPath: IndexPath) {
