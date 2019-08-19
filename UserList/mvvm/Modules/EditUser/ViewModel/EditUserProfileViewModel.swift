@@ -6,19 +6,29 @@
 //  Copyright © 2019 yura. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+import RxRelay
 
 protocol EditUserProfileViewModelProtocol {
+    var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]> { get }
     func pressedChangeAvatar()
 }
 
 class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     
     let repository: EditUserRepositoryProtocol
+    let user: User
     var router: EditUserRouterProtocol!
+    var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]>
     
-    init(repository: EditUserRepositoryProtocol) {
+    init(user: User, repository: EditUserRepositoryProtocol) {
         self.repository = repository
+        self.user = user
+        let parameterViewModels = [UserParameterViewModel(type: .firstName, value: user.name?.first ?? ""),
+                                   UserParameterViewModel(type: .lastName, value: user.name?.last ?? ""),
+                                   UserParameterViewModel(type: .email, value: user.email),
+                                   UserParameterViewModel(type: .phone, value: user.phone)]
+        userParameterViewModels = BehaviorRelay(value: parameterViewModels)
     }
     
     func pressedChangeAvatar() {

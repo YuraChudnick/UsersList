@@ -45,6 +45,7 @@ class EditUserProfileRootView: NiblessView {
                          size: CGSize(width: 0, height: 210))
         
         addSubview(tableView)
+        tableView.backgroundColor = .clear
         tableView.anchor(top: avatarView.bottomAnchor,
                          leading: leadingAnchor,
                          bottom: bottomAnchor,
@@ -56,7 +57,11 @@ class EditUserProfileRootView: NiblessView {
     }
     
     fileprivate func bindViews() {
-        
+        viewModel.userParameterViewModels
+            .bind(to: tableView.rx.items(cellIdentifier: UserParameterTableViewCell.className, cellType: UserParameterTableViewCell.self)) { (row, element, cell) in
+                cell.viewModel = element
+            }
+            .disposed(by: disposeBag)
     }
     
 }

@@ -11,7 +11,7 @@ import UIKit
 class NewEditUserModuleBuilder {
     
     func create(with user: User) -> UIViewController {
-        let vm = EditUserProfileViewModel(repository: EditUserRepository())
+        let vm = EditUserProfileViewModel(user: user, repository: EditUserRepository())
         let vc = RxEditUserProfileVC(viewModel: vm)
         let router = EditUserRouter(vc: vc)
         vm.router = router
