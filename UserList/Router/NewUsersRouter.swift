@@ -21,8 +21,10 @@ class NewUsersRouter: UsersRouterProtocol {
     }
     
     func presentEditScreen(with user: User) {
-        let vm = EditUserProfileViewModel()
+        let vm = EditUserProfileViewModel(repository: EditUserRepository())
         let editUserVC = RxEditUserProfileVC(viewModel: vm)
+        let router = EditUserRouter(vc: editUserVC)
+        vm.router = router
         editUserVC.hidesBottomBarWhenPushed = true
         vc.navigationController?.pushViewController(editUserVC, animated: true)
     }

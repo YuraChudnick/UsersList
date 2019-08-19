@@ -18,7 +18,6 @@ class UsersRepo: UsersRepository {
     
     func getUsers(page: Int) -> Promise<UsersResponse> {
         return networkTask.execute(with: GetUsersRequest.pagination(page: 1, quantity: 10))
-//        return NewNetworkTask<UsersResponse>(request: GetUsersRequest.pagination(page: 1, quantity: 10)).execute()
     }
     
 }

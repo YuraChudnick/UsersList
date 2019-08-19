@@ -17,17 +17,29 @@ class AvatarView: NiblessView {
         b.setTitle("Change photo", for: .normal)
         b.setTitleColor(b.tintColor, for: .normal)
         b.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        b.addTarget(self, action: #selector(pressedChangeAvatar(_:)), for: .touchUpInside)
         return b
     }()
     
-    override init(frame: CGRect) {
+    let viewModel: EditUserProfileViewModelProtocol
+    var hierarchyNotReady = true
+    
+    init(frame: CGRect = .zero, viewModel: EditUserProfileViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(frame: frame)
-        
-        setupViews()
     }
     
-    fileprivate func setupViews() {
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        guard hierarchyNotReady else {
+            return
+        }
+        hierarchyNotReady = false
         backgroundColor = .clear
+        setupConstaints()
+    }
+    
+    fileprivate func setupConstaints() {
         addSubview(imageView)
         imageView.anchor(top: topAnchor,
                          leading: nil,
@@ -42,6 +54,10 @@ class AvatarView: NiblessView {
                             bottom: nil,
                             trailing: nil,
                             centerX: imageView.centerXAnchor)
+    }
+    
+    @objc private func pressedChangeAvatar(_ sender: UIButton) {
+        viewModel.pressedChangeAvatar()
     }
     
 }

@@ -27,5 +27,13 @@ class RxEditUserProfileVC: NiblessViewController {
         title = "Edit profile"
     }
     
+}
+
+extension RxEditUserProfileVC: PhotoPickerManagerDelegate {
+    
+    func manager(_ manager: PhotoPickerManager, didPickImage image: UIImage) {
+        manager.dismissPhotoPicker(animated: true, completion:
+            nil)
+    }
     
 }

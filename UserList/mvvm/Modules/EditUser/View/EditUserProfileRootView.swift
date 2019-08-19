@@ -18,7 +18,7 @@ class EditUserProfileRootView: NiblessView {
     var hierarchyNotReady = true
     
     let tableView = UITableView()
-    let avatarView = AvatarView()
+    lazy var avatarView = AvatarView(viewModel: self.viewModel)
     
     init(frame: CGRect = .zero, viewModel: EditUserProfileViewModelProtocol) {
         self.viewModel = viewModel
