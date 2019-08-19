@@ -9,15 +9,13 @@
 import Alamofire
 import PromiseKit
 
-class NewNetworkTask<T: Codable> {
+protocol NewNetworkTaskProtocol {
+    func execute<T: Codable>(with request: Request) -> Promise<T>
+}
+
+struct NewNetworkTask: NewNetworkTaskProtocol {
     
-    var request: Request
-    
-    required init(request: Request) {
-        self.request = request
-    }
-    
-    func execute() -> Promise<T> {
+    func execute<T: Codable>(with request: Request) -> Promise<T> {
         return Promise<T> { seal in
             Alamofire.request(request).responseData(queue: DispatchQueue.global(qos: .background), completionHandler: { (response) in
                 let result = Response<T>((r: response.response,

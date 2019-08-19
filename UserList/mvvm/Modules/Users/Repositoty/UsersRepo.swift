@@ -10,8 +10,15 @@ import PromiseKit
 
 class UsersRepo: UsersRepository {
     
+    let networkTask: NewNetworkTaskProtocol
+    
+    init(networkTask: NewNetworkTaskProtocol) {
+        self.networkTask = networkTask
+    }
+    
     func getUsers(page: Int) -> Promise<UsersResponse> {
-        return NewNetworkTask<UsersResponse>(request: GetUsersRequest.pagination(page: 1, quantity: 10)).execute()
+        return networkTask.execute(with: GetUsersRequest.pagination(page: 1, quantity: 10))
+//        return NewNetworkTask<UsersResponse>(request: GetUsersRequest.pagination(page: 1, quantity: 10)).execute()
     }
     
 }
