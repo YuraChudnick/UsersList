@@ -12,27 +12,45 @@ import UIKit.UIImage
 
 protocol EditUserProfileViewModelProtocol {
     var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]> { get }
+    var avatar: BehaviorRelay<UIImage?> { get }
+    func loadAvatar()
     func pressedChangeAvatar()
 }
 
 class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
-    
+
     let repository: EditUserRepositoryProtocol
+    let imageManager: ImageCacheManagerProtocol
     
     let user: User
-    let avatar = BehaviorRelay<UIImage?>(value: nil)
+    var avatar = BehaviorRelay<UIImage?>(value: nil)
     
     var router: EditUserRouterProtocol!
     var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]>
     
-    init(user: User, repository: EditUserRepositoryProtocol) {
+    init(user: User, repository: EditUserRepositoryProtocol, imageManager: ImageCacheManagerProtocol) {
         self.repository = repository
+        self.imageManager = imageManager
         self.user = user
         let parameterViewModels = [UserParameterViewModel(type: .firstName, value: user.name?.first ?? ""),
                                    UserParameterViewModel(type: .lastName, value: user.name?.last ?? ""),
                                    UserParameterViewModel(type: .email, value: user.email),
                                    UserParameterViewModel(type: .phone, value: user.phone)]
         userParameterViewModels = BehaviorRelay(value: parameterViewModels)
+    }
+    
+    func loadAvatar() {
+        do {
+            imageManager.loadImage(url: try user.getAvatarUrl(.large))
+                .done { [weak self] (image) in
+                    self?.avatar.accept(image)
+                }
+                .catch { (error) in
+                    print(error)
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func pressedChangeAvatar() {

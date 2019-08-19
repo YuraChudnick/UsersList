@@ -53,6 +53,11 @@ class NewUserTableViewCell: NiblessTableViewCell {
                         padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0),
                         size: CGSize(width: 40, height: 40))
         
+        userLogo.setNeedsLayout()
+        userLogo.layoutIfNeeded()
+        userLogo.layer.cornerRadius = userLogo.bounds.width/2
+        userLogo.layer.masksToBounds = true
+        
         let stackView = UIStackView(arrangedSubviews: [userName, userPhone])
         stackView.axis = .vertical
         
@@ -64,13 +69,6 @@ class NewUserTableViewCell: NiblessTableViewCell {
                          padding: UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8))
         
         accessoryType = .disclosureIndicator
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        userLogo.layer.cornerRadius = 20
-        userLogo.clipsToBounds = true
     }
 
 }

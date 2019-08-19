@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AvatarView: NiblessView {
     
@@ -23,6 +25,7 @@ class AvatarView: NiblessView {
     
     let viewModel: EditUserProfileViewModelProtocol
     var hierarchyNotReady = true
+    let disposeBag = DisposeBag()
     
     init(frame: CGRect = .zero, viewModel: EditUserProfileViewModelProtocol) {
         self.viewModel = viewModel
@@ -37,6 +40,8 @@ class AvatarView: NiblessView {
         hierarchyNotReady = false
         backgroundColor = .clear
         setupConstaints()
+        setupImageView()
+        bindViews()
     }
     
     fileprivate func setupConstaints() {
@@ -54,6 +59,21 @@ class AvatarView: NiblessView {
                             bottom: nil,
                             trailing: nil,
                             centerX: imageView.centerXAnchor)
+    }
+    
+    fileprivate func setupImageView() {
+        imageView.setNeedsLayout()
+        imageView.layoutIfNeeded()
+        print(bounds)
+        imageView.layer.cornerRadius = imageView.bounds.width/2
+        imageView.layer.masksToBounds = true
+    }
+    
+    fileprivate func bindViews() {
+        viewModel.avatar
+            .asObservable()
+            .bind(to: imageView.rx.image)
+            .disposed(by: disposeBag)
     }
     
     @objc private func pressedChangeAvatar(_ sender: UIButton) {

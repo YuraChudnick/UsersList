@@ -10,6 +10,12 @@ import UIKit
 
 class RxEditUserProfileVC: NiblessViewController {
     
+    lazy var photoPickerManager: PhotoPickerManager = {
+        let manager = PhotoPickerManager(presentingViewController: self)
+        manager.delegate = self
+        return manager
+    }()
+    
     let viewModel: EditUserProfileViewModelProtocol
     
     init(viewModel: EditUserProfileViewModelProtocol) {
@@ -25,6 +31,7 @@ class RxEditUserProfileVC: NiblessViewController {
         super.viewDidLoad()
         
         title = "Edit profile"
+        viewModel.loadAvatar()
     }
     
 }
@@ -32,6 +39,7 @@ class RxEditUserProfileVC: NiblessViewController {
 extension RxEditUserProfileVC: PhotoPickerManagerDelegate {
     
     func manager(_ manager: PhotoPickerManager, didPickImage image: UIImage) {
+        viewModel.avatar.accept(image)
         manager.dismissPhotoPicker(animated: true, completion:
             nil)
     }

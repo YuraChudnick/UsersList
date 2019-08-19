@@ -21,8 +21,6 @@ class EditUserRouter: EditUserRouterProtocol {
     }
     
     func presentPhotoPicker() {
-        let photoPickerManager = PhotoPickerManager(presentingViewController: vc)
-        photoPickerManager.delegate = vc
         
         let alert = UIAlertController(title: nil,
                                       message: nil,
@@ -35,13 +33,13 @@ class EditUserRouter: EditUserRouterProtocol {
         alert.addAction(UIAlertAction(title: "Photo Library",
                                       style: UIAlertActionStyle.default,
                                       handler: { _ in
-                                        photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
+                                        self.vc.photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "Camera",
                                       style: UIAlertActionStyle.default,
                                       handler: { _ in
-                                        photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
+                                        self.vc.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
         }))
         vc.present(alert, animated: true)
     }
