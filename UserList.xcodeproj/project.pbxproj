@@ -36,6 +36,7 @@
 		CD8814D72306F464004DC157 /* UserParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8814D62306F464004DC157 /* UserParameterViewModel.swift */; };
 		CDD4432E230A920F00F189DE /* EditUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4432D230A920F00F189DE /* EditUserRepository.swift */; };
 		CDD44331230A966C00F189DE /* EditUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44330230A966C00F189DE /* EditUserRouter.swift */; };
+		CDD44333230ABFDE00F189DE /* UserAvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */; };
 		CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61421D756210038E5D1 /* UsersViewProtocol.swift */; };
 		CDFCB61B21D7579C0038E5D1 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB61A21D7579C0038E5D1 /* ModuleBuilderProtocol.swift */; };
 		CDFCB62221D75C030038E5D1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB62121D75C030038E5D1 /* Request.swift */; };
@@ -143,6 +144,7 @@
 		CD8814D62306F464004DC157 /* UserParameterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParameterViewModel.swift; sourceTree = "<group>"; };
 		CDD4432D230A920F00F189DE /* EditUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRepository.swift; sourceTree = "<group>"; };
 		CDD44330230A966C00F189DE /* EditUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRouter.swift; sourceTree = "<group>"; };
+		CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarTableViewCell.swift; sourceTree = "<group>"; };
 		CDD663FC22DCC7D500894166 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		CDD663FE22DCC80E00894166 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		CDD6640022DCC83200894166 /* NiblessNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessNavigationController.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				CD8814D32306F408004DC157 /* UserParameterTableViewCell.swift */,
+				CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				CD5D08C122E2083D00EF7E01 /* NiblessTableViewCell.swift in Sources */,
 				CD5D08B922E2047500EF7E01 /* UIVIew+AutoLayout.swift in Sources */,
 				CDFCB63E21D77F5C0038E5D1 /* EditUserProfilePresenter.swift in Sources */,
+				CDD44333230ABFDE00F189DE /* UserAvatarTableViewCell.swift in Sources */,
 				CDD44331230A966C00F189DE /* EditUserRouter.swift in Sources */,
 				CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */,
 				CD432EEF22B396AD008533B4 /* Picture.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxRelay
+import UIKit.UIImage
 
 protocol EditUserProfileViewModelProtocol {
     var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]> { get }
@@ -17,7 +18,10 @@ protocol EditUserProfileViewModelProtocol {
 class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     
     let repository: EditUserRepositoryProtocol
+    
     let user: User
+    let avatar = BehaviorRelay<UIImage?>(value: nil)
+    
     var router: EditUserRouterProtocol!
     var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]>
     
