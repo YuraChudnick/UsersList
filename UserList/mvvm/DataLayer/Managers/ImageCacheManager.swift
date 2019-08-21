@@ -10,8 +10,20 @@ import UIKit.UIImage
 import Kingfisher
 import PromiseKit
 
+enum ImageCacheError: Error {
+    case noImageFor(key: String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .noImageFor(let key):
+            return "No image stored for \(key)"
+        }
+    }
+}
+
 protocol ImageCacheManagerProtocol {
     func loadImage(url: URL) -> Promise<UIImage>
+    func loadImage(key: String) -> Promise<UIImage>
     func saveImage(image: UIImage, key: String)
 }
 
@@ -29,6 +41,17 @@ struct ImageCacheManager: ImageCacheManagerProtocol {
                         seal.reject(error!)
                     }
             })
+        }
+    }
+    
+    func loadImage(key: String) -> Promise<UIImage> {
+        return Promise { seal in
+            let image = ImageCache.default.retrieveImageInDiskCache(forKey: key)
+            if image != nil {
+                seal.fulfill(image!)
+            } else {
+                seal.reject(ImageCacheError.noImageFor(key: key))
+            }
         }
     }
     

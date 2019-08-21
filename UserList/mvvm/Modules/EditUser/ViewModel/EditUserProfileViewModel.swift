@@ -41,6 +41,17 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     }
     
     func loadAvatar() {
+        imageManager.loadImage(key: user.getAvatarKey(.large))
+            .done { [weak self] image in
+                self?.avatar.accept(image)
+            }
+            .catch { [weak self] (error) in
+                print(error)
+                self?.loadImage()
+            }
+    }
+    
+    func loadImage() {
         do {
             imageManager.loadImage(url: try user.getAvatarUrl(.large))
                 .done { [weak self] (image) in
@@ -71,6 +82,9 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
             case .phone:
                 newValues.phone = vm.value.value
             }
+        }
+        if let image = avatar.value {
+            imageManager.saveImage(image: image, key: newValues.image)
         }
         repository.save(user: user, with: newValues)
         router.back()

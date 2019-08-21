@@ -70,6 +70,17 @@ extension User {
         }
     }
     
+    func getAvatarKey(_ avatarSize: AvatarSize) -> String {
+        switch avatarSize {
+        case .large:
+            return picture?.large ?? ""
+        case .medium:
+            return picture?.medium ?? ""
+        case .thumbnail:
+            return picture?.thumbnail ?? ""
+        }
+    }
+    
     func update(in realmProvider: RealmProvider = RealmProvider.users, with newValues: (first: String, last: String, email: String, phone: String, image: String)) {
         let realm = realmProvider.realm
         do {
