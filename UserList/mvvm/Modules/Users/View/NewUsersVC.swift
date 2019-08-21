@@ -29,4 +29,25 @@ class NewUsersVC: NiblessViewController {
         viewModel.loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let tableView = (view as! UsersRootView).tableView
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            if let coordinator = transitionCoordinator {
+                coordinator.animate(alongsideTransition: { context in
+                    tableView.deselectRow(at: selectedIndexPath, animated: true)
+                }) { context in
+                    if context.isCancelled {
+                        tableView.selectRow(at: selectedIndexPath, animated: false, scrollPosition: .none)
+                    }
+                }
+            } else {
+                tableView.deselectRow(at: selectedIndexPath, animated: animated)
+            }
+        }
+        
+    }
+    
 }
