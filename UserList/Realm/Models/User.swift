@@ -23,10 +23,10 @@ enum UserDataError: Error {
 @objcMembers class User: Object, Codable {
     
     dynamic var gender: String = ""
-    dynamic var name: Name?
+    dynamic var name: Name? = nil
     dynamic var email: String = ""
     dynamic var phone: String = ""
-    dynamic var picture: Picture?
+    dynamic var picture: Picture? = nil
     
     enum CodingKeys: String, CodingKey {
         case gender
