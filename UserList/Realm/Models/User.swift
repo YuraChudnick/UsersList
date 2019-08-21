@@ -83,17 +83,13 @@ extension User {
     
     func save(in realmProvider: RealmProvider = RealmProvider.users) {
         guard realm == nil else { return }
-        DispatchQueue(label: "background.realm").async {
-            autoreleasepool {
-                let realm = realmProvider.realm
-                do {
-                    try realm.write {
-                        realm.add(self)
-                    }
-                } catch {
-                    print(error)
-                }
+        let realm = realmProvider.realm
+        do {
+            try realm.write {
+                realm.add(self)
             }
+        } catch {
+            print(error)
         }
     }
     
