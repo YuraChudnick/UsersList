@@ -25,10 +25,21 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
     
     var viewModel: EditUserProfileViewModelProtocol? {
         didSet {
-            
+            disposeBag = DisposeBag()
+            viewModel?.avatar
+                .asObservable()
+                .bind(to: avatarImageView.rx.image)
+                .disposed(by: disposeBag)
         }
     }
+    
     var hierarchyNotReady = true
+    var disposeBag: DisposeBag!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = nil
+    }
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
