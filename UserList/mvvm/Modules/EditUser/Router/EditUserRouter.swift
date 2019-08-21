@@ -10,6 +10,7 @@ import UIKit
 
 protocol EditUserRouterProtocol {
     func presentPhotoPicker()
+    func back()
 }
 
 class EditUserRouter: EditUserRouterProtocol {
@@ -42,6 +43,10 @@ class EditUserRouter: EditUserRouterProtocol {
                                         self.vc.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
         }))
         vc.present(alert, animated: true)
+    }
+    
+    func back() {
+        vc.navigationController?.popViewController(animated: true)
     }
     
 }

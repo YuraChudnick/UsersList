@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
 protocol EditUserRepositoryProtocol {
-    
+    func save(user: User, with newValues: (first: String, last: String, email: String, phone: String, image: String))
 }
 
 struct EditUserRepository: EditUserRepositoryProtocol {
+    
+    let realmProvider: RealmProvider
+    
+    init(realmProvider: RealmProvider = RealmProvider.users) {
+        self.realmProvider = realmProvider
+    }
+
+    func save(user: User, with newValues: (first: String, last: String, email: String, phone: String, image: String)) {
+        if user.realm != nil {
+            user.update(in: realmProvider, with: newValues)
+        } else {
+            user.fill(with: newValues)
+            user.save(in: realmProvider)
+        }
+    }
     
 }

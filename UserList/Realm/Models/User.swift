@@ -40,6 +40,16 @@ enum UserDataError: Error {
 
 extension User {
     
+    func fill(with newValues: (first: String, last: String, email: String, phone: String, image: String)) {
+        self.name?.first        = newValues.first
+        self.name?.last         = newValues.last
+        self.email              = newValues.email
+        self.phone              = newValues.phone
+        self.picture?.large     = newValues.image
+        self.picture?.medium    = newValues.image
+        self.picture?.thumbnail = newValues.image
+    }
+    
     func getAvatarUrl(_ avatarSize: AvatarSize) throws -> URL {
         switch avatarSize {
         case .large:
@@ -60,11 +70,22 @@ extension User {
         }
     }
     
-    func save() {
+    func update(in realmProvider: RealmProvider = RealmProvider.users, with newValues: (first: String, last: String, email: String, phone: String, image: String)) {
+        let realm = realmProvider.realm
+        do {
+            try realm.write {
+                fill(with: newValues)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func save(in realmProvider: RealmProvider = RealmProvider.users) {
         guard realm == nil else { return }
         DispatchQueue(label: "background.realm").async {
             autoreleasepool {
-                let realm = RealmProvider.users.realm
+                let realm = realmProvider.realm
                 do {
                     try realm.write {
                         realm.add(self)

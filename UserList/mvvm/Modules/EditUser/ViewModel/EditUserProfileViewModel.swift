@@ -15,6 +15,7 @@ protocol EditUserProfileViewModelProtocol {
     var avatar: BehaviorRelay<UIImage?> { get }
     func loadAvatar()
     func pressedChangeAvatar()
+    func pressedSave()
 }
 
 class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
@@ -55,6 +56,24 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     
     func pressedChangeAvatar() {
         router.presentPhotoPicker()
+    }
+    
+    func pressedSave() {
+        var newValues = (first: "", last: "", email: "", phone: "", image: "image_\(Date().timeIntervalSinceNow)")
+        for vm in userParameterViewModels.value {
+            switch vm.type {
+            case .firstName:
+                newValues.first = vm.value.value
+            case .lastName:
+                newValues.last = vm.value.value
+            case .email:
+                newValues.email = vm.value.value
+            case .phone:
+                newValues.phone = vm.value.value
+            }
+        }
+        repository.save(user: user, with: newValues)
+        router.back()
     }
     
 }

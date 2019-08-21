@@ -12,10 +12,11 @@ import PromiseKit
 
 protocol ImageCacheManagerProtocol {
     func loadImage(url: URL) -> Promise<UIImage>
+    func saveImage(image: UIImage, key: String)
 }
 
 struct ImageCacheManager: ImageCacheManagerProtocol {
-    
+
     func loadImage(url: URL) -> Promise<UIImage> {
         return Promise { seal in
             ImageDownloader.default.downloadImage(with: url,
@@ -30,4 +31,9 @@ struct ImageCacheManager: ImageCacheManagerProtocol {
             })
         }
     }
+    
+    func saveImage(image: UIImage, key: String) {
+        ImageCache.default.store(image, forKey: key)
+    }
+    
 }

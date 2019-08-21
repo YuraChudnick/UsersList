@@ -64,7 +64,6 @@ class AvatarView: NiblessView {
     fileprivate func setupImageView() {
         imageView.setNeedsLayout()
         imageView.layoutIfNeeded()
-        print(bounds)
         imageView.layer.cornerRadius = imageView.bounds.width/2
         imageView.layer.masksToBounds = true
     }

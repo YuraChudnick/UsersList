@@ -31,7 +31,17 @@ class RxEditUserProfileVC: NiblessViewController {
         super.viewDidLoad()
         
         title = "Edit profile"
+        setupSaveButton()
         viewModel.loadAvatar()
+    }
+    
+    fileprivate func setupSaveButton() {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(pressedSave(_:)))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc private func pressedSave(_ sender: UIBarButtonItem) {
+        viewModel.pressedSave()
     }
     
 }
