@@ -53,7 +53,7 @@ class EditUserProfileRootView: NiblessView {
 //                         trailing: trailingAnchor)
         tableView.separatorInset = .zero
         tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UserParameterTableViewCell.self, forCellReuseIdentifier: UserParameterTableViewCell.className)
         tableView.register(UserAvatarTableViewCell.self, forCellReuseIdentifier: UserAvatarTableViewCell.className)
@@ -66,11 +66,11 @@ class EditUserProfileRootView: NiblessView {
 //            }
 //            .disposed(by: disposeBag)
         viewModel.userParameterViewModels
-            .bind(to: tableView.rx.items) { (table, index, element) -> UITableViewCell in
+            .bind(to: tableView.rx.items) { [weak self] (table, index, element) -> UITableViewCell in
                 switch (element) {
                 case .avatar:
                     let cell = table.dequeueReusableCell(withIdentifier: UserAvatarTableViewCell.className, for: IndexPath(row: index, section: 0)) as! UserAvatarTableViewCell
-                    cell.viewModel = self.viewModel
+                    cell.viewModel = self?.viewModel
                     return cell
                 case .parameter(let viewModel):
                     let cell = table.dequeueReusableCell(withIdentifier: UserParameterTableViewCell.className, for: IndexPath(row: index, section: 0)) as! UserParameterTableViewCell

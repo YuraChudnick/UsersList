@@ -51,7 +51,7 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
         presenter.updateEmail(email: emailTextField.text!)
         presenter.updatePhone(phone: phoneTextField.text!)
         if let img = userAvatar.image {
-            presenter.updatePhoto(photo: UIImageJPEGRepresentation(img, 1.0)! as NSData)
+            presenter.updatePhoto(photo: img.jpegData(compressionQuality: 1.0)! as NSData)
         }
         presenter.didPressSaveItem()
         navigationController?.popViewController(animated: true)
@@ -59,12 +59,12 @@ class EditUserProfileVC: UITableViewController, EditUserProfileViewProtocol {
     
     @IBAction func changePhoto(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default, handler: { [weak self] (action) in
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertAction.Style.default, handler: { [weak self] (action) in
             self?.photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
         }))
-        alert.addAction(UIAlertAction(title: "Camera", style: UIAlertActionStyle.default, handler: { [weak self] (action) in
+        alert.addAction(UIAlertAction(title: "Camera", style: UIAlertAction.Style.default, handler: { [weak self] (action) in
             self?.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
         }))
         present(alert, animated: true, completion: nil)

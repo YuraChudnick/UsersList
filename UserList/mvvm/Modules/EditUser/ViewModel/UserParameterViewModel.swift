@@ -21,7 +21,7 @@ protocol UserParameterViewModelProtocol {
     var type: ParameterType { get }
 }
 
-class UserParameterViewModel: UserParameterViewModelProtocol {
+struct UserParameterViewModel: UserParameterViewModelProtocol {
     
     var value: BehaviorRelay<String>
     var type: ParameterType

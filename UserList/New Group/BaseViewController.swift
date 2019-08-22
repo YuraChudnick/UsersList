@@ -26,7 +26,7 @@ class BaseViewController: UITableViewController {
     }
     
     fileprivate func setupViews() {
-        let leftButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        let leftButton = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: self, action: nil)
         navigationItem.backBarButtonItem = leftButton
         
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

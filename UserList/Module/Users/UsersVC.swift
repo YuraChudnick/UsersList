@@ -31,7 +31,7 @@ class UsersVC: BaseViewController {
         let refresher = UIRefreshControl()
         refresher.backgroundColor = .white
         refresher.tintColor = UIColor.lightGray
-        refresher.addTarget(self, action: #selector(reloadData), for: UIControlEvents.valueChanged)
+        refresher.addTarget(self, action: #selector(reloadData), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refresher
     }
     

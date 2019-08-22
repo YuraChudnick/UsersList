@@ -25,7 +25,7 @@ class PhotoPickerManager: NSObject {
         configure()
     }
     
-    func presentPhotoPicker(sourceType: UIImagePickerControllerSourceType, animated: Bool) {
+    func presentPhotoPicker(sourceType: UIImagePickerController.SourceType, animated: Bool) {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) && sourceType == .camera { return }
         imagePickerController.sourceType = sourceType
         presentingController.present(imagePickerController, animated: animated, completion: nil)
@@ -46,8 +46,9 @@ class PhotoPickerManager: NSObject {
 }
 
 extension PhotoPickerManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
         delegate?.manager(self, didPickImage: Utils.resizeImage(image: image, targetSize: CGSize(width: 200, height: 200)))
     }
 }

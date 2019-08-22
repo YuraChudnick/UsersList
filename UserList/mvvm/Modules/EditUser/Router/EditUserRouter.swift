@@ -25,20 +25,20 @@ class EditUserRouter: EditUserRouterProtocol {
         
         let alert = UIAlertController(title: nil,
                                       message: nil,
-                                      preferredStyle: UIAlertControllerStyle.actionSheet)
+                                      preferredStyle: UIAlertController.Style.actionSheet)
         
         alert.addAction(UIAlertAction(title: "Cancel",
-                                      style: UIAlertActionStyle.cancel,
+                                      style: UIAlertAction.Style.cancel,
                                       handler: nil))
         
         alert.addAction(UIAlertAction(title: "Photo Library",
-                                      style: UIAlertActionStyle.default,
+                                      style: UIAlertAction.Style.default,
                                       handler: { _ in
                                         self.vc.photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "Camera",
-                                      style: UIAlertActionStyle.default,
+                                      style: UIAlertAction.Style.default,
                                       handler: { _ in
                                         self.vc.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
         }))
