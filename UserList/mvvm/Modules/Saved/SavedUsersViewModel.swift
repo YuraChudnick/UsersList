@@ -11,15 +11,17 @@ import RxRelay
 import RealmSwift
 import RxRealm
 
-protocol SavedUsersViewModelProtocol: UsersViewModelProtocol {
-    
+protocol SavedUsersViewModelProtocol: UsersViewModelProtocol, NoDataProtocol {
+    func deleteUser(at indexPath: IndexPath)
 }
 
 class SavedUsersViewModel: SavedUsersViewModelProtocol, UserCellViewModelCreating {
 
     let repository: SavedUsersRepositoryProtocol
+    var router: UsersRouterProtocol!
     let disposeBag = DisposeBag()
     
+    var isNoData: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     var userList = BehaviorRelay<[UserCellViewModel]>(value: [])
     let savedUsersResults: Results<User>
     
@@ -35,6 +37,7 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol, UserCellViewModelCreatin
                 return (results.compactMap({ self?.createUserCellViewModel(user: $0) }), changes)
             })
             .subscribe(onNext: { [weak self] (viewModels, _) in
+                self?.isNoData.accept(viewModels.isEmpty)
                 self?.userList.accept(viewModels)
             }, onError: { error in
                 print(error.localizedDescription)
@@ -43,7 +46,11 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol, UserCellViewModelCreatin
     }
     
     func selectUser(at indexPath: IndexPath) {
-        
+        router.presentEditScreen(with: savedUsersResults[indexPath.row])
+    }
+    
+    func deleteUser(at indexPath: IndexPath) {
+        repository.delete(user: savedUsersResults[indexPath.row])
     }
     
 }

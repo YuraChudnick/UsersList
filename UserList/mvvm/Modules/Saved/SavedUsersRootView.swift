@@ -19,6 +19,14 @@ class SavedUsersRootView: NiblessView {
     
     let tableView = UITableView()
     
+    let noDataLabel: UILabel = {
+        let l = UILabel()
+        l.font = UIFont.systemFont(ofSize: 15)
+        l.textAlignment = .center
+        l.text = "No saved users"
+        return l
+    }()
+    
     init(frame: CGRect = .zero, viewModel: SavedUsersViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -39,6 +47,7 @@ class SavedUsersRootView: NiblessView {
         addSubview(tableView)
         tableView.fillSuperview()
         
+        tableView.backgroundView = noDataLabel
         tableView.separatorInset = .zero
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView(frame: .zero)
@@ -52,9 +61,19 @@ class SavedUsersRootView: NiblessView {
                 cell.userCellViewModel = element
             }
             .disposed(by: disposeBag)
+        viewModel.isNoData
+            .map({ !$0 })
+            .bind(to: noDataLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
         tableView.rx.itemSelected
-            .subscribe(onNext: { indexPath in
-                self.viewModel.selectUser(at: indexPath)
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.viewModel.selectUser(at: indexPath)
+            })
+            .disposed(by: disposeBag)
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.viewModel.deleteUser(at: indexPath)
             })
             .disposed(by: disposeBag)
     }

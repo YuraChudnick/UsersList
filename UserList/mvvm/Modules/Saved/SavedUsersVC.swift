@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SavedUsersVC: NiblessViewController {
+class SavedUsersVC: NiblessViewController, DeselectAnimatable {
     
     let viewModel: SavedUsersViewModelProtocol
     
@@ -24,6 +24,13 @@ class SavedUsersVC: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Saved users"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        deselectRow(in: (view as! SavedUsersRootView).tableView, animated: animated)
     }
     
 }

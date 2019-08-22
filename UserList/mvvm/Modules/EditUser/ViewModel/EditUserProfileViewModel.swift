@@ -76,7 +76,7 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     }
     
     func pressedSave() {
-        var newValues = (first: "", last: "", email: "", phone: "", image: "image_\(Date().timeIntervalSinceNow)")
+        var newValues = (first: "", last: "", email: "", phone: "", image: "\(user.picture?.large ?? "")_\(Date().timeIntervalSinceNow)")
         for vm in userParameterViewModels.value {
             switch (vm) {
             case .parameter(let viewModel):

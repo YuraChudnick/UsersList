@@ -41,6 +41,8 @@
 		CDBC9732230EC11800160306 /* SavedUsersModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */; };
 		CDBC9734230EC44100160306 /* SavedUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9733230EC44100160306 /* SavedUsersVC.swift */; };
 		CDBC9736230EC4C800160306 /* SavedUsersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */; };
+		CDBC9738230EDAB100160306 /* NoDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9737230EDAB100160306 /* NoDataProtocol.swift */; };
+		CDBC973A230EDE6C00160306 /* DeselectAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9739230EDE6C00160306 /* DeselectAnimatable.swift */; };
 		CDD4432E230A920F00F189DE /* EditUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4432D230A920F00F189DE /* EditUserRepository.swift */; };
 		CDD44331230A966C00F189DE /* EditUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44330230A966C00F189DE /* EditUserRouter.swift */; };
 		CDD44333230ABFDE00F189DE /* UserAvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */; };
@@ -156,6 +158,8 @@
 		CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersModuleBuilder.swift; sourceTree = "<group>"; };
 		CDBC9733230EC44100160306 /* SavedUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVC.swift; sourceTree = "<group>"; };
 		CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersRootView.swift; sourceTree = "<group>"; };
+		CDBC9737230EDAB100160306 /* NoDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataProtocol.swift; sourceTree = "<group>"; };
+		CDBC9739230EDE6C00160306 /* DeselectAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeselectAnimatable.swift; sourceTree = "<group>"; };
 		CDD4432D230A920F00F189DE /* EditUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRepository.swift; sourceTree = "<group>"; };
 		CDD44330230A966C00F189DE /* EditUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRouter.swift; sourceTree = "<group>"; };
 		CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarTableViewCell.swift; sourceTree = "<group>"; };
@@ -487,6 +491,8 @@
 			children = (
 				CDBC972D230EB87E00160306 /* UserCellViewModelCreating.swift */,
 				CDBC972F230EBA3700160306 /* UsersViewModelProtocol.swift */,
+				CDBC9737230EDAB100160306 /* NoDataProtocol.swift */,
+				CDBC9739230EDE6C00160306 /* DeselectAnimatable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -861,12 +867,14 @@
 				CD432EFB22B3C837008533B4 /* UsersViewModel.swift in Sources */,
 				CD432EEF22B396AD008533B4 /* Picture.swift in Sources */,
 				CD432EEB22B39564008533B4 /* User.swift in Sources */,
+				CDBC9738230EDAB100160306 /* NoDataProtocol.swift in Sources */,
 				DE5FE79C22B508C200708187 /* UsersRouter.swift in Sources */,
 				CD432EE922B394C3008533B4 /* Path.swift in Sources */,
 				CDD44338230AEAFD00F189DE /* ImageCacheManager.swift in Sources */,
 				DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */,
 				CD8814D72306F464004DC157 /* UserParameterViewModel.swift in Sources */,
 				CD5D08BB22E2047900EF7E01 /* NiblessViewController.swift in Sources */,
+				CDBC973A230EDE6C00160306 /* DeselectAnimatable.swift in Sources */,
 				CD5D08BF22E2079E00EF7E01 /* NewUserTableViewCell.swift in Sources */,
 				DEAC7902210C992800D4445E /* UserEntity+CoreDataClass.swift in Sources */,
 				CD8814CD2306F1F4004DC157 /* RxEditUserProfileVC.swift in Sources */,
