@@ -10,7 +10,7 @@ import UIKit
 
 class UsersVC: BaseViewController {
 
-    var viewModel: UsersViewModelProtocol!
+    var viewModel: UsersViewModelProtocolOld!
     var router: Router!
     
     enum Route: String {

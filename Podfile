@@ -12,5 +12,6 @@ target 'UserList' do
   pod 'PromiseKit'
   pod 'RxSwift'
   pod 'RxCocoa'
-
+  pod 'RxRealm'
+  
 end

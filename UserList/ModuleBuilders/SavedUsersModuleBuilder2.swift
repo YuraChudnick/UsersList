@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SavedUsersModuleBuilder: ModuleBuilderProtocol {
+class SavedUsersModuleBuilder2: ModuleBuilderProtocol {
     
     func create() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

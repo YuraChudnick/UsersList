@@ -9,14 +9,11 @@
 import RxSwift
 import RxRelay
 
-protocol RxUsersViewModelProtocol {
-    var userList: BehaviorRelay<[UserCellViewModel]> { get }
-    func selectUser(at indexPath: IndexPath)
-    func willDisplayUser(at indexPath: IndexPath)
+protocol RxUsersViewModelProtocol: UsersViewModelProtocol {
     func loadData()
 }
 
-class RxUsersViewModel: RxUsersViewModelProtocol {
+class RxUsersViewModel: RxUsersViewModelProtocol, UserCellViewModelCreating {
     
     let usersRepository: UsersRepository
     var router: UsersRouterProtocol!
@@ -70,17 +67,6 @@ class RxUsersViewModel: RxUsersViewModelProtocol {
                 print(error)
                 self?.isLoading.accept(false)
         }
-    }
-    
-    private func createUserCellViewModel(user: User) -> UserCellViewModel {
-        var name = ""
-        if let n = user.name {
-            name = n.first.capitalizingFirstLetter() + " " + n.last.capitalizingFirstLetter()
-        }
-        
-        return UserCellViewModel(name: name,
-                                 phome: user.phone,
-                                 imageUrl: URL(string: user.picture?.large ?? ""))
     }
     
 }

@@ -18,7 +18,6 @@ class EditUserProfileRootView: NiblessView {
     var hierarchyNotReady = true
     
     let tableView = UITableView()
-    //lazy var avatarView = AvatarView(viewModel: self.viewModel)
     
     init(frame: CGRect = .zero, viewModel: EditUserProfileViewModelProtocol) {
         self.viewModel = viewModel
@@ -37,22 +36,11 @@ class EditUserProfileRootView: NiblessView {
     }
     
     fileprivate func setupViews() {
-//        addSubview(avatarView)
-//        avatarView.anchor(top: safeAreaLayoutGuide.topAnchor,
-//                         leading: leadingAnchor,
-//                         bottom: nil,
-//                         trailing: trailingAnchor,
-//                         size: CGSize(width: 0, height: 210))
-        
         addSubview(tableView)
         tableView.fillSuperview()
         tableView.backgroundColor = .clear
-//        tableView.anchor(top: avatarView.bottomAnchor,
-//                         leading: leadingAnchor,
-//                         bottom: bottomAnchor,
-//                         trailing: trailingAnchor)
         tableView.separatorInset = .zero
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 202
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UserParameterTableViewCell.self, forCellReuseIdentifier: UserParameterTableViewCell.className)
@@ -60,11 +48,6 @@ class EditUserProfileRootView: NiblessView {
     }
     
     fileprivate func bindViews() {
-//        viewModel.userParameterViewModels
-//            .bind(to: tableView.rx.items(cellIdentifier: UserParameterTableViewCell.className, cellType: UserParameterTableViewCell.self)) { (row, element, cell) in
-//                cell.viewModel = element
-//            }
-//            .disposed(by: disposeBag)
         viewModel.userParameterViewModels
             .bind(to: tableView.rx.items) { [weak self] (table, index, element) -> UITableViewCell in
                 switch (element) {

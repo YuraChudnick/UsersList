@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UsersViewModel: UsersViewModelProtocol {
+class UsersViewModel: UsersViewModelProtocolOld {
     
     let model: UsersModelProtocol
     

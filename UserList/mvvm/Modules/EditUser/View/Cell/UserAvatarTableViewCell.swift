@@ -62,13 +62,15 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
                          centerX: contentView.centerXAnchor,
                          padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0),
                          size: CGSize(width: 85, height: 85))
+        
         contentView.addSubview(changeButton)
         changeButton.anchor(top: avatarImageView.bottomAnchor,
                             leading: nil,
                             bottom: contentView.bottomAnchor,
                             trailing: nil,
                             centerX: avatarImageView.centerXAnchor,
-                            padding: UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0))
+                            padding: UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0),
+                            size: CGSize(width: 0, height: 27))
     }
     
     fileprivate func setupAvatarImageView() {

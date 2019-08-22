@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UsersViewModelProtocol {
+protocol UsersViewModelProtocolOld {
     
     var isNoData: Bool { get }
     var isLoading: Bool { get }
