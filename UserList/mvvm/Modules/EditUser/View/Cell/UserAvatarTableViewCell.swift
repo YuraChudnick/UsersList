@@ -48,7 +48,9 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         }
         hierarchyNotReady = false
         backgroundColor = .clear
+        selectionStyle = .none
         setupConstaints()
+        setupAvatarImageView()
     }
     
     fileprivate func setupConstaints() {
@@ -58,17 +60,26 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
                          bottom: nil,
                          trailing: nil,
                          centerX: centerXAnchor,
-                         padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0),
+                         padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0),
                          size: CGSize(width: 85, height: 85))
         addSubview(changeButton)
         changeButton.anchor(top: avatarImageView.bottomAnchor,
                             leading: nil,
-                            bottom: nil,
+                            bottom: bottomAnchor,
                             trailing: nil,
-                            centerX: avatarImageView.centerXAnchor)
+                            centerX: avatarImageView.centerXAnchor,
+                            padding: UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0))
+    }
+    
+    fileprivate func setupAvatarImageView() {
+        avatarImageView.setNeedsLayout()
+        avatarImageView.layoutIfNeeded()
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width/2
+        avatarImageView.layer.masksToBounds = true
     }
     
     @objc private func pressedChangeAvatar(_ sender: UIButton) {
+        print("Good")
         viewModel?.pressedChangeAvatar()
     }
     

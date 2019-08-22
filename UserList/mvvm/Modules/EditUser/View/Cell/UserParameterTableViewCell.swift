@@ -67,7 +67,8 @@ class UserParameterTableViewCell: NiblessTableViewCell {
                           leading: contentView.leadingAnchor,
                           bottom: contentView.bottomAnchor,
                           trailing: nil,
-                          padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0))
+                          padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0),
+                          size: CGSize(width: 0, height: 50))
         titleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
         titleLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 251), for: .horizontal)
         

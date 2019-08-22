@@ -10,8 +10,13 @@ import RxSwift
 import RxRelay
 import UIKit.UIImage
 
+enum ParameterViewModelType {
+    case avatar
+    case parameter(viewModel: UserParameterViewModel)
+}
+
 protocol EditUserProfileViewModelProtocol {
-    var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]> { get }
+    var userParameterViewModels: BehaviorRelay<[ParameterViewModelType]> { get }
     var avatar: BehaviorRelay<UIImage?> { get }
     func loadAvatar()
     func pressedChangeAvatar()
@@ -27,16 +32,17 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     var avatar = BehaviorRelay<UIImage?>(value: nil)
     
     var router: EditUserRouterProtocol!
-    var userParameterViewModels: BehaviorRelay<[UserParameterViewModel]>
+    var userParameterViewModels: BehaviorRelay<[ParameterViewModelType]>
     
     init(user: User, repository: EditUserRepositoryProtocol, imageManager: ImageCacheManagerProtocol) {
         self.repository = repository
         self.imageManager = imageManager
         self.user = user
-        let parameterViewModels = [UserParameterViewModel(type: .firstName, value: user.name?.first ?? ""),
-                                   UserParameterViewModel(type: .lastName, value: user.name?.last ?? ""),
-                                   UserParameterViewModel(type: .email, value: user.email),
-                                   UserParameterViewModel(type: .phone, value: user.phone)]
+        let parameterViewModels = [ParameterViewModelType.avatar,
+                                   ParameterViewModelType.parameter(viewModel: UserParameterViewModel(type: .firstName, value: user.name?.first ?? "")),
+                                   ParameterViewModelType.parameter(viewModel: UserParameterViewModel(type: .lastName, value: user.name?.last ?? "")),
+                                   ParameterViewModelType.parameter(viewModel: UserParameterViewModel(type: .email, value: user.email)),
+                                   ParameterViewModelType.parameter(viewModel: UserParameterViewModel(type: .phone, value: user.phone))]
         userParameterViewModels = BehaviorRelay(value: parameterViewModels)
     }
     
@@ -72,16 +78,22 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     func pressedSave() {
         var newValues = (first: "", last: "", email: "", phone: "", image: "image_\(Date().timeIntervalSinceNow)")
         for vm in userParameterViewModels.value {
-            switch vm.type {
-            case .firstName:
-                newValues.first = vm.value.value
-            case .lastName:
-                newValues.last = vm.value.value
-            case .email:
-                newValues.email = vm.value.value
-            case .phone:
-                newValues.phone = vm.value.value
+            switch (vm) {
+            case .parameter(let viewModel):
+                switch viewModel.type {
+                case .firstName:
+                    newValues.first = viewModel.value.value
+                case .lastName:
+                    newValues.last = viewModel.value.value
+                case .email:
+                    newValues.email = viewModel.value.value
+                case .phone:
+                    newValues.phone = viewModel.value.value
+                }
+            default:
+                continue
             }
+            
         }
         if let image = avatar.value {
             imageManager.saveImage(image: image, key: newValues.image)
