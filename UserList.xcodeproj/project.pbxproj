@@ -36,13 +36,16 @@
 		CD8814D72306F464004DC157 /* UserParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8814D62306F464004DC157 /* UserParameterViewModel.swift */; };
 		CDBC9729230EB3E400160306 /* SavedUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9728230EB3E400160306 /* SavedUsersViewModel.swift */; };
 		CDBC972B230EB51500160306 /* SavedUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC972A230EB51500160306 /* SavedUsersRepository.swift */; };
-		CDBC972E230EB87E00160306 /* UserCellViewModelCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC972D230EB87E00160306 /* UserCellViewModelCreating.swift */; };
 		CDBC9730230EBA3700160306 /* UsersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC972F230EBA3700160306 /* UsersViewModelProtocol.swift */; };
 		CDBC9732230EC11800160306 /* SavedUsersModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */; };
 		CDBC9734230EC44100160306 /* SavedUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9733230EC44100160306 /* SavedUsersVC.swift */; };
 		CDBC9736230EC4C800160306 /* SavedUsersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */; };
 		CDBC9738230EDAB100160306 /* NoDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9737230EDAB100160306 /* NoDataProtocol.swift */; };
 		CDBC973A230EDE6C00160306 /* DeselectAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9739230EDE6C00160306 /* DeselectAnimatable.swift */; };
+		CDBC9742230FCD0F00160306 /* RxSimpleAnimatableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9741230FCD0F00160306 /* RxSimpleAnimatableDataSource.swift */; };
+		CDBC9744230FD22C00160306 /* SavedUsersViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9743230FD22C00160306 /* SavedUsersViewAction.swift */; };
+		CDBC9747230FD9A200160306 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9746230FD9A200160306 /* Store.swift */; };
+		CDBC9749230FDA6700160306 /* UsersState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9748230FDA6700160306 /* UsersState.swift */; };
 		CDD4432E230A920F00F189DE /* EditUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4432D230A920F00F189DE /* EditUserRepository.swift */; };
 		CDD44331230A966C00F189DE /* EditUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44330230A966C00F189DE /* EditUserRouter.swift */; };
 		CDD44333230ABFDE00F189DE /* UserAvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */; };
@@ -153,13 +156,16 @@
 		CD8814D62306F464004DC157 /* UserParameterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParameterViewModel.swift; sourceTree = "<group>"; };
 		CDBC9728230EB3E400160306 /* SavedUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModel.swift; sourceTree = "<group>"; };
 		CDBC972A230EB51500160306 /* SavedUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersRepository.swift; sourceTree = "<group>"; };
-		CDBC972D230EB87E00160306 /* UserCellViewModelCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModelCreating.swift; sourceTree = "<group>"; };
 		CDBC972F230EBA3700160306 /* UsersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelProtocol.swift; sourceTree = "<group>"; };
 		CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersModuleBuilder.swift; sourceTree = "<group>"; };
 		CDBC9733230EC44100160306 /* SavedUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVC.swift; sourceTree = "<group>"; };
 		CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersRootView.swift; sourceTree = "<group>"; };
 		CDBC9737230EDAB100160306 /* NoDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataProtocol.swift; sourceTree = "<group>"; };
 		CDBC9739230EDE6C00160306 /* DeselectAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeselectAnimatable.swift; sourceTree = "<group>"; };
+		CDBC9741230FCD0F00160306 /* RxSimpleAnimatableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSimpleAnimatableDataSource.swift; sourceTree = "<group>"; };
+		CDBC9743230FD22C00160306 /* SavedUsersViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewAction.swift; sourceTree = "<group>"; };
+		CDBC9746230FD9A200160306 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CDBC9748230FDA6700160306 /* UsersState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersState.swift; sourceTree = "<group>"; };
 		CDD4432D230A920F00F189DE /* EditUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRepository.swift; sourceTree = "<group>"; };
 		CDD44330230A966C00F189DE /* EditUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRouter.swift; sourceTree = "<group>"; };
 		CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarTableViewCell.swift; sourceTree = "<group>"; };
@@ -264,25 +270,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CD432EE422B393C8008533B4 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				CD432EE722B393E5008533B4 /* Models */,
-				CD432EE522B393E1008533B4 /* RealmProvider.swift */,
-			);
-			path = Realm;
-			sourceTree = "<group>";
-		};
-		CD432EE722B393E5008533B4 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				CD432EEA22B39564008533B4 /* User.swift */,
-				CD432EEC22B395CF008533B4 /* Name.swift */,
-				CD432EEE22B396AD008533B4 /* Picture.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		CD432EF222B3A8EB008533B4 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +342,8 @@
 		CD5D08B222E1FFEF00EF7E01 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				CDBC9745230FD25A00160306 /* Model */,
+				CDBC9740230FCCEC00160306 /* RxExtensions */,
 				CDBC972C230EB85700160306 /* Protocol */,
 				CD6E365122E88B3C000D667C /* DataLayer */,
 				CD5D08B322E1FFFA00EF7E01 /* Modules */,
@@ -412,6 +401,7 @@
 		CD6E365122E88B3C000D667C /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				CD432EE522B393E1008533B4 /* RealmProvider.swift */,
 				CDD44336230AEAE900F189DE /* Managers */,
 				CD6E365322E88B76000D667C /* Repositories */,
 			);
@@ -482,6 +472,7 @@
 				CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */,
 				CDBC9733230EC44100160306 /* SavedUsersVC.swift */,
 				CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */,
+				CDBC9743230FD22C00160306 /* SavedUsersViewAction.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -489,12 +480,31 @@
 		CDBC972C230EB85700160306 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				CDBC972D230EB87E00160306 /* UserCellViewModelCreating.swift */,
 				CDBC972F230EBA3700160306 /* UsersViewModelProtocol.swift */,
 				CDBC9737230EDAB100160306 /* NoDataProtocol.swift */,
 				CDBC9739230EDE6C00160306 /* DeselectAnimatable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CDBC9740230FCCEC00160306 /* RxExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDBC9741230FCD0F00160306 /* RxSimpleAnimatableDataSource.swift */,
+				CDBC9746230FD9A200160306 /* Store.swift */,
+			);
+			path = RxExtensions;
+			sourceTree = "<group>";
+		};
+		CDBC9745230FD25A00160306 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD432EEA22B39564008533B4 /* User.swift */,
+				CD432EEC22B395CF008533B4 /* Name.swift */,
+				CD432EEE22B396AD008533B4 /* Picture.swift */,
+				CDBC9748230FDA6700160306 /* UsersState.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CDD4432C230A91EE00F189DE /* Repository */ = {
@@ -640,7 +650,6 @@
 				CD5D08B222E1FFEF00EF7E01 /* mvvm */,
 				DE5FE79822B5084C00708187 /* Router */,
 				CD432EF422B3B6C7008533B4 /* Module */,
-				CD432EE422B393C8008533B4 /* Realm */,
 				CDFCB62021D75BEB0038E5D1 /* NetworkLayer */,
 				CDFCB61921D757750038E5D1 /* ModuleBuilders */,
 				CDFCB61321D756080038E5D1 /* Views */,
@@ -837,6 +846,7 @@
 				CDFCB62221D75C030038E5D1 /* Request.swift in Sources */,
 				DE5FE79E22B51FF600708187 /* UsersViewModelProtocolOld.swift in Sources */,
 				CD432F0122B3C9D0008533B4 /* UsersModelProtocol.swift in Sources */,
+				CDBC9742230FCD0F00160306 /* RxSimpleAnimatableDataSource.swift in Sources */,
 				DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */,
 				CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */,
 				CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */,
@@ -872,13 +882,16 @@
 				CD432EE922B394C3008533B4 /* Path.swift in Sources */,
 				CDD44338230AEAFD00F189DE /* ImageCacheManager.swift in Sources */,
 				DEAC7907210CBECC00D4445E /* PhotoPickerManager.swift in Sources */,
+				CDBC9747230FD9A200160306 /* Store.swift in Sources */,
 				CD8814D72306F464004DC157 /* UserParameterViewModel.swift in Sources */,
 				CD5D08BB22E2047900EF7E01 /* NiblessViewController.swift in Sources */,
 				CDBC973A230EDE6C00160306 /* DeselectAnimatable.swift in Sources */,
 				CD5D08BF22E2079E00EF7E01 /* NewUserTableViewCell.swift in Sources */,
 				DEAC7902210C992800D4445E /* UserEntity+CoreDataClass.swift in Sources */,
+				CDBC9749230FDA6700160306 /* UsersState.swift in Sources */,
 				CD8814CD2306F1F4004DC157 /* RxEditUserProfileVC.swift in Sources */,
 				CDFCB63021D773020038E5D1 /* SavedUsersModuleBuilder2.swift in Sources */,
+				CDBC9744230FD22C00160306 /* SavedUsersViewAction.swift in Sources */,
 				CDFCB61521D756210038E5D1 /* UsersViewProtocol.swift in Sources */,
 				CDFCB62C21D76F7C0038E5D1 /* UsersModuleBuilder.swift in Sources */,
 				DEF0ED3523087BD30063BCB2 /* NewUsersRouter.swift in Sources */,
@@ -903,7 +916,6 @@
 				DEAC78DB210C3A4F00D4445E /* UserCell.swift in Sources */,
 				CD6E365522E88BA5000D667C /* UsersRepository.swift in Sources */,
 				DEAC78ED210C933C00D4445E /* Utils.swift in Sources */,
-				CDBC972E230EB87E00160306 /* UserCellViewModelCreating.swift in Sources */,
 				CDFCB62821D75DDD0038E5D1 /* NetworkTaskProtocol.swift in Sources */,
 				DEAC78EA210C70FC00D4445E /* UIImage+Extension.swift in Sources */,
 				CDBC9732230EC11800160306 /* SavedUsersModuleBuilder.swift in Sources */,

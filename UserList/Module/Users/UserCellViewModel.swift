@@ -6,12 +6,26 @@
 //  Copyright © 2019 yura. All rights reserved.
 //
 
-import Foundation
+import DifferenceKit
 
 struct UserCellViewModel {
     
-    let name: String
-    let phome: String
-    let imageUrl: URL?
+    var name: String
+    var phome: String
+    var imageUrl: URL?
+    
+    init(user: User) {
+        var name = ""
+        if let n = user.name {
+            name = n.first.capitalizingFirstLetter() + " " + n.last.capitalizingFirstLetter()
+        }
+        self.name = name
+        phome = user.phone
+        imageUrl = URL(string: user.picture?.large ?? "")
+    }
     
 }
+
+typealias UsersStore = Store<UsersState, Action>
+
+extension UUID: Differentiable { }

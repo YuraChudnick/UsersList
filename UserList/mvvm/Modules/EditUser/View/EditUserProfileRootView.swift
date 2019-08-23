@@ -53,11 +53,11 @@ class EditUserProfileRootView: NiblessView {
                 switch (element) {
                 case .avatar:
                     let cell = table.dequeueReusableCell(withIdentifier: UserAvatarTableViewCell.className, for: IndexPath(row: index, section: 0)) as! UserAvatarTableViewCell
-                    cell.viewModel = self?.viewModel
+                    cell.configure(with: self?.viewModel)
                     return cell
                 case .parameter(let viewModel):
                     let cell = table.dequeueReusableCell(withIdentifier: UserParameterTableViewCell.className, for: IndexPath(row: index, section: 0)) as! UserParameterTableViewCell
-                    cell.viewModel = viewModel
+                    cell.configure(with: viewModel)
                     return cell
                 }
             }

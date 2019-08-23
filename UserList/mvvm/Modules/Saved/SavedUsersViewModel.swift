@@ -12,33 +12,40 @@ import RealmSwift
 import RxRealm
 
 protocol SavedUsersViewModelProtocol: UsersViewModelProtocol, NoDataProtocol {
+    var usersStore: UsersStore { get }
     func deleteUser(at indexPath: IndexPath)
 }
 
-class SavedUsersViewModel: SavedUsersViewModelProtocol, UserCellViewModelCreating {
-
+class SavedUsersViewModel: SavedUsersViewModelProtocol {
+    
     let repository: SavedUsersRepositoryProtocol
     var router: UsersRouterProtocol!
     let disposeBag = DisposeBag()
     
     var isNoData: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     var userList = BehaviorRelay<[UserCellViewModel]>(value: [])
+    var usersStore: UsersStore
+    
     let savedUsersResults: Results<User>
     
     init(savedUsersRepository: SavedUsersRepositoryProtocol) {
         repository = savedUsersRepository
         savedUsersResults = savedUsersRepository.getSavedUsers()
+        let userViewModels: [UserCellViewModel] = savedUsersResults.compactMap({ UserCellViewModel(user: $0) })
+        usersStore = UsersStore(initialState: UsersState(with: userViewModels), reducer: update)
         setup()
     }
     
     fileprivate func setup() {
         Observable.changeset(from: savedUsersResults)
-            .map({ [weak self] (results, changes) -> ([UserCellViewModel], RealmChangeset?) in
-                return (results.compactMap({ self?.createUserCellViewModel(user: $0) }), changes)
+            .map({ (results, changes) -> ([UserCellViewModel], RealmChangeset?) in
+                return (results.compactMap({ UserCellViewModel(user: $0) }), changes)
             })
-            .subscribe(onNext: { [weak self] (viewModels, _) in
+            .subscribe(onNext: { [weak self] (viewModels, changes) in
+                if let changes = changes {
+                }
                 self?.isNoData.accept(viewModels.isEmpty)
-                self?.userList.accept(viewModels)
+                //self?.userList.accept(viewModels)
             }, onError: { error in
                 print(error.localizedDescription)
             })

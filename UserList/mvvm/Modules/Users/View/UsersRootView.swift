@@ -48,8 +48,8 @@ class UsersRootView: NiblessView {
     func bindViews() {
         viewModel.userList
             .bind(to: tableView.rx.items(cellIdentifier: NewUserTableViewCell.className, cellType: NewUserTableViewCell.self))
-            { (row, element, cell) in
-                cell.userCellViewModel = element
+            { (row, viewModel, cell) in
+                cell.configure(with: viewModel)
             }
             .disposed(by: disposeBag)
         tableView.rx.itemSelected

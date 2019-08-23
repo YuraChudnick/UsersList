@@ -22,22 +22,12 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         return b
     }()
     
-    var viewModel: EditUserProfileViewModelProtocol? {
-        didSet {
-            disposeBag = DisposeBag()
-            viewModel?.avatar
-                .asObservable()
-                .bind(to: avatarImageView.rx.image)
-                .disposed(by: disposeBag)
-        }
-    }
-    
-    var hierarchyNotReady = true
-    var disposeBag: DisposeBag!
+    private var hierarchyNotReady = true
+    private var disposeBag = DisposeBag()
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = nil
+        disposeBag = DisposeBag()
     }
     
     override func didMoveToWindow() {
@@ -84,9 +74,15 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         changeButton.addTarget(self, action: #selector(pressedChangeAvatar(_:)), for: .touchUpInside)
     }
     
+    func configure(with viewModel: EditUserProfileViewModelProtocol?) {
+        viewModel?.avatar
+            .asObservable()
+            .bind(to: avatarImageView.rx.image)
+            .disposed(by: disposeBag)
+    }
+    
     @objc private func pressedChangeAvatar(_ sender: UIButton) {
-        print("Good")
-        viewModel?.pressedChangeAvatar()
+        //viewModel?.pressedChangeAvatar()
     }
     
     

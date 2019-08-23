@@ -29,21 +29,20 @@ class NewUserTableViewCell: NiblessTableViewCell {
         return l
     }()
     
-    var userCellViewModel: UserCellViewModel? {
-        didSet {
-            userName.text = userCellViewModel?.name
-            userPhone.text = userCellViewModel?.phome
-            userLogo.kf.setImage(with: userCellViewModel?.imageUrl)
+    private var hierarchyNotReady = true
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        guard hierarchyNotReady else {
+            return
         }
+        hierarchyNotReady = false
+        setupConstraints()
+        setupUserLogo()
+        accessoryType = .disclosureIndicator
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        setupViews()
-    }
-    
-    fileprivate func setupViews() {
+    fileprivate func setupConstraints() {
         contentView.addSubview(userLogo)
         userLogo.anchor(top: nil,
                         leading: contentView.leadingAnchor,
@@ -52,11 +51,6 @@ class NewUserTableViewCell: NiblessTableViewCell {
                         centerY: contentView.centerYAnchor,
                         padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0),
                         size: CGSize(width: 40, height: 40))
-        
-        userLogo.setNeedsLayout()
-        userLogo.layoutIfNeeded()
-        userLogo.layer.cornerRadius = userLogo.bounds.width/2
-        userLogo.layer.masksToBounds = true
         
         let stackView = UIStackView(arrangedSubviews: [userName, userPhone])
         stackView.axis = .vertical
@@ -67,8 +61,23 @@ class NewUserTableViewCell: NiblessTableViewCell {
                          bottom: contentView.bottomAnchor,
                          trailing: contentView.trailingAnchor,
                          padding: UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8))
+    }
+    
+    fileprivate func setupUserLogo() {
+        userLogo.setNeedsLayout()
+        userLogo.layoutIfNeeded()
+        userLogo.layer.cornerRadius = userLogo.bounds.width/2
+        userLogo.layer.masksToBounds = true
+    }
+    
+    func configure(with viewModel: UserCellViewModel) {
+        userName.text = viewModel.name
+        userPhone.text = viewModel.phome
+        userLogo.kf.setImage(with: viewModel.imageUrl)
+    }
+    
+    func configure(with store: UsersStore, id: UUID) {
         
-        accessoryType = .disclosureIndicator
     }
 
 }

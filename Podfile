@@ -13,5 +13,6 @@ target 'UserList' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxRealm'
+  pod 'DifferenceKit'
   
 end

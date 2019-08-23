@@ -13,7 +13,7 @@ protocol RxUsersViewModelProtocol: UsersViewModelProtocol {
     func loadData()
 }
 
-class RxUsersViewModel: RxUsersViewModelProtocol, UserCellViewModelCreating {
+class RxUsersViewModel: RxUsersViewModelProtocol {
     
     let usersRepository: UsersRepository
     var router: UsersRouterProtocol!
@@ -31,8 +31,8 @@ class RxUsersViewModel: RxUsersViewModelProtocol, UserCellViewModelCreating {
     fileprivate func setup() {
         users
             .asObservable()
-            .map({ [weak self] users -> [UserCellViewModel] in
-                return users.compactMap({ self?.createUserCellViewModel(user: $0) })
+            .map({ users -> [UserCellViewModel] in
+                return users.compactMap({ UserCellViewModel(user: $0) })
             })
             .subscribe(onNext: { [weak self] userCellVM in
                 self?.userList.accept(userCellVM)

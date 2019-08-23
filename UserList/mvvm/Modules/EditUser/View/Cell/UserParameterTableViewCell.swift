@@ -28,40 +28,25 @@ class UserParameterTableViewCell: NiblessTableViewCell {
         return tf
     }()
     
-    var viewModel: UserParameterViewModelProtocol? {
-        didSet {
-            disposeBag = DisposeBag()
-            titleLabel.text = viewModel?.type.rawValue
-            //textField.text = viewModel.value.value //set manually
-            
-            //two way data binding
-            viewModel?.value
-                .asObservable()
-                .bind(to: textField.rx.text)
-                .disposed(by: disposeBag)
-            
-            textField.rx.text
-                .orEmpty
-                .bind(to: viewModel!.value)
-                .disposed(by: disposeBag)
-        }
-    }
-    
-    var disposeBag: DisposeBag!
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        setupViews()
-    }
+    private var hierarchyNotReady = true
+    private var disposeBag = DisposeBag()
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = nil
+        disposeBag = DisposeBag()
     }
     
-    fileprivate func setupViews() {
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        guard hierarchyNotReady else {
+            return
+        }
+        hierarchyNotReady = false
         selectionStyle = .none
+        setupConstraints()
+    }
+    
+    fileprivate func setupConstraints() {
         contentView.addSubview(titleLabel)
         titleLabel.anchor(top: contentView.topAnchor,
                           leading: contentView.leadingAnchor,
@@ -82,6 +67,21 @@ class UserParameterTableViewCell: NiblessTableViewCell {
         textField.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
         textField.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 250), for: .horizontal)
         
+    }
+    
+    func configure(with viewModel: UserParameterViewModelProtocol) {
+        titleLabel.text = viewModel.type.rawValue
+        //textField.text = viewModel.value.value //set manually
+        
+        //two way data binding
+        viewModel.value
+            .bind(to: textField.rx.text)
+            .disposed(by: disposeBag)
+        
+        textField.rx.text
+            .orEmpty
+            .bind(to: viewModel.value)
+            .disposed(by: disposeBag)
     }
     
 }

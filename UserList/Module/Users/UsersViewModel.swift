@@ -65,21 +65,10 @@ class UsersViewModel: UsersViewModelProtocolOld {
         return cellViewModels[indexPath.row]
     }
     
-    func createUserCellViewModel(user: User) -> UserCellViewModel {
-        var name = ""
-        if let n = user.name {
-            name = n.first.capitalizingFirstLetter() + " " + n.last.capitalizingFirstLetter()
-        }
-        
-        return UserCellViewModel(name: name,
-                                 phome: user.phone,
-                                 imageUrl: URL(string: user.picture?.large ?? ""))
-    }
-    
     private func processFetched(users: [User]) {
         self.users += users
         var vm: [UserCellViewModel] = []
-        self.users.forEach { vm.append(createUserCellViewModel(user: $0)) }
+        self.users.forEach { vm.append(UserCellViewModel(user: $0)) }
         cellViewModels = vm
         isNoData = cellViewModels.isEmpty
     }
