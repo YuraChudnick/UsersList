@@ -77,14 +77,14 @@ class NewUserTableViewCell: NiblessTableViewCell {
         userLogo.layer.masksToBounds = true
     }
     
-    func configure(with viewModel: UserViewModel?) {
-        viewModel?.name
+    func configure(with viewModel: UserViewModel) {
+        viewModel.name
             .bind(to: userName.rx.text)
             .disposed(by: disposeBag)
-        viewModel?.phone
+        viewModel.phone
             .bind(to: userPhone.rx.text)
             .disposed(by: disposeBag)
-        viewModel?.imageUrl
+        viewModel.imageUrl
             .subscribe(onNext: { [weak self] url in
                 self?.userLogo.kf.setImage(with: url)
             })

@@ -65,14 +65,13 @@ class SavedUsersRootView: NiblessView {
             .bind(to: viewModel.usersStore)
             .disposed(by: disposeBag)
         
-        let _store = viewModel.usersStore
-        let dataSource = RxSimpleAnimatableDataSource<UUID, NewUserTableViewCell>(identifier: NewUserTableViewCell.className) { (_, id, cell) in
-            //cell.configure(with: _store, id: id)
+        let dataSource = RxSimpleAnimatableDataSource<UserViewModel, NewUserTableViewCell>(identifier: NewUserTableViewCell.className) { (_, viewModel, cell) in
+            cell.configure(with: viewModel)
         }
         
         viewModel.usersStore
             .state
-            .map({ $0.order })
+            .map({ $0.viewModels })
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
@@ -80,17 +79,6 @@ class SavedUsersRootView: NiblessView {
             .map({ !$0 })
             .bind(to: noDataLabel.rx.isHidden)
             .disposed(by: disposeBag)
-        
-//        tableView.rx.itemSelected
-//            .subscribe(onNext: { [weak self] indexPath in
-//                self?.viewModel.selectUser(at: indexPath)
-//            })
-//            .disposed(by: disposeBag)
-//        tableView.rx.itemDeleted
-//            .subscribe(onNext: { [weak self] indexPath in
-//                self?.viewModel.deleteUser(at: indexPath)
-//            })
-//            .disposed(by: disposeBag)
     }
     
 }

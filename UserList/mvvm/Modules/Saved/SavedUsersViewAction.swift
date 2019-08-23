@@ -17,12 +17,12 @@ extension ObservableType where Element == Void {
 
 extension ObservableType where Element == IndexPath {
     func select(state: Observable<UsersState>) -> Observable<Action> {
-        return withLatestFrom(state.map { $0.order }) { $1[$0.row] }
-            .map { Action.select($0) }
+        return withLatestFrom(state.map { $0.viewModels }) { $1[$0.row] }
+            .map { Action.select(viewModel: $0) }
     }
     
     func delete(state: Observable<UsersState>) -> Observable<Action> {
-        return withLatestFrom(state.map { $0.order }) { $1[$0.row] }
-            .map { Action.remove($0) }
+        return withLatestFrom(state.map { $0.viewModels }) { $1[$0.row] }
+            .map { Action.remove(viewModel: $0) }
     }
 }

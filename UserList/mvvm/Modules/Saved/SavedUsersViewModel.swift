@@ -32,7 +32,7 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
         repository = savedUsersRepository
         savedUsersResults = savedUsersRepository.getSavedUsers()
         let userViewModels: [UserViewModel] = savedUsersResults.compactMap({ UserViewModel(user: $0) })
-        usersStore = UsersStore(initialState: UsersState(with: userViewModels), reducer: update)
+        usersStore = UsersStore(initialState: UsersState(viewModels: userViewModels, selected: nil), reducer: update)
         setup()
     }
     
