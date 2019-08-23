@@ -19,7 +19,10 @@ struct UserViewModel: Differentiable {
     var phone: BehaviorRelay<String>
     var imageUrl: BehaviorRelay<URL?>
     
+    let user: User
+    
     init(user: User) {
+        self.user = user
         var name = ""
         if let n = user.name {
             name = n.first.capitalizingFirstLetter() + " " + n.last.capitalizingFirstLetter()
@@ -29,7 +32,7 @@ struct UserViewModel: Differentiable {
         self.imageUrl = BehaviorRelay(value: URL(string: user.picture?.large ?? ""))
     }
     
-    func update(with user: User) {
+    func update() {
         var name = ""
         if let n = user.name {
             name = n.first.capitalizingFirstLetter() + " " + n.last.capitalizingFirstLetter()

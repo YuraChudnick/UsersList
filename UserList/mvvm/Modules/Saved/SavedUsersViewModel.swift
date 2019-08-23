@@ -25,6 +25,7 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
     var isNoData: BehaviorRelay<Bool> = BehaviorRelay(value: true)
     var userList = BehaviorRelay<[UserViewModel]>(value: [])
     var usersStore: UsersStore
+    let userState: UsersState
     
     let savedUsersResults: Results<User>
     
@@ -32,22 +33,40 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
         repository = savedUsersRepository
         savedUsersResults = savedUsersRepository.getSavedUsers()
         let userViewModels: [UserViewModel] = savedUsersResults.compactMap({ UserViewModel(user: $0) })
-        usersStore = UsersStore(initialState: UsersState(viewModels: userViewModels, selected: nil), reducer: update)
-        setup()
+        userState = UsersState(viewModels: userViewModels)
+        usersStore = UsersStore(initialState: userState, reducer: update)
+        subcribeToReakmUpdates()
+        bindActions()
     }
     
-    fileprivate func setup() {
+    fileprivate func subcribeToReakmUpdates() {
         Observable.changeset(from: savedUsersResults)
             .map({ (results, changes) -> ([UserViewModel], RealmChangeset?) in
                 return (results.compactMap({ UserViewModel(user: $0) }), changes)
             })
             .subscribe(onNext: { [weak self] (viewModels, changes) in
                 if let changes = changes {
+                    for i in changes.updated {
+                        
+                    }
                 }
                 self?.isNoData.accept(viewModels.isEmpty)
                 //self?.userList.accept(viewModels)
             }, onError: { error in
                 print(error.localizedDescription)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    fileprivate func bindActions() {
+        userState.selected
+            .subscribe(onNext: { [weak self] viewModel in
+                self?.router.presentEditScreen(with: viewModel.user)
+            })
+            .disposed(by: disposeBag)
+        userState.removed
+            .subscribe(onNext: { [weak self] viewModel in
+                self?.repository.delete(user: viewModel.user)
             })
             .disposed(by: disposeBag)
     }

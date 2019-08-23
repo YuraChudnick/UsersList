@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RealmSwift
+import RxRelay
 
 enum Action {
     case add(viewModel: UserViewModel)
@@ -17,8 +18,14 @@ enum Action {
 }
 
 struct UsersState {
-    var viewModels: [UserViewModel] = []
-    var selected: UserViewModel?
+    var viewModels: [UserViewModel]
+    var selected: PublishRelay<UserViewModel> = PublishRelay()
+    var removed: PublishRelay<UserViewModel> = PublishRelay()
+    
+    init(viewModels: [UserViewModel]) {
+       self.viewModels = viewModels
+    }
+    
 }
 
 func update(state: UsersState, action: Action) -> UsersState {
@@ -28,11 +35,9 @@ func update(state: UsersState, action: Action) -> UsersState {
         result.viewModels.append(viewModel)
     case let .remove(viewModel):
         result.viewModels = state.viewModels.filter { $0.differenceIdentifier != viewModel.differenceIdentifier }
-        if state.selected?.differenceIdentifier == viewModel.differenceIdentifier {
-            result.selected = nil
-        }
+        result.removed.accept(viewModel)
     case let .select(viewModel):
-        result.selected = viewModel
+        result.selected.accept(viewModel)
     }
     return result
 }
