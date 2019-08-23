@@ -14,11 +14,11 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userPhone: UILabel!
     
-    var userCellViewModel: UserCellViewModel? {
+    var userCellViewModel: UserViewModel? {
         didSet {
-            userName.text = userCellViewModel?.name
-            userPhone.text = userCellViewModel?.phome
-            userLogo.kf.setImage(with: userCellViewModel?.imageUrl)
+//            userName.text = userCellViewModel?.name
+//            userPhone.text = userCellViewModel?.phome
+//            userLogo.kf.setImage(with: userCellViewModel?.imageUrl)
         }
     }
 

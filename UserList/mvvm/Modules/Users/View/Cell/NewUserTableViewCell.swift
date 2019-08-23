@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class NewUserTableViewCell: NiblessTableViewCell {
 
@@ -30,6 +31,12 @@ class NewUserTableViewCell: NiblessTableViewCell {
     }()
     
     private var hierarchyNotReady = true
+    private var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -70,14 +77,18 @@ class NewUserTableViewCell: NiblessTableViewCell {
         userLogo.layer.masksToBounds = true
     }
     
-    func configure(with viewModel: UserCellViewModel) {
-        userName.text = viewModel.name
-        userPhone.text = viewModel.phome
-        userLogo.kf.setImage(with: viewModel.imageUrl)
+    func configure(with viewModel: UserViewModel?) {
+        viewModel?.name
+            .bind(to: userName.rx.text)
+            .disposed(by: disposeBag)
+        viewModel?.phone
+            .bind(to: userPhone.rx.text)
+            .disposed(by: disposeBag)
+        viewModel?.imageUrl
+            .subscribe(onNext: { [weak self] url in
+                self?.userLogo.kf.setImage(with: url)
+            })
+            .disposed(by: disposeBag)
     }
     
-    func configure(with store: UsersStore, id: UUID) {
-        
-    }
-
 }

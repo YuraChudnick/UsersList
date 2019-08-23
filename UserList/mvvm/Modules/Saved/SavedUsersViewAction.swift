@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 extension ObservableType where Element == Void {
-    func add(viewModel: UserCellViewModel) -> Observable<Action> {
+    func add(viewModel: UserViewModel) -> Observable<Action> {
         return map { Action.add(viewModel: viewModel) }
     }
 }

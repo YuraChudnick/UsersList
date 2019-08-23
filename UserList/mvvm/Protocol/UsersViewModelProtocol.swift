@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 
 protocol UsersViewModelProtocol {
-    var userList: BehaviorRelay<[UserCellViewModel]> { get }
+    var userList: BehaviorRelay<[UserViewModel]> { get }
     func selectUser(at indexPath: IndexPath)
     func willDisplayUser(at indexPath: IndexPath)
 }

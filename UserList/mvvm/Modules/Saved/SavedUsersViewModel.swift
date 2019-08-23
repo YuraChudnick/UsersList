@@ -23,7 +23,7 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
     let disposeBag = DisposeBag()
     
     var isNoData: BehaviorRelay<Bool> = BehaviorRelay(value: true)
-    var userList = BehaviorRelay<[UserCellViewModel]>(value: [])
+    var userList = BehaviorRelay<[UserViewModel]>(value: [])
     var usersStore: UsersStore
     
     let savedUsersResults: Results<User>
@@ -31,15 +31,15 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
     init(savedUsersRepository: SavedUsersRepositoryProtocol) {
         repository = savedUsersRepository
         savedUsersResults = savedUsersRepository.getSavedUsers()
-        let userViewModels: [UserCellViewModel] = savedUsersResults.compactMap({ UserCellViewModel(user: $0) })
+        let userViewModels: [UserViewModel] = savedUsersResults.compactMap({ UserViewModel(user: $0) })
         usersStore = UsersStore(initialState: UsersState(with: userViewModels), reducer: update)
         setup()
     }
     
     fileprivate func setup() {
         Observable.changeset(from: savedUsersResults)
-            .map({ (results, changes) -> ([UserCellViewModel], RealmChangeset?) in
-                return (results.compactMap({ UserCellViewModel(user: $0) }), changes)
+            .map({ (results, changes) -> ([UserViewModel], RealmChangeset?) in
+                return (results.compactMap({ UserViewModel(user: $0) }), changes)
             })
             .subscribe(onNext: { [weak self] (viewModels, changes) in
                 if let changes = changes {

@@ -55,13 +55,6 @@ class SavedUsersRootView: NiblessView {
     }
     
     func bindViews() {
-//        viewModel.userList
-//            .bind(to: tableView.rx.items(cellIdentifier: NewUserTableViewCell.className, cellType: NewUserTableViewCell.self))
-//            { (row, viewModel, cell) in
-//                cell.configure(with: viewModel)
-//            }
-//            .disposed(by: disposeBag)
-        
         tableView.rx.itemSelected
             .select(state: viewModel.usersStore.state)
             .bind(to: viewModel.usersStore)
@@ -74,7 +67,7 @@ class SavedUsersRootView: NiblessView {
         
         let _store = viewModel.usersStore
         let dataSource = RxSimpleAnimatableDataSource<UUID, NewUserTableViewCell>(identifier: NewUserTableViewCell.className) { (_, id, cell) in
-            cell.configure(with: _store, id: id)
+            //cell.configure(with: _store, id: id)
         }
         
         viewModel.usersStore

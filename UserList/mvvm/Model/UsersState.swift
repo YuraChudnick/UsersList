@@ -8,19 +8,20 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 enum Action {
-    case add(viewModel: UserCellViewModel)
+    case add(viewModel: UserViewModel)
     case remove(UUID)
     case select(UUID?)
 }
 
 struct UsersState {
     var order: [UUID] = []
-    var viewModels: [UUID: UserCellViewModel] = [:]
+    var viewModels: [UUID: UserViewModel] = [:]
     var selected: UUID?
     
-    init(with viewModels: [UserCellViewModel]) {
+    init(with viewModels: [UserViewModel]) {
         for viewModel in viewModels {
             let id = UUID()
             order.append(id)
@@ -50,7 +51,7 @@ func update(state: UsersState, action: Action) -> UsersState {
 
 extension ObservableType where Element == UsersState {
     
-    func viewModel(for id: UUID) -> Observable<UserCellViewModel?> {
+    func user(for id: UUID) -> Observable<UserViewModel?> {
         return map({ $0.viewModels[id] })
     }
     

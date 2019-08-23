@@ -18,7 +18,7 @@ class RxUsersViewModel: RxUsersViewModelProtocol {
     let usersRepository: UsersRepository
     var router: UsersRouterProtocol!
     private let users = BehaviorRelay<[User]>(value: [])
-    var userList = BehaviorRelay<[UserCellViewModel]>(value: [])
+    var userList = BehaviorRelay<[UserViewModel]>(value: [])
     let disposeBag = DisposeBag()
     let isLoading = BehaviorRelay<Bool>(value: false)
     private var page = 0
@@ -31,8 +31,8 @@ class RxUsersViewModel: RxUsersViewModelProtocol {
     fileprivate func setup() {
         users
             .asObservable()
-            .map({ users -> [UserCellViewModel] in
-                return users.compactMap({ UserCellViewModel(user: $0) })
+            .map({ users -> [UserViewModel] in
+                return users.compactMap({ UserViewModel(user: $0) })
             })
             .subscribe(onNext: { [weak self] userCellVM in
                 self?.userList.accept(userCellVM)

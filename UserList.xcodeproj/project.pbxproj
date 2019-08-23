@@ -66,7 +66,7 @@
 		CDFCB63C21D77BC90038E5D1 /* EditUserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB63B21D77BC90038E5D1 /* EditUserProfileModel.swift */; };
 		CDFCB63E21D77F5C0038E5D1 /* EditUserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB63D21D77F5C0038E5D1 /* EditUserProfilePresenter.swift */; };
 		CDFCB64021D780730038E5D1 /* EditUserProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCB63F21D780730038E5D1 /* EditUserProfileModuleBuilder.swift */; };
-		DE5FE79722B438B800708187 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79622B438B800708187 /* UserCellViewModel.swift */; };
+		DE5FE79722B438B800708187 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79622B438B800708187 /* UserViewModel.swift */; };
 		DE5FE79A22B5086000708187 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79922B5086000708187 /* Router.swift */; };
 		DE5FE79C22B508C200708187 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79B22B508C200708187 /* UsersRouter.swift */; };
 		DE5FE79E22B51FF600708187 /* UsersViewModelProtocolOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5FE79D22B51FF600708187 /* UsersViewModelProtocolOld.swift */; };
@@ -190,7 +190,7 @@
 		CDFCB63B21D77BC90038E5D1 /* EditUserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileModel.swift; sourceTree = "<group>"; };
 		CDFCB63D21D77F5C0038E5D1 /* EditUserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfilePresenter.swift; sourceTree = "<group>"; };
 		CDFCB63F21D780730038E5D1 /* EditUserProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileModuleBuilder.swift; sourceTree = "<group>"; };
-		DE5FE79622B438B800708187 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
+		DE5FE79622B438B800708187 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		DE5FE79922B5086000708187 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DE5FE79B22B508C200708187 /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
 		DE5FE79D22B51FF600708187 /* UsersViewModelProtocolOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelProtocolOld.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				DE5FE79522B4374300708187 /* Protocol */,
-				DE5FE79622B438B800708187 /* UserCellViewModel.swift */,
+				DE5FE79622B438B800708187 /* UserViewModel.swift */,
 				DEAC78D2210C390C00D4445E /* UsersVC.swift */,
 				CD432EFA22B3C837008533B4 /* UsersViewModel.swift */,
 				CD432F0222B3E2D3008533B4 /* UsersModel.swift */,
@@ -850,7 +850,7 @@
 				DEAC7905210C9E6300D4445E /* UsersFetchedResultsController.swift in Sources */,
 				CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */,
 				CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */,
-				DE5FE79722B438B800708187 /* UserCellViewModel.swift in Sources */,
+				DE5FE79722B438B800708187 /* UserViewModel.swift in Sources */,
 				CDFCB63221D77A550038E5D1 /* EditUserProfileModelProtocol.swift in Sources */,
 				CDBC972B230EB51500160306 /* SavedUsersRepository.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,

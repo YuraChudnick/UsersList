@@ -21,7 +21,7 @@ protocol UsersViewModelProtocolOld {
     init(model: UsersModelProtocol)
     
     func reloadData()
-    func getUserCellViewModel(at indexPath: IndexPath) -> UserCellViewModel
+    func getUserCellViewModel(at indexPath: IndexPath) -> UserViewModel
     func userPressed(at indexPath: IndexPath)
     
     

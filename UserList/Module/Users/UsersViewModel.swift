@@ -15,7 +15,7 @@ class UsersViewModel: UsersViewModelProtocolOld {
     private var users: [User] = []
     private var page: Int = 0
     
-    private var cellViewModels: [UserCellViewModel] = [] {
+    private var cellViewModels: [UserViewModel] = [] {
         didSet {
             self.reloadTableViewClosure?()
         }
@@ -61,14 +61,14 @@ class UsersViewModel: UsersViewModelProtocolOld {
         }
     }
     
-    func getUserCellViewModel(at indexPath: IndexPath) -> UserCellViewModel {
+    func getUserCellViewModel(at indexPath: IndexPath) -> UserViewModel {
         return cellViewModels[indexPath.row]
     }
     
     private func processFetched(users: [User]) {
         self.users += users
-        var vm: [UserCellViewModel] = []
-        self.users.forEach { vm.append(UserCellViewModel(user: $0)) }
+        var vm: [UserViewModel] = []
+        self.users.forEach { vm.append(UserViewModel(user: $0)) }
         cellViewModels = vm
         isNoData = cellViewModels.isEmpty
     }
