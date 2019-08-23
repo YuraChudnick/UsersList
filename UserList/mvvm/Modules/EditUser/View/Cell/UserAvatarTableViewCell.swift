@@ -19,7 +19,6 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         b.setTitle("Change photo", for: .normal)
         b.setTitleColor(b.tintColor, for: .normal)
         b.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        b.addTarget(self, action: #selector(pressedChangeAvatar(_:)), for: .touchUpInside)
         return b
     }()
     
@@ -51,6 +50,7 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         selectionStyle = .none
         setupConstaints()
         setupAvatarImageView()
+        setupChangeButton()
     }
     
     fileprivate func setupConstaints() {
@@ -78,6 +78,10 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         avatarImageView.layoutIfNeeded()
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.width/2
         avatarImageView.layer.masksToBounds = true
+    }
+    
+    fileprivate func setupChangeButton() {
+        changeButton.addTarget(self, action: #selector(pressedChangeAvatar(_:)), for: .touchUpInside)
     }
     
     @objc private func pressedChangeAvatar(_ sender: UIButton) {
