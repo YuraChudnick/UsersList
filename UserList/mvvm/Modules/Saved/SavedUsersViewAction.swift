@@ -9,12 +9,6 @@
 import Foundation
 import RxSwift
 
-extension ObservableType where Element == Void {
-    func add(viewModel: UserViewModel) -> Observable<Action> {
-        return map { Action.add(viewModel: viewModel) }
-    }
-}
-
 extension ObservableType where Element == IndexPath {
     func select(state: Observable<UsersState>) -> Observable<Action> {
         return withLatestFrom(state.map { $0.viewModels }) { $1[$0.row] }

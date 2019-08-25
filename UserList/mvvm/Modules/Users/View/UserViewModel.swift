@@ -9,6 +9,8 @@
 import DifferenceKit
 import RxSwift
 import RxRelay
+import RxRealm
+import RealmSwift
 
 struct UserViewModel: Differentiable {
 
@@ -48,6 +50,27 @@ struct UserViewModel: Differentiable {
     
 }
 
-typealias UsersStore = Store<UsersState, Action>
+extension ObservableType where Element == (AnyRealmCollection<User>, RealmChangeset?) {
 
-extension UUID: Differentiable { }
+    func toUserViewModels() -> Observable<([UserViewModel], RealmChangeset?)> {
+        return self.map({ (results, changes) -> ([UserViewModel], RealmChangeset?) in
+            return (results.compactMap({ UserViewModel(user: $0) }), changes)
+        })
+    }
+    
+}
+
+extension Observable where Element == ([UserViewModel], RealmChangeset?) {
+    
+    func updateState() -> Observable<Action> {
+        return self.map { (arg) -> Action in
+            let (viewModels, changes) = arg
+            if let changes = changes {
+                return Action.realmUpdates(viewModels: viewModels, deleted: changes.deleted, added: changes.inserted, updated: changes.updated)
+            } else {
+                return Action.realmUpdates(viewModels: [], deleted: [], added: [], updated: [])
+            }
+        }
+    }
+    
+}

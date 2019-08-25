@@ -10,12 +10,18 @@ import Foundation
 import RxSwift
 import RealmSwift
 import RxRelay
+import DifferenceKit
 
 enum Action {
     case add(viewModel: UserViewModel)
     case remove(viewModel: UserViewModel)
     case select(viewModel: UserViewModel)
+    case realmUpdates(viewModels: [UserViewModel], deleted: [Int], added: [Int], updated: [Int])
 }
+
+typealias UsersStore = Store<UsersState, Action>
+
+extension UUID: Differentiable { }
 
 struct UsersState {
     var viewModels: [UserViewModel]
@@ -38,6 +44,9 @@ func update(state: UsersState, action: Action) -> UsersState {
         result.removed.accept(viewModel)
     case let .select(viewModel):
         result.selected.accept(viewModel)
+    case let .realmUpdates(viewModels, _, added, updated):
+        added.forEach({ result.viewModels.append(viewModels[$0]) })
+        updated.forEach({ result.viewModels[$0].update() })
     }
     return result
 }

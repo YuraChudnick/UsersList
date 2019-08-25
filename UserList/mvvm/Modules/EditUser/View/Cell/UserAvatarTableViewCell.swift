@@ -40,7 +40,6 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         selectionStyle = .none
         setupConstaints()
         setupAvatarImageView()
-        setupChangeButton()
     }
     
     fileprivate func setupConstaints() {
@@ -70,20 +69,17 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         avatarImageView.layer.masksToBounds = true
     }
     
-    fileprivate func setupChangeButton() {
-        changeButton.addTarget(self, action: #selector(pressedChangeAvatar(_:)), for: .touchUpInside)
-    }
-    
     func configure(with viewModel: EditUserProfileViewModelProtocol?) {
         viewModel?.avatar
             .asObservable()
             .bind(to: avatarImageView.rx.image)
             .disposed(by: disposeBag)
+        changeButton.rx
+            .tap
+            .bind { _ in
+                viewModel?.pressedChangeAvatar()
+            }
+            .disposed(by: disposeBag)
     }
-    
-    @objc private func pressedChangeAvatar(_ sender: UIButton) {
-        //viewModel?.pressedChangeAvatar()
-    }
-    
-    
+        
 }

@@ -43,7 +43,7 @@ class SavedUsersRootView: NiblessView {
         bindViews()
     }
     
-    func setupTableView() {
+    fileprivate func setupTableView() {
         addSubview(tableView)
         tableView.fillSuperview()
         
@@ -54,7 +54,7 @@ class SavedUsersRootView: NiblessView {
         tableView.register(NewUserTableViewCell.self, forCellReuseIdentifier: NewUserTableViewCell.className)
     }
     
-    func bindViews() {
+    fileprivate func bindViews() {
         tableView.rx.itemSelected
             .select(state: viewModel.usersStore.state)
             .bind(to: viewModel.usersStore)
@@ -75,8 +75,9 @@ class SavedUsersRootView: NiblessView {
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        viewModel.isNoData
-            .map({ !$0 })
+        viewModel.usersStore
+            .state
+            .map({ !$0.viewModels.isEmpty })
             .bind(to: noDataLabel.rx.isHidden)
             .disposed(by: disposeBag)
     }

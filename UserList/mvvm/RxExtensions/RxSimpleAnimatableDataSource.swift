@@ -14,6 +14,11 @@ import DifferenceKit
 class RxSimpleAnimatableDataSource<E: Differentiable, Cell: UITableViewCell>: NSObject, RxTableViewDataSourceType, UITableViewDataSource {
     typealias Element = [E]
     
+    let identifier: String
+    let animation: UITableView.RowAnimation
+    let configure: (Int, E, Cell) -> Void
+    var values: Element = []
+    
     init(identifier: String, with animation: UITableView.RowAnimation = .automatic, configure: @escaping (Int, E, Cell) -> Void) {
         self.identifier = identifier
         self.animation = animation
@@ -40,8 +45,4 @@ class RxSimpleAnimatableDataSource<E: Differentiable, Cell: UITableViewCell>: NS
         return cell
     }
     
-    let identifier: String
-    let animation: UITableView.RowAnimation
-    let configure: (Int, E, Cell) -> Void
-    var values: Element = []
 }
