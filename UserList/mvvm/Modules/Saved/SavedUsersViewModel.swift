@@ -16,7 +16,7 @@ protocol SavedUsersViewModelProtocol {
 
 class SavedUsersViewModel: SavedUsersViewModelProtocol {
     
-    let repository: SavedUsersRepositoryProtocol
+    let repository: UsersRepositoryProtocol
     var router: UsersRouterProtocol!
     let disposeBag = DisposeBag()
     
@@ -25,9 +25,9 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
     
     let savedUsersResults: Results<User>
     
-    init(savedUsersRepository: SavedUsersRepositoryProtocol) {
-        repository = savedUsersRepository
-        savedUsersResults = savedUsersRepository.getSavedUsers()
+    init(repository: UsersRepositoryProtocol) {
+        self.repository = repository
+        savedUsersResults = repository.getSavedUsers()
         let userViewModels: [UserViewModel] = savedUsersResults.compactMap({ UserViewModel(user: $0) })
         userState = UsersState(viewModels: userViewModels)
         usersStore = UsersStore(initialState: userState, reducer: update)

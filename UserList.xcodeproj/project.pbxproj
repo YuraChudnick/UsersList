@@ -31,7 +31,6 @@
 		CD8814D42306F408004DC157 /* UserParameterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8814D32306F408004DC157 /* UserParameterTableViewCell.swift */; };
 		CD8814D72306F464004DC157 /* UserParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8814D62306F464004DC157 /* UserParameterViewModel.swift */; };
 		CDBC9729230EB3E400160306 /* SavedUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9728230EB3E400160306 /* SavedUsersViewModel.swift */; };
-		CDBC972B230EB51500160306 /* SavedUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC972A230EB51500160306 /* SavedUsersRepository.swift */; };
 		CDBC9732230EC11800160306 /* SavedUsersModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */; };
 		CDBC9734230EC44100160306 /* SavedUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9733230EC44100160306 /* SavedUsersVC.swift */; };
 		CDBC9736230EC4C800160306 /* SavedUsersRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */; };
@@ -40,7 +39,6 @@
 		CDBC9744230FD22C00160306 /* SavedUsersViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9743230FD22C00160306 /* SavedUsersViewAction.swift */; };
 		CDBC9747230FD9A200160306 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9746230FD9A200160306 /* Store.swift */; };
 		CDBC9749230FDA6700160306 /* UsersState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC9748230FDA6700160306 /* UsersState.swift */; };
-		CDD4432E230A920F00F189DE /* EditUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4432D230A920F00F189DE /* EditUserRepository.swift */; };
 		CDD44331230A966C00F189DE /* EditUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44330230A966C00F189DE /* EditUserRouter.swift */; };
 		CDD44333230ABFDE00F189DE /* UserAvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */; };
 		CDD44338230AEAFD00F189DE /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD44337230AEAFD00F189DE /* ImageCacheManager.swift */; };
@@ -118,7 +116,6 @@
 		CD8814D32306F408004DC157 /* UserParameterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParameterTableViewCell.swift; sourceTree = "<group>"; };
 		CD8814D62306F464004DC157 /* UserParameterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserParameterViewModel.swift; sourceTree = "<group>"; };
 		CDBC9728230EB3E400160306 /* SavedUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModel.swift; sourceTree = "<group>"; };
-		CDBC972A230EB51500160306 /* SavedUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersRepository.swift; sourceTree = "<group>"; };
 		CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersModuleBuilder.swift; sourceTree = "<group>"; };
 		CDBC9733230EC44100160306 /* SavedUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVC.swift; sourceTree = "<group>"; };
 		CDBC9735230EC4C800160306 /* SavedUsersRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersRootView.swift; sourceTree = "<group>"; };
@@ -127,7 +124,6 @@
 		CDBC9743230FD22C00160306 /* SavedUsersViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewAction.swift; sourceTree = "<group>"; };
 		CDBC9746230FD9A200160306 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CDBC9748230FDA6700160306 /* UsersState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersState.swift; sourceTree = "<group>"; };
-		CDD4432D230A920F00F189DE /* EditUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRepository.swift; sourceTree = "<group>"; };
 		CDD44330230A966C00F189DE /* EditUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRouter.swift; sourceTree = "<group>"; };
 		CDD44332230ABFDE00F189DE /* UserAvatarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarTableViewCell.swift; sourceTree = "<group>"; };
 		CDD44337230AEAFD00F189DE /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
@@ -258,7 +254,6 @@
 			children = (
 				CD5D08B522E2001400EF7E01 /* View */,
 				CD5D08B622E2003A00EF7E01 /* ViewModel */,
-				CD6E365922E89BB1000D667C /* UsersRepository.swift */,
 				DEF0ED3423087BD30063BCB2 /* UsersRouter.swift */,
 			);
 			path = Users;
@@ -294,8 +289,9 @@
 		CD6E365122E88B3C000D667C /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				CD432EE522B393E1008533B4 /* RealmProvider.swift */,
+				DEF0ED3B2312AC120063BCB2 /* Repositories */,
 				CDD44336230AEAE900F189DE /* Managers */,
+				CD432EE522B393E1008533B4 /* RealmProvider.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -305,7 +301,6 @@
 			children = (
 				CD8814D12306F386004DC157 /* View */,
 				CD8814D52306F443004DC157 /* ViewModel */,
-				CDD4432D230A920F00F189DE /* EditUserRepository.swift */,
 				CDD44330230A966C00F189DE /* EditUserRouter.swift */,
 				DEF0ED322308796F0063BCB2 /* EditUserModuleBuilder.swift */,
 			);
@@ -345,7 +340,6 @@
 			children = (
 				DEF0ED3A2312A28A0063BCB2 /* View */,
 				CDBC9728230EB3E400160306 /* SavedUsersViewModel.swift */,
-				CDBC972A230EB51500160306 /* SavedUsersRepository.swift */,
 				CDBC9731230EC11800160306 /* SavedUsersModuleBuilder.swift */,
 			);
 			path = Saved;
@@ -508,6 +502,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DEF0ED3B2312AC120063BCB2 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CD6E365922E89BB1000D667C /* UsersRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -626,7 +628,6 @@
 				CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */,
 				CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */,
 				DE5FE79722B438B800708187 /* UserViewModel.swift in Sources */,
-				CDBC972B230EB51500160306 /* SavedUsersRepository.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,
 				DEAC78E6210C5D1100D4445E /* String+Extension.swift in Sources */,
 				CD6E365C22E89E66000D667C /* UsersVC.swift in Sources */,
@@ -634,7 +635,6 @@
 				CDFCB62621D75D730038E5D1 /* Response.swift in Sources */,
 				CD432EF122B39858008533B4 /* UsersResponse.swift in Sources */,
 				CD432EED22B395CF008533B4 /* Name.swift in Sources */,
-				CDD4432E230A920F00F189DE /* EditUserRepository.swift in Sources */,
 				CD5D08C122E2083D00EF7E01 /* NiblessTableViewCell.swift in Sources */,
 				CD5D08B922E2047500EF7E01 /* UIVIew+AutoLayout.swift in Sources */,
 				CDBC9734230EC44100160306 /* SavedUsersVC.swift in Sources */,

@@ -6,9 +6,7 @@
 //  Copyright © 2019 yura. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import RealmSwift
 import RxRelay
 import DifferenceKit
 

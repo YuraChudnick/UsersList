@@ -25,7 +25,7 @@ protocol EditUserProfileViewModelProtocol {
 
 class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
 
-    let repository: EditUserRepositoryProtocol
+    let repository: UsersRepositoryProtocol
     let imageManager: ImageCacheManagerProtocol
     
     let user: User
@@ -34,7 +34,7 @@ class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
     var router: EditUserRouterProtocol!
     var userParameterViewModels: BehaviorRelay<[ParameterViewModelType]>
     
-    init(user: User, repository: EditUserRepositoryProtocol, imageManager: ImageCacheManagerProtocol) {
+    init(user: User, repository: UsersRepositoryProtocol, imageManager: ImageCacheManagerProtocol) {
         self.repository = repository
         self.imageManager = imageManager
         self.user = user

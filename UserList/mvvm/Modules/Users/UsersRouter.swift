@@ -21,7 +21,7 @@ class UsersRouter: UsersRouterProtocol {
     }
     
     func presentEditScreen(with user: User) {
-        let vm = EditUserProfileViewModel(user: user, repository: EditUserRepository(), imageManager: ImageCacheManager())
+        let vm = EditUserProfileViewModel(user: user, repository: UsersRepository(), imageManager: ImageCacheManager())
         let editUserVC = EditUserVC(viewModel: vm)
         let router = EditUserRouter(vc: editUserVC)
         vm.router = router
