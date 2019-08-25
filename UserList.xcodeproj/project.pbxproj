@@ -58,6 +58,8 @@
 		DEF0ED332308796F0063BCB2 /* EditUserModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED322308796F0063BCB2 /* EditUserModuleBuilder.swift */; };
 		DEF0ED3523087BD30063BCB2 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3423087BD30063BCB2 /* UsersRouter.swift */; };
 		DEF0ED3723129FAD0063BCB2 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3623129FAD0063BCB2 /* Array+Extension.swift */; };
+		DEF0ED3D2312AFB20063BCB2 /* UsersModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3C2312AFB20063BCB2 /* UsersModuleBuilder.swift */; };
+		DEF0ED3F2312B3350063BCB2 /* UIRefreshControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3E2312B3350063BCB2 /* UIRefreshControl+Extension.swift */; };
 		DEFB669822E9FDAE00AA6E73 /* NiblessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB669722E9FDAE00AA6E73 /* NiblessTableViewController.swift */; };
 		DEFB669A22E9FED000AA6E73 /* EditUserRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB669922E9FED000AA6E73 /* EditUserRootView.swift */; };
 /* End PBXBuildFile section */
@@ -134,7 +136,7 @@
 		CDFCB62121D75C030038E5D1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CDFCB62321D75C4D0038E5D1 /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
 		CDFCB62521D75D730038E5D1 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		CDFCB62D21D770670038E5D1 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarVC.swift; path = "../New Group/TabBarVC.swift"; sourceTree = "<group>"; };
+		CDFCB62D21D770670038E5D1 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		DE5FE79622B438B800708187 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		DEAC78B5210C32B300D4445E /* UserList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAC78B8210C32B300D4445E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,8 @@
 		DEF0ED322308796F0063BCB2 /* EditUserModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserModuleBuilder.swift; sourceTree = "<group>"; };
 		DEF0ED3423087BD30063BCB2 /* UsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
 		DEF0ED3623129FAD0063BCB2 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		DEF0ED3C2312AFB20063BCB2 /* UsersModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModuleBuilder.swift; sourceTree = "<group>"; };
+		DEF0ED3E2312B3350063BCB2 /* UIRefreshControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Extension.swift"; sourceTree = "<group>"; };
 		DEFB669722E9FDAE00AA6E73 /* NiblessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessTableViewController.swift; sourceTree = "<group>"; };
 		DEFB669922E9FED000AA6E73 /* EditUserRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +227,7 @@
 			children = (
 				CD5D088922E1F4B800EF7E01 /* UIVIew+AutoLayout.swift */,
 				DEAC78E9210C70FC00D4445E /* UIImage+Extension.swift */,
+				DEF0ED3E2312B3350063BCB2 /* UIRefreshControl+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,7 +235,6 @@
 		CD5D08B222E1FFEF00EF7E01 /* mvvm */ = {
 			isa = PBXGroup;
 			children = (
-				CDFCB62D21D770670038E5D1 /* TabBarVC.swift */,
 				CDBC9745230FD25A00160306 /* Model */,
 				CD6E365122E88B3C000D667C /* DataLayer */,
 				CD5D08B322E1FFFA00EF7E01 /* Modules */,
@@ -255,6 +259,7 @@
 				CD5D08B522E2001400EF7E01 /* View */,
 				CD5D08B622E2003A00EF7E01 /* ViewModel */,
 				DEF0ED3423087BD30063BCB2 /* UsersRouter.swift */,
+				DEF0ED3C2312AFB20063BCB2 /* UsersModuleBuilder.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 			children = (
 				DEAC78C1210C32B400D4445E /* LaunchScreen.storyboard */,
 				DEAC78B8210C32B300D4445E /* AppDelegate.swift */,
+				CDFCB62D21D770670038E5D1 /* TabBarVC.swift */,
 				DEAC78C4210C32B400D4445E /* Info.plist */,
 			);
 			path = Applicaton;
@@ -654,6 +660,7 @@
 				CDBC9749230FDA6700160306 /* UsersState.swift in Sources */,
 				CD8814CD2306F1F4004DC157 /* EditUserVC.swift in Sources */,
 				CDBC9744230FD22C00160306 /* SavedUsersViewAction.swift in Sources */,
+				DEF0ED3D2312AFB20063BCB2 /* UsersModuleBuilder.swift in Sources */,
 				DEF0ED3523087BD30063BCB2 /* UsersRouter.swift in Sources */,
 				CD6E365722E88E58000D667C /* NetworkTask.swift in Sources */,
 				CDFCB62421D75C4D0038E5D1 /* UsersRequest.swift in Sources */,
@@ -662,6 +669,7 @@
 				CD8814D42306F408004DC157 /* UserParameterTableViewCell.swift in Sources */,
 				CD5D08B822E2047000EF7E01 /* UsersRootView.swift in Sources */,
 				CDFCB62E21D770670038E5D1 /* TabBarVC.swift in Sources */,
+				DEF0ED3F2312B3350063BCB2 /* UIRefreshControl+Extension.swift in Sources */,
 				CD5D08BA22E2047800EF7E01 /* NiblessView.swift in Sources */,
 				CD6E366122E9CAC8000D667C /* NiblessTableView.swift in Sources */,
 				CDBC9736230EC4C800160306 /* SavedUsersRootView.swift in Sources */,

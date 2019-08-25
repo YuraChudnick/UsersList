@@ -37,7 +37,7 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
     
     fileprivate func subcribeToRealmUpdates() {
         Observable.changeset(from: savedUsersResults)
-            .toUserViewModels()
+            .toUserViewModelsWithChages()
             .updateState()
             .bind(to: usersStore)
             .disposed(by: disposeBag)

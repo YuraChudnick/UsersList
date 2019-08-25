@@ -25,7 +25,7 @@ class UsersVC: NiblessViewController, DeselectAnimatable {
         super.viewDidLoad()
         
         title = "Users"
-        viewModel.loadData()
+        (view as! UsersRootView).refreshControl.beginRefreshingWithAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {

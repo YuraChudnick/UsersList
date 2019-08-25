@@ -11,6 +11,8 @@ import RxRelay
 
 protocol UsersViewModelProtocol {
     var userList: BehaviorRelay<[UserViewModel]> { get }
+    var loadTigger: PublishRelay<Void> { get }
+    var isRefreshing: BehaviorRelay<Bool> { get }
     func selectUser(at indexPath: IndexPath)
     func willDisplayUser(at indexPath: IndexPath)
     func loadData()
@@ -23,8 +25,9 @@ class UsersViewModel: UsersViewModelProtocol {
     
     private let users = BehaviorRelay<[User]>(value: [])
     var userList = BehaviorRelay<[UserViewModel]>(value: [])
+    var isRefreshing = BehaviorRelay<Bool>(value: false)
+    var loadTigger = PublishRelay<Void>()
     let disposeBag = DisposeBag()
-    let isLoading = BehaviorRelay<Bool>(value: false)
     private var page = 0
     
     init(usersRepository: UsersRepositoryProtocol) {
@@ -34,15 +37,12 @@ class UsersViewModel: UsersViewModelProtocol {
     
     fileprivate func setup() {
         users
-            .asObservable()
-            .map({ users -> [UserViewModel] in
-                return users.compactMap({ UserViewModel(user: $0) })
+            .toUserViewModels()
+            .bind(to: userList)
+            .disposed(by: disposeBag)
+        loadTigger.subscribe(onNext: { [weak self] in
+                self?.loadData()
             })
-            .subscribe(onNext: { [weak self] userCellVM in
-                self?.userList.accept(userCellVM)
-            }, onError: { (error) in
-                print(error)
-            }, onCompleted: nil)
             .disposed(by: disposeBag)
     }
     
@@ -51,25 +51,25 @@ class UsersViewModel: UsersViewModelProtocol {
     }
     
     func willDisplayUser(at indexPath: IndexPath) {
-        guard !isLoading.value, indexPath.row == userList.value.count - 1 else {
+        guard !isRefreshing.value, indexPath.row == userList.value.count - 1 else {
             return
         }
         loadData()
     }
     
     func loadData() {
-        isLoading.accept(true)
+        isRefreshing.accept(true)
         print("Start loadind page - \(page).")
         usersRepository.getUsers(page: page)
             .done { [weak self] data in
                 guard let self = self else { return }
-                self.isLoading.accept(false)
+                self.isRefreshing.accept(false)
                 self.users.accept(self.users.value + data.results)
                 self.page += 1
             }
             .catch { [weak self] error in
                 print(error)
-                self?.isLoading.accept(false)
+                self?.isRefreshing.accept(false)
         }
     }
     

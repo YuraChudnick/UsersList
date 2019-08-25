@@ -50,14 +50,20 @@ struct UserViewModel: Differentiable {
     
 }
 
+extension ObservableType where Element == [User] {
+    func toUserViewModels() -> Observable<[UserViewModel]> {
+        return self.map({ $0.compactMap({ UserViewModel(user: $0) }) })
+    }
+}
+
 extension ObservableType where Element == (AnyRealmCollection<User>, RealmChangeset?) {
 
-    func toUserViewModels() -> Observable<([UserViewModel], RealmChangeset?)> {
+    func toUserViewModelsWithChages() -> Observable<([UserViewModel], RealmChangeset?)> {
         return self.map({ (results, changes) -> ([UserViewModel], RealmChangeset?) in
             return (results.compactMap({ UserViewModel(user: $0) }), changes)
         })
     }
-    
+
 }
 
 extension Observable where Element == ([UserViewModel], RealmChangeset?) {
