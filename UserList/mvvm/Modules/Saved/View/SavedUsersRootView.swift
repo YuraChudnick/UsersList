@@ -51,7 +51,7 @@ class SavedUsersRootView: NiblessView {
         tableView.separatorInset = .zero
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView(frame: .zero)
-        tableView.register(NewUserTableViewCell.self, forCellReuseIdentifier: NewUserTableViewCell.className)
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: UserTableViewCell.className)
     }
     
     fileprivate func bindViews() {
@@ -65,7 +65,7 @@ class SavedUsersRootView: NiblessView {
             .bind(to: viewModel.usersStore)
             .disposed(by: disposeBag)
         
-        let dataSource = RxSimpleAnimatableDataSource<UserViewModel, NewUserTableViewCell>(identifier: NewUserTableViewCell.className) { (_, viewModel, cell) in
+        let dataSource = RxSimpleAnimatableDataSource<UserViewModel, UserTableViewCell>(identifier: UserTableViewCell.className) { (_, viewModel, cell) in
             cell.configure(with: viewModel)
         }
         
