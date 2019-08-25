@@ -6,9 +6,8 @@
 //  Copyright © 2019 yura. All rights reserved.
 //
 
-import RxSwift
-import RxRelay
 import RealmSwift
+import RxSwift
 import RxRealm
 
 protocol SavedUsersViewModelProtocol {

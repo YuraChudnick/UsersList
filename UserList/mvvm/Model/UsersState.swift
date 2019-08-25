@@ -44,9 +44,16 @@ func update(state: UsersState, action: Action) -> UsersState {
         result.removed.accept(viewModel)
     case let .select(viewModel):
         result.selected.accept(viewModel)
-    case let .realmUpdates(viewModels, _, added, updated):
-        added.forEach({ result.viewModels.append(viewModels[$0]) })
-        updated.forEach({ result.viewModels[$0].update() })
+    case let .realmUpdates(viewModels, deleted, added, updated):
+        print("Saved users added: \(added)")
+        print("Saved users deleted: \(deleted)")
+        print("Saved users updated: \(updated)")
+        if deleted.isEmpty {
+            added.forEach({ result.viewModels.append(viewModels[$0]) })
+        }
+        updated.forEach({
+            result.viewModels[optional: $0]?.update()
+        })
     }
     return result
 }

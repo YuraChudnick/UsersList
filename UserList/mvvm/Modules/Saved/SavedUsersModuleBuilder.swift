@@ -13,7 +13,7 @@ struct SavedUsersModuleBuilder {
     func create() -> UIViewController {
         let vm = SavedUsersViewModel(savedUsersRepository: SavedUsersRepository())
         let vc = SavedUsersVC(viewModel: vm)
-        vm.router = NewUsersRouter(vc: vc)
+        vm.router = UsersRouter(vc: vc)
         return vc
     }
     

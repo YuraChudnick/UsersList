@@ -29,16 +29,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    lazy var persistantContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "UsersList")
-        container.loadPersistentStores() { storeDescription, error in
-            if let error = error as NSError? {
-                fatalError("Unsolved error: \(error), \(error.userInfo)")
-            }
-        }
-        
-        return container
-    }()
-
 }
 

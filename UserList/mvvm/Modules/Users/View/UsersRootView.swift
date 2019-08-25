@@ -13,13 +13,13 @@ import RxCocoa
 class UsersRootView: NiblessView {
     
     //MARK: - Properties
-    let viewModel: RxUsersViewModelProtocol
+    let viewModel: UsersViewModelProtocol
     let disposeBag = DisposeBag()
     var hierarchyNotReady = true
     
     let tableView = UITableView()
     
-    init(frame: CGRect = .zero, viewModel: RxUsersViewModelProtocol) {
+    init(frame: CGRect = .zero, viewModel: UsersViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: frame)
     }
@@ -42,12 +42,12 @@ class UsersRootView: NiblessView {
         tableView.separatorInset = .zero
         tableView.rowHeight = 50
         tableView.tableFooterView = UIView(frame: .zero)
-        tableView.register(NewUserTableViewCell.self, forCellReuseIdentifier: NewUserTableViewCell.className)
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: UserTableViewCell.className)
     }
     
     func bindViews() {
         viewModel.userList
-            .bind(to: tableView.rx.items(cellIdentifier: NewUserTableViewCell.className, cellType: NewUserTableViewCell.self))
+            .bind(to: tableView.rx.items(cellIdentifier: UserTableViewCell.className, cellType: UserTableViewCell.self))
             { (row, viewModel, cell) in
                 cell.configure(with: viewModel)
             }
