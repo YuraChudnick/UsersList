@@ -7,6 +7,8 @@
 //
 
 import RealmSwift
+import RxSwift
+import RxRealm
 
 enum AvatarSize {
     case large
@@ -109,6 +111,26 @@ extension User {
         var result: [User] = []
         users.forEach { result.append($0) }
         return result
+    }
+    
+}
+
+extension ObservableType where Element == (AnyRealmCollection<User>, RealmChangeset?) {
+    
+    func update(with users: Observable<[User]>) -> Observable<[User]> {
+        return withLatestFrom( users.map({ $0 })) { realmChanges, oldUsers in
+            let (_, changes) = realmChanges
+            if changes != nil {
+                var updatedUsers: [User] = []
+                for user in oldUsers {
+                    if user.realm != nil && user.isInvalidated { continue }
+                    updatedUsers.append(user)
+                }
+                return updatedUsers
+            } else {
+                return oldUsers
+            }
+        }
     }
     
 }

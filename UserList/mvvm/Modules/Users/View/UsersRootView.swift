@@ -80,10 +80,6 @@ class UsersRootView: NiblessView {
             self.viewModel.willDisplayUser(at: indexPath)
             }).disposed(by: disposeBag)
         
-//        viewModel.indicator
-//            .bind(to: refreshControl.rx.isRefreshing)
-//            .disposed(by: disposeBag)
-        
         viewModel.isRefreshing
             .delay(RxTimeInterval.seconds(1), scheduler: MainScheduler())
             .bind(to: refreshControl.rx.isRefreshing)
@@ -91,12 +87,8 @@ class UsersRootView: NiblessView {
         
         refreshControl.rx
             .controlEvent(.valueChanged)
-            .bind(to: viewModel.loadTigger)
+            .bind(to: viewModel.loadTrigger)
             .disposed(by: disposeBag)
-        
-        
-//        refreshControl.rx.isRefreshing
-//            .asObserver()
         
     }
     

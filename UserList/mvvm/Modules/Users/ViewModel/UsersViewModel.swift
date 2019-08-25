@@ -8,14 +8,15 @@
 
 import RxSwift
 import RxRelay
+import RealmSwift
+import RxRealm
 
 protocol UsersViewModelProtocol {
     var userList: BehaviorRelay<[UserViewModel]> { get }
-    var loadTigger: PublishRelay<Void> { get }
+    var loadTrigger: PublishRelay<Void> { get }
     var isRefreshing: BehaviorRelay<Bool> { get }
     func selectUser(at indexPath: IndexPath)
     func willDisplayUser(at indexPath: IndexPath)
-    func loadData()
 }
 
 class UsersViewModel: UsersViewModelProtocol {
@@ -24,15 +25,18 @@ class UsersViewModel: UsersViewModelProtocol {
     var router: UsersRouterProtocol!
     
     private let users = BehaviorRelay<[User]>(value: [])
+    private let savedUsers: Results<User>
     var userList = BehaviorRelay<[UserViewModel]>(value: [])
     var isRefreshing = BehaviorRelay<Bool>(value: false)
-    var loadTigger = PublishRelay<Void>()
+    var loadTrigger = PublishRelay<Void>()
     let disposeBag = DisposeBag()
     private var page = 0
     
     init(usersRepository: UsersRepositoryProtocol) {
         self.usersRepository = usersRepository
+        self.savedUsers = usersRepository.getSavedUsers()
         setup()
+        subscribeToRealmChanges()
     }
     
     fileprivate func setup() {
@@ -40,9 +44,16 @@ class UsersViewModel: UsersViewModelProtocol {
             .toUserViewModels()
             .bind(to: userList)
             .disposed(by: disposeBag)
-        loadTigger.subscribe(onNext: { [weak self] in
+        loadTrigger.subscribe(onNext: { [weak self] in
                 self?.loadData()
             })
+            .disposed(by: disposeBag)
+    }
+    
+    fileprivate func subscribeToRealmChanges() {
+        Observable.changeset(from: savedUsers)
+            .update(with: users.asObservable())
+            .bind(to: users)
             .disposed(by: disposeBag)
     }
     
