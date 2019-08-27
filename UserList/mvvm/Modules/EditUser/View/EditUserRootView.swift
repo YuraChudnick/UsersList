@@ -13,13 +13,13 @@ import RxCocoa
 class EditUserRootView: NiblessView {
     
     //MARK: - Properties
-    let viewModel: EditUserProfileViewModelProtocol
+    let viewModel: EditUserViewModelProtocol
     let disposeBag = DisposeBag()
     var hierarchyNotReady = true
     
     let tableView = UITableView()
     
-    init(frame: CGRect = .zero, viewModel: EditUserProfileViewModelProtocol) {
+    init(frame: CGRect = .zero, viewModel: EditUserViewModelProtocol) {
         self.viewModel = viewModel
         super.init(frame: frame)
     }

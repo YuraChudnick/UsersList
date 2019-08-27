@@ -16,9 +16,9 @@ class EditUserVC: NiblessViewController {
         return manager
     }()
     
-    let viewModel: EditUserProfileViewModelProtocol
+    let viewModel: EditUserViewModelProtocol
     
-    init(viewModel: EditUserProfileViewModelProtocol) {
+    init(viewModel: EditUserViewModelProtocol) {
         self.viewModel = viewModel
         super.init()
     }

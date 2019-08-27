@@ -29,4 +29,13 @@ struct RealmProvider {
         RealmProvider(config: usersConfig)
     }()
     
+    private static let usersTestConfig = Realm.Configuration(fileURL: try! Path.inDocuments("users_test.realm"),
+                                                         schemaVersion: 1,
+                                                         deleteRealmIfMigrationNeeded: true,
+                                                         objectTypes: [User.self, Name.self, Picture.self])
+    
+    static var usersTest: RealmProvider = {
+        RealmProvider(config: usersTestConfig)
+    }()
+    
 }

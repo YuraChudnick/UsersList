@@ -11,7 +11,7 @@ import UIKit
 struct EditUserModuleBuilder {
     
     func create(with user: User) -> UIViewController {
-        let vm = EditUserProfileViewModel(user: user, repository: UsersRepository(), imageManager: ImageCacheManager())
+        let vm = EditUserViewModel(user: user, repository: UsersRepository(), imageManager: ImageCacheManager())
         let vc = EditUserVC(viewModel: vm)
         vm.router = EditUserRouter(vc: vc)
         return vc

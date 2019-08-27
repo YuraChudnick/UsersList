@@ -69,7 +69,7 @@ class UserAvatarTableViewCell: NiblessTableViewCell {
         avatarImageView.layer.masksToBounds = true
     }
     
-    func configure(with viewModel: EditUserProfileViewModelProtocol?) {
+    func configure(with viewModel: EditUserViewModelProtocol?) {
         viewModel?.avatar
             .asObservable()
             .bind(to: avatarImageView.rx.image)

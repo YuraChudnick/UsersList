@@ -2,8 +2,7 @@ platform :ios, '11.0'
 inhibit_all_warnings!
 use_frameworks!
 
-target 'UserList' do
-
+def shared_pods
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'
@@ -14,5 +13,16 @@ target 'UserList' do
   pod 'RxCocoa'
   pod 'RxRealm'
   pod 'DifferenceKit'
+end
+
+target 'UserList' do
+  shared_pods
+  
+  target 'UserListTests' do
+    inherit! :search_paths
+    shared_pods
+  end
   
 end
+
+

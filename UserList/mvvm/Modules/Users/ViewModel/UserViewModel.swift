@@ -58,8 +58,9 @@ extension ObservableType where Element == [User] {
 
 extension ObservableType where Element == (AnyRealmCollection<User>, RealmChangeset?) {
 
-    func toUserViewModelsWithChages() -> Observable<([UserViewModel], RealmChangeset?)> {
+    func toUserViewModelsWithChanges() -> Observable<([UserViewModel], RealmChangeset?)> {
         return self.map({ (results, changes) -> ([UserViewModel], RealmChangeset?) in
+            print(results)
             return (results.compactMap({ UserViewModel(user: $0) }), changes)
         })
     }

@@ -15,7 +15,7 @@ enum ParameterViewModelType {
     case parameter(viewModel: UserParameterViewModel)
 }
 
-protocol EditUserProfileViewModelProtocol {
+protocol EditUserViewModelProtocol {
     var userParameterViewModels: BehaviorRelay<[ParameterViewModelType]> { get }
     var avatar: BehaviorRelay<UIImage?> { get }
     func loadAvatar()
@@ -23,7 +23,7 @@ protocol EditUserProfileViewModelProtocol {
     func pressedSave()
 }
 
-class EditUserProfileViewModel: EditUserProfileViewModelProtocol {
+class EditUserViewModel: EditUserViewModelProtocol {
 
     let repository: UsersRepositoryProtocol
     let imageManager: ImageCacheManagerProtocol
