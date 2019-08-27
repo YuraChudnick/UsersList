@@ -44,6 +44,7 @@ struct UsersRepository: UsersRepositoryProtocol {
     }
     
     func delete(user: User) {
+        guard user.realm != nil else { return }
         let realm = realmProvider.realm
         do {
             try realm.write {
