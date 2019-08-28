@@ -7,12 +7,15 @@
 //
 
 import XCTest
+import RxBlocking
+import RxSwift
+import RxRelay
 @testable import UserList
 
 class SavedUsersVCTests: XCTestCase, RootVCForTesting {
     
     lazy var vc: UIViewController = {
-        return SavedUsersVC(viewModel: viewModel)
+        return UINavigationController(rootViewController: SavedUsersVC(viewModel: viewModel))
     }()
     var viewModel = SavedUsersViewModelMock()
     
@@ -21,12 +24,26 @@ class SavedUsersVCTests: XCTestCase, RootVCForTesting {
     }
     
     override func tearDown() {
-        
+        resetRootVC()
     }
     
     func testViewIsLoaded() {
-        
         XCTAssertTrue(vc.isViewLoaded, "SavedVC did not load")
+    }
+    
+    func testViewType() {
+        XCTAssertNil(vc.view as? SavedUsersRootView)
+    }
+    
+    func testNoDataLabel() {
+        let user = User()
+        user.fillMockData()
+        let userViewModel = UserViewModel(user: user)
+        let view = (vc as! UINavigationController).topViewController?.view as! SavedUsersRootView
+        XCTAssertFalse(view.noDataLabel.isHidden)
+        
+        XCTAssertFalse(try viewModel.usersStore.state.toBlocking().first()?.viewModels.isEmpty ?? true)
+        //XCTAssertTrue(view.noDataLabel.isHidden)
     }
     
     

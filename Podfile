@@ -19,8 +19,8 @@ target 'UserList' do
   shared_pods
   
   target 'UserListTests' do
-    inherit! :search_paths
-    shared_pods
+    pod 'RxTest'
+    pod 'RxBlocking'
   end
   
 end

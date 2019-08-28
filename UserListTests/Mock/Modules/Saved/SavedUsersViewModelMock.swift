@@ -14,7 +14,7 @@ class SavedUsersViewModelMock: SavedUsersViewModelProtocol {
     var usersStore: UsersStore
     
     init() {
-        let userState = UsersState(viewModels: [UserViewModel(user: User())])
+        let userState = UsersState(viewModels: [])
         usersStore = UsersStore(initialState: userState, reducer: update)
     }
     
