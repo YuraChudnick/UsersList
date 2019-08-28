@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		30B7469F838347E7FB99006C /* Pods_UserList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281DE734927B71A83264FA5E /* Pods_UserList.framework */; };
 		8A9BE498BFDDAEC860C77FAF /* Pods_UserListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961B91155854EC9D98C5578F /* Pods_UserListTests.framework */; };
+		CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */; };
+		CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */; };
 		CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EE522B393E1008533B4 /* RealmProvider.swift */; };
 		CD432EE922B394C3008533B4 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EE822B394C3008533B4 /* Path.swift */; };
 		CD432EEB22B39564008533B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EEA22B39564008533B4 /* User.swift */; };
@@ -100,6 +102,8 @@
 		450B336F71C0E353A353CD2B /* Pods-UserList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.debug.xcconfig"; sourceTree = "<group>"; };
 		961B91155854EC9D98C5578F /* Pods_UserListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01F7124AFDC373F9A94AEFB /* Pods-UserList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.release.xcconfig"; sourceTree = "<group>"; };
+		CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVCTests.swift; sourceTree = "<group>"; };
+		CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModelMock.swift; sourceTree = "<group>"; };
 		CD432EE522B393E1008533B4 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		CD432EE822B394C3008533B4 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		CD432EEA22B39564008533B4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -243,6 +247,46 @@
 				961B91155854EC9D98C5578F /* Pods_UserListTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD2499502316C35300950E25 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CD2499512316C36000950E25 /* Saved */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CD2499512316C36000950E25 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				CD2499522316C38200950E25 /* View */,
+			);
+			path = Saved;
+			sourceTree = "<group>";
+		};
+		CD2499522316C38200950E25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CD2499552316C42B00950E25 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CD2499562316C43200950E25 /* Saved */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CD2499562316C43200950E25 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */,
+			);
+			path = Saved;
 			sourceTree = "<group>";
 		};
 		CD432EF222B3A8EB008533B4 /* Responses */ = {
@@ -422,6 +466,7 @@
 		CDBC97512315321500160306 /* UserListTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD2499502316C35300950E25 /* Modules */,
 				DEE27A0F2315BF8000423F7C /* Model */,
 				DEE27A082315B53000423F7C /* Protocol */,
 				CDBC975E2315340B00160306 /* Mock */,
@@ -451,6 +496,7 @@
 		CDBC975E2315340B00160306 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				CD2499552316C42B00950E25 /* Modules */,
 				CDBC97652315377500160306 /* Model */,
 				CDBC975F2315342000160306 /* NetworkLayer */,
 			);
@@ -819,6 +865,8 @@
 				DEE27A0E2315BA3100423F7C /* RealmForTesting.swift in Sources */,
 				CDBC97532315321500160306 /* UserListTests.swift in Sources */,
 				DEE27A072315B44700423F7C /* UserRepositoryTests.swift in Sources */,
+				CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */,
+				CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
