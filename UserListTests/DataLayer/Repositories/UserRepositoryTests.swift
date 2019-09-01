@@ -21,7 +21,7 @@ class UserRepositoryTests: XCTestCase, RootVCForTesting, RealmForTesting {
     }
     
     override func tearDown() {
-        
+        resetRootVC()
     }
     
     func testGetUsers() {

@@ -96,7 +96,7 @@ class EditUserViewModel: EditUserViewModelProtocol {
             
         }
         if let image = avatar.value {
-            imageManager.saveImage(image: image, key: newValues.image)
+            imageManager.saveImage(image: image, key: newValues.image, completionHandler: nil)
         }
         repository.save(user: user, with: newValues)
         router.back()

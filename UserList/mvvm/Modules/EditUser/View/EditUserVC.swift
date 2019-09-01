@@ -10,12 +10,6 @@ import UIKit
 
 class EditUserVC: NiblessViewController {
     
-    lazy var photoPickerManager: PhotoPickerManager = {
-        let manager = PhotoPickerManager(presentingViewController: self)
-        manager.delegate = self
-        return manager
-    }()
-    
     let viewModel: EditUserViewModelProtocol
     
     init(viewModel: EditUserViewModelProtocol) {
@@ -50,8 +44,6 @@ extension EditUserVC: PhotoPickerManagerDelegate {
     
     func manager(_ manager: PhotoPickerManager, didPickImage image: UIImage) {
         viewModel.avatar.accept(image)
-        manager.dismissPhotoPicker(animated: true, completion:
-            nil)
     }
     
 }

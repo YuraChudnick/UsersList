@@ -9,7 +9,6 @@
 import XCTest
 import RxBlocking
 import RxSwift
-import RxRelay
 @testable import UserList
 
 class SavedUsersVCTests: XCTestCase, RootVCForTesting {

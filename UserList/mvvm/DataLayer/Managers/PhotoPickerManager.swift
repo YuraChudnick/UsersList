@@ -15,7 +15,7 @@ protocol PhotoPickerManagerDelegate: class {
 
 class PhotoPickerManager: NSObject {
     private let imagePickerController = UIImagePickerController()
-    private let presentingController: UIViewController
+    private unowned let presentingController: UIViewController
     weak var delegate: PhotoPickerManagerDelegate?
     
     init(presentingViewController: UIViewController) {
@@ -36,11 +36,8 @@ class PhotoPickerManager: NSObject {
     }
     
     private func configure() {
-        
         imagePickerController.sourceType = .photoLibrary
-        
         imagePickerController.mediaTypes = [kUTTypeImage as String]
-        
         imagePickerController.delegate = self
     }
 }
@@ -49,7 +46,8 @@ extension PhotoPickerManager: UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
-        delegate?.manager(self, didPickImage: Utils.resizeImage(image: image, targetSize: CGSize(width: 200, height: 200)))
+        self.delegate?.manager(self, didPickImage: Utils.resizeImage(image: image, targetSize: CGSize(width: 200, height: 200)))
+        dismissPhotoPicker(animated: true, completion: nil)
     }
 }
 

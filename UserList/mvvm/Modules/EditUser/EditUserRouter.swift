@@ -13,11 +13,17 @@ protocol EditUserRouterProtocol {
     func back()
 }
 
-class EditUserRouter: EditUserRouterProtocol {
+class EditUserRouter<V: UIViewController & PhotoPickerManagerDelegate>: EditUserRouterProtocol {
 
-    unowned let vc: EditUserVC
+    unowned let vc: V
     
-    init(vc: EditUserVC) {
+    lazy var photoPickerManager: PhotoPickerManager = {
+        let manager = PhotoPickerManager(presentingViewController: vc)
+        manager.delegate = vc
+        return manager
+    }()
+    
+    init(vc: V) {
         self.vc = vc
     }
     
@@ -34,19 +40,23 @@ class EditUserRouter: EditUserRouterProtocol {
         alert.addAction(UIAlertAction(title: "Photo Library",
                                       style: UIAlertAction.Style.default,
                                       handler: { _ in
-                                        self.vc.photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
+                                        self.presentPhotoLibrary()
         }))
         
         alert.addAction(UIAlertAction(title: "Camera",
                                       style: UIAlertAction.Style.default,
                                       handler: { _ in
-                                        self.vc.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
+                                        self.photoPickerManager.presentPhotoPicker(sourceType: .camera, animated: true)
         }))
         vc.present(alert, animated: true)
     }
     
     func back() {
         vc.navigationController?.popViewController(animated: true)
+    }
+    
+    func presentPhotoLibrary() {
+        photoPickerManager.presentPhotoPicker(sourceType: .photoLibrary, animated: true)
     }
     
 }

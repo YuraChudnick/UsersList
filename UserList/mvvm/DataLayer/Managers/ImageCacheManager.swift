@@ -24,11 +24,12 @@ enum ImageCacheError: Error {
 protocol ImageCacheManagerProtocol {
     func loadImage(url: URL) -> Promise<UIImage>
     func loadImage(key: String) -> Promise<UIImage>
-    func saveImage(image: UIImage, key: String)
+    func saveImage(image: UIImage, key: String, completionHandler: (() -> Void)?)
+    func deleteImage(with key: String)
 }
 
 struct ImageCacheManager: ImageCacheManagerProtocol {
-
+    
     func loadImage(url: URL) -> Promise<UIImage> {
         return Promise { seal in
             ImageDownloader.default.downloadImage(with: url,
@@ -55,8 +56,12 @@ struct ImageCacheManager: ImageCacheManagerProtocol {
         }
     }
     
-    func saveImage(image: UIImage, key: String) {
-        ImageCache.default.store(image, forKey: key)
+    func saveImage(image: UIImage, key: String, completionHandler: (() -> Void)?) {
+        ImageCache.default.store(image, forKey: key, completionHandler: completionHandler)
+    }
+    
+    func deleteImage(with key: String) {
+        ImageCache.default.removeImage(forKey: key)
     }
     
 }
