@@ -66,4 +66,23 @@ class UsersViewModelTests: BaseTestCase {
             .next(3000, 1)])
     }
     
+    func testRefreshing() {
+        let refreshing = scheduler.createObserver(Bool.self)
+        
+        viewModel.isRefreshing
+            .asDriver()
+            .drive(refreshing)
+            .disposed(by: disposeBag)
+        
+        scheduler.createColdObservable([.next(10, false),
+                                        .next(20, true)])
+            .bind(to: viewModel.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        print(refreshing.events)
+        XCTAssertEqual(refreshing.events, [.next(0, true),
+                                           .next(10, false),
+                                           .next(20, true)])
+    }
+    
 }
