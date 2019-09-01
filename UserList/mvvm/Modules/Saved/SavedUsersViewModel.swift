@@ -12,6 +12,7 @@ import RxRealm
 
 protocol SavedUsersViewModelProtocol {
     var usersStore: UsersStore { get }
+    //func loadData()
 }
 
 class SavedUsersViewModel: SavedUsersViewModelProtocol {
@@ -53,6 +54,17 @@ class SavedUsersViewModel: SavedUsersViewModelProtocol {
             .subscribe(onNext: { [weak self] viewModel in
                 self?.repository.delete(user: viewModel.user)
             })
+            .disposed(by: disposeBag)
+        usersStore.state
+            .subscribe(onNext: { (state) in
+                print(state)
+            }, onError: { (error) in
+                print(error)
+            }, onCompleted: {
+                print("Users state completed")
+            }) {
+                print("Users state disposed")
+            }
             .disposed(by: disposeBag)
     }
     

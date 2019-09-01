@@ -45,7 +45,10 @@ class SavedUsersRootView: NiblessView {
     
     fileprivate func setupTableView() {
         addSubview(tableView)
-        tableView.fillSuperview()
+        tableView.anchor(top: safeAreaLayoutGuide.topAnchor,
+                         leading: leadingAnchor,
+                         bottom: bottomAnchor,
+                         trailing: trailingAnchor)
         
         tableView.backgroundView = noDataLabel
         tableView.separatorInset = .zero
