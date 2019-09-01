@@ -16,22 +16,19 @@ class UsersViewModelTests: BaseTestCase {
     
     let router = UsersRouterMock()
     let repository = UsersRepositoryMock()
+    var viewModel: UsersViewModel!
     
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
     
-    lazy var viewModel: UsersViewModel = {
-        let vm = UsersViewModel(usersRepository: self.repository)
-        vm.router = self.router
-        return vm
-    }()
     
     override func setUp() {
         super.setUp()
         
+        viewModel = UsersViewModel(usersRepository: self.repository)
+        viewModel.router = self.router
         scheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
-
     }
     
     
@@ -45,20 +42,28 @@ class UsersViewModelTests: BaseTestCase {
         let userListCount = scheduler.createObserver(Int.self)
         
         viewModel.userList
+            .asDriver()
             .map({ $0.count })
-            .bind(to: userListCount)
+            .drive(userListCount)
             .disposed(by: disposeBag)
         
-        scheduler.createColdObservable([.next(2, ()), .next(4, ()), .next(6, ())])
+        viewModel.userList
+            .subscribe(onNext: { (list) in
+                print(list)
+            })
+        .disposed(by: disposeBag)
+        
+        scheduler.createColdObservable([.next(300, ()),
+                                        .next(500, ())])
             .bind(to: viewModel.loadTrigger)
             .disposed(by: disposeBag)
         
         scheduler.start()
         
+        print(userListCount.events.count)
         XCTAssertEqual(userListCount.events, [
-            .next(2, 1),
-            .next(4, 2),
-            .next(6, 2)])
+            .next(0, 0),
+            .next(3000, 1)])
     }
     
 }

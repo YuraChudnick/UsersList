@@ -75,7 +75,9 @@ class UsersViewModel: UsersViewModelProtocol {
             .done { [weak self] data in
                 guard let self = self else { return }
                 self.isRefreshing.accept(false)
+                //print(data)
                 self.users.accept(self.users.value + data.results)
+                //print(self.userList.value)
                 self.page += 1
             }
             .catch { [weak self] error in

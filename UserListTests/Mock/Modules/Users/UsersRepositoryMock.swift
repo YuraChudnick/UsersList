@@ -15,6 +15,7 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
     var page = -1
     
     let realmProvider = RealmProvider.usersTest
+    let deferredPromise = Promise<UsersResponse>.pending()
     
     func getUsers(page: Int) -> Promise<UsersResponse> {
         let user = User()
@@ -22,13 +23,14 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
         var response = UsersResponse()
         response.results.append(user)
         self.page = page
-        return Promise { seal in
-            if page == 2 {
-                seal.reject(NetworkError.unknown(reason: "unknown"))
-            } else {
-                seal.fulfill(response)
-            }
+        
+        if page == 2 {
+        deferredPromise.resolver.reject(NetworkError.unknown(reason: "unknown"))
+        } else {
+            deferredPromise.resolver.fulfill(response)
         }
+        
+        return deferredPromise.promise
     }
     
     func getSavedUsers() -> Results<User> {
