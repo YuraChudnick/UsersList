@@ -25,6 +25,7 @@ class UsersRootView: NiblessView {
         l.font = UIFont.systemFont(ofSize: 15)
         l.textAlignment = .center
         l.text = "No users. Pull down to refresh."
+        l.isHidden = true
         return l
     }()
     
@@ -46,7 +47,10 @@ class UsersRootView: NiblessView {
     
     func setupTableView() {
         addSubview(tableView)
-        tableView.fillSuperview()
+        tableView.anchor(top: safeAreaLayoutGuide.topAnchor,
+                         leading: leadingAnchor,
+                         bottom: bottomAnchor,
+                         trailing: trailingAnchor)
         
         tableView.backgroundView = noDataLabel
         tableView.refreshControl = refreshControl
@@ -65,6 +69,7 @@ class UsersRootView: NiblessView {
             }
             .disposed(by: disposeBag)
         viewModel.userList
+            .skip(1)
             .map({ !$0.isEmpty })
             .bind(to: noDataLabel.rx.isHidden)
             .disposed(by: disposeBag)
@@ -81,8 +86,16 @@ class UsersRootView: NiblessView {
             }).disposed(by: disposeBag)
         
         viewModel.isRefreshing
-            .delay(RxTimeInterval.seconds(1), scheduler: MainScheduler())
+            .delay(RxTimeInterval.milliseconds(300), scheduler: MainScheduler())
             .bind(to: refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        viewModel.isRefreshing
+            .skip(1)
+            .filter({ value -> Bool in
+                return value
+            })
+            .bind(to: noDataLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
         refreshControl.rx

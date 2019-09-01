@@ -27,7 +27,7 @@ class UsersViewModel: UsersViewModelProtocol {
     private let users = BehaviorRelay<[User]>(value: [])
     private let savedUsers: Results<User>
     var userList = BehaviorRelay<[UserViewModel]>(value: [])
-    var isRefreshing = BehaviorRelay<Bool>(value: false)
+    var isRefreshing = BehaviorRelay<Bool>(value: true)
     var loadTrigger = PublishRelay<Void>()
     let disposeBag = DisposeBag()
     private var page = 0
@@ -80,7 +80,9 @@ class UsersViewModel: UsersViewModelProtocol {
             }
             .catch { [weak self] error in
                 print(error)
-                self?.isRefreshing.accept(false)
+                guard let self = self else { return }
+                self.isRefreshing.accept(false)
+                self.users.accept(self.users.value + [])
         }
     }
     

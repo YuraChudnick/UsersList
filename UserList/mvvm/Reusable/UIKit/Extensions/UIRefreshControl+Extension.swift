@@ -14,6 +14,7 @@ extension UIRefreshControl {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             if let tableView = self.superview as? UITableView {
                 let tbHeaderHeight = tableView.tableHeaderView?.bounds.height ?? 0
+                print(CGPoint(x: 0, y: -(self.frame.height + tbHeaderHeight)))
                 tableView.setContentOffset(CGPoint(x: 0, y: -(self.frame.height + tbHeaderHeight)), animated: true)
             }
             self.beginRefreshing()
