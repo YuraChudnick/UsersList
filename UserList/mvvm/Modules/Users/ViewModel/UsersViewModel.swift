@@ -30,7 +30,7 @@ class UsersViewModel: UsersViewModelProtocol {
     var isRefreshing = BehaviorRelay<Bool>(value: true)
     var loadTrigger = PublishRelay<Void>()
     let disposeBag = DisposeBag()
-    private var page = 0
+    private(set) var page = 0
     
     init(usersRepository: UsersRepositoryProtocol) {
         self.usersRepository = usersRepository
@@ -44,7 +44,9 @@ class UsersViewModel: UsersViewModelProtocol {
             .toUserViewModels()
             .bind(to: userList)
             .disposed(by: disposeBag)
-        loadTrigger.subscribe(onNext: { [weak self] in
+        loadTrigger
+            .share(replay: 1, scope: .whileConnected)
+            .subscribe(onNext: { [weak self] in
                 self?.loadData()
             })
             .disposed(by: disposeBag)
@@ -75,9 +77,7 @@ class UsersViewModel: UsersViewModelProtocol {
             .done { [weak self] data in
                 guard let self = self else { return }
                 self.isRefreshing.accept(false)
-                //print(data)
                 self.users.accept(self.users.value + data.results)
-                //print(self.userList.value)
                 self.page += 1
             }
             .catch { [weak self] error in

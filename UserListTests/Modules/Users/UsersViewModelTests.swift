@@ -10,6 +10,7 @@ import XCTest
 import RxBlocking
 import RxTest
 import RxSwift
+import PromiseKit
 @testable import UserList
 
 class UsersViewModelTests: BaseTestCase {
@@ -29,6 +30,9 @@ class UsersViewModelTests: BaseTestCase {
         viewModel.router = self.router
         scheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
+        
+        PromiseKit.conf.Q.map = nil
+        PromiseKit.conf.Q.return = nil
     }
     
     
@@ -53,8 +57,16 @@ class UsersViewModelTests: BaseTestCase {
             })
         .disposed(by: disposeBag)
         
-        scheduler.createColdObservable([.next(300, ()),
-                                        .next(500, ())])
+//        viewModel.loadTrigger
+//            .subscribe(onNext: { [weak self] () in
+//                self?.repository.fullFillUser()
+//                print("Load data!!!!!!")
+//            })
+//            .disposed(by: disposeBag)
+        
+        scheduler.createHotObservable([.next(10, ()),
+                                        .next(20, ()),
+                                        .next(30, ())])
             .bind(to: viewModel.loadTrigger)
             .disposed(by: disposeBag)
         
@@ -63,7 +75,11 @@ class UsersViewModelTests: BaseTestCase {
         print(userListCount.events.count)
         XCTAssertEqual(userListCount.events, [
             .next(0, 0),
-            .next(3000, 1)])
+            .next(10, 1),
+            .next(20, 2),
+            .next(30, 3)])
+        
+        XCTAssertEqual(viewModel.page, 3)
     }
     
     func testRefreshing() {
@@ -79,10 +95,13 @@ class UsersViewModelTests: BaseTestCase {
             .bind(to: viewModel.isRefreshing)
             .disposed(by: disposeBag)
         
+        scheduler.start()
+        
         print(refreshing.events)
         XCTAssertEqual(refreshing.events, [.next(0, true),
                                            .next(10, false),
                                            .next(20, true)])
+        
     }
     
 }

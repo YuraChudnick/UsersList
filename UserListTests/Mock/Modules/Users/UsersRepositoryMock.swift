@@ -18,19 +18,33 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
     let deferredPromise = Promise<UsersResponse>.pending()
     
     func getUsers(page: Int) -> Promise<UsersResponse> {
+        let deferredPromise = Promise<UsersResponse>.pending()
         let user = User()
         user.fillMockData()
         var response = UsersResponse()
         response.results.append(user)
         self.page = page
-        
+        print("Get page \(page)")
         if page == 2 {
-        deferredPromise.resolver.reject(NetworkError.unknown(reason: "unknown"))
+            deferredPromise.resolver.reject(NetworkError.unknown(reason: "unknown"))
         } else {
             deferredPromise.resolver.fulfill(response)
         }
-        
         return deferredPromise.promise
+    }
+    
+    func fullFillUser() {
+        let user = User()
+        user.fillMockData()
+        var response = UsersResponse()
+        response.results.append(user)
+        deferredPromise.resolver.fulfill(response)
+//        self.page = page
+//        if page == 2 {
+//            deferredPromise.resolver.reject(NetworkError.unknown(reason: "unknown"))
+//        } else {
+//            deferredPromise.resolver.fulfill(response)
+//        }
     }
     
     func getSavedUsers() -> Results<User> {
