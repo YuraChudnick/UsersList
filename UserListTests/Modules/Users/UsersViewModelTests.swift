@@ -45,24 +45,14 @@ class UsersViewModelTests: BaseTestCase {
     func testLoadData() {
         let userListCount = scheduler.createObserver(Int.self)
         
+        viewModel.userList.accept([])
+        XCTAssertEqual(try viewModel.userList.toBlocking().first()?.count, 0)
+        
         viewModel.userList
             .asDriver()
             .map({ $0.count })
             .drive(userListCount)
             .disposed(by: disposeBag)
-        
-        viewModel.userList
-            .subscribe(onNext: { (list) in
-                print(list)
-            })
-        .disposed(by: disposeBag)
-        
-//        viewModel.loadTrigger
-//            .subscribe(onNext: { [weak self] () in
-//                self?.repository.fullFillUser()
-//                print("Load data!!!!!!")
-//            })
-//            .disposed(by: disposeBag)
         
         scheduler.createHotObservable([.next(10, ()),
                                         .next(20, ()),
@@ -77,9 +67,9 @@ class UsersViewModelTests: BaseTestCase {
             .next(0, 0),
             .next(10, 1),
             .next(20, 2),
-            .next(30, 3)])
+            .next(30, 2)])
         
-        XCTAssertEqual(viewModel.page, 3)
+        XCTAssertEqual(viewModel.page, 2)
     }
     
     func testRefreshing() {
@@ -102,6 +92,27 @@ class UsersViewModelTests: BaseTestCase {
                                            .next(10, false),
                                            .next(20, true)])
         
+    }
+    
+    func testSelectUser() {
+        viewModel.users.accept([User()])
+        XCTAssertEqual(try viewModel.users.toBlocking().first()?.count, 1)
+        viewModel.selectUser(at: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(router.user)
+        router.user = nil
+    }
+    
+    func testWillDisplayUser() {
+        viewModel.users.accept([User(), User()])
+        XCTAssertEqual(try viewModel.users.toBlocking().first()?.count, 2)
+        viewModel.isRefreshing.accept(false)
+        XCTAssertEqual(try viewModel.isRefreshing.toBlocking().first(), false)
+        viewModel.page = 0
+        viewModel.willDisplayUser(at: IndexPath(row: 1, section: 0))
+        XCTAssertEqual(try viewModel.users.toBlocking().first()?.count, 3)
+        
+        viewModel.willDisplayUser(at: IndexPath(row: 1, section: 0))
+        XCTAssertEqual(try viewModel.users.toBlocking().first()?.count, 3)
     }
     
 }

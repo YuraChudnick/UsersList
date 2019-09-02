@@ -24,13 +24,13 @@ class UsersViewModel: UsersViewModelProtocol {
     let usersRepository: UsersRepositoryProtocol
     var router: UsersRouterProtocol!
     
-    private let users = BehaviorRelay<[User]>(value: [])
-    private let savedUsers: Results<User>
+    let users = BehaviorRelay<[User]>(value: [])
+    let savedUsers: Results<User>
     var userList = BehaviorRelay<[UserViewModel]>(value: [])
     var isRefreshing = BehaviorRelay<Bool>(value: true)
     var loadTrigger = PublishRelay<Void>()
     let disposeBag = DisposeBag()
-    private(set) var page = 0
+    var page = 0
     
     init(usersRepository: UsersRepositoryProtocol) {
         self.usersRepository = usersRepository
