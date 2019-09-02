@@ -21,3 +21,11 @@ import RealmSwift
     }
     
 }
+
+extension Name {
+    
+    var formattedName: String {
+        return first.capitalizingFirstLetter() + " " + last.capitalizingFirstLetter()
+    }
+    
+}

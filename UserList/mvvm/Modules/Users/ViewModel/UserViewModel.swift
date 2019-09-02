@@ -35,11 +35,7 @@ struct UserViewModel: Differentiable {
     }
     
     func update() {
-        var name = ""
-        if let n = user.name {
-            name = n.first.capitalizingFirstLetter() + " " + n.last.capitalizingFirstLetter()
-        }
-        self.name.accept(name)
+        self.name.accept(user.name?.formattedName ?? "")
         self.phone.accept(user.phone)
         self.imageUrl.accept(URL(string: user.picture?.large ?? ""))
     }
@@ -60,7 +56,6 @@ extension ObservableType where Element == (AnyRealmCollection<User>, RealmChange
 
     func toUserViewModelsWithChanges() -> Observable<([UserViewModel], RealmChangeset?)> {
         return self.map({ (results, changes) -> ([UserViewModel], RealmChangeset?) in
-            print(results)
             return (results.compactMap({ UserViewModel(user: $0) }), changes)
         })
     }

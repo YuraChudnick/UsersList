@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		30B7469F838347E7FB99006C /* Pods_UserList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281DE734927B71A83264FA5E /* Pods_UserList.framework */; };
 		6248CB86872B12F975863138 /* Pods_UserList_UserListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFBB06A9C6DEAAFD2F8E68A /* Pods_UserList_UserListTests.framework */; };
+		CD03FBA5231D3D6E00997D5A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */; };
 		CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */; };
 		CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */; };
 		CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EE522B393E1008533B4 /* RealmProvider.swift */; };
@@ -79,7 +80,6 @@
 		DEF0ED3723129FAD0063BCB2 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3623129FAD0063BCB2 /* Array+Extension.swift */; };
 		DEF0ED3D2312AFB20063BCB2 /* UsersModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3C2312AFB20063BCB2 /* UsersModuleBuilder.swift */; };
 		DEF0ED3F2312B3350063BCB2 /* UIRefreshControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF0ED3E2312B3350063BCB2 /* UIRefreshControl+Extension.swift */; };
-		DEFB669822E9FDAE00AA6E73 /* NiblessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB669722E9FDAE00AA6E73 /* NiblessTableViewController.swift */; };
 		DEFB669A22E9FED000AA6E73 /* EditUserRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB669922E9FED000AA6E73 /* EditUserRootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +112,7 @@
 		5DFBB06A9C6DEAAFD2F8E68A /* Pods_UserList_UserListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserList_UserListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92549C066177402573F77026 /* Pods-UserList-UserListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList-UserListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserList-UserListTests/Pods-UserList-UserListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A01F7124AFDC373F9A94AEFB /* Pods-UserList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.release.xcconfig"; sourceTree = "<group>"; };
+		CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVCTests.swift; sourceTree = "<group>"; };
 		CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModelMock.swift; sourceTree = "<group>"; };
 		CD432EE522B393E1008533B4 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -205,7 +206,6 @@
 		DEF0ED3623129FAD0063BCB2 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		DEF0ED3C2312AFB20063BCB2 /* UsersModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModuleBuilder.swift; sourceTree = "<group>"; };
 		DEF0ED3E2312B3350063BCB2 /* UIRefreshControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Extension.swift"; sourceTree = "<group>"; };
-		DEFB669722E9FDAE00AA6E73 /* NiblessTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessTableViewController.swift; sourceTree = "<group>"; };
 		DEFB669922E9FED000AA6E73 /* EditUserRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRootView.swift; sourceTree = "<group>"; };
 		E1B3AB94E025331DE509E3F8 /* Pods-UserList-UserListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList-UserListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserList-UserListTests/Pods-UserList-UserListTests.release.xcconfig"; sourceTree = "<group>"; };
 		FF35679A29ECBB6CE244571B /* Pods-UserListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserListTests/Pods-UserListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -584,7 +584,6 @@
 				CDD663FE22DCC80E00894166 /* NiblessViewController.swift */,
 				CDD6640022DCC83200894166 /* NiblessNavigationController.swift */,
 				CD5D08C022E2083D00EF7E01 /* NiblessTableViewCell.swift */,
-				DEFB669722E9FDAE00AA6E73 /* NiblessTableViewController.swift */,
 			);
 			path = NiblessComponents;
 			sourceTree = "<group>";
@@ -637,6 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				DEE8F5A2231C1AF400391A60 /* UsersViewModelTests.swift */,
+				CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -946,6 +946,7 @@
 				DEE8F5A3231C1AF400391A60 /* UsersViewModelTests.swift in Sources */,
 				DEE27A0E2315BA3100423F7C /* RealmForTesting.swift in Sources */,
 				DE358FE8231BF864006DA786 /* ImageCacheManagerTests.swift in Sources */,
+				CD03FBA5231D3D6E00997D5A /* UserViewModelTests.swift in Sources */,
 				DEA6CA38231C1A1600CD40C8 /* SavedUsersViewModelTests.swift in Sources */,
 				DEA6CA2F231C08B100CD40C8 /* EditUserVCMock.swift in Sources */,
 				DEE8F5A8231C1D8300391A60 /* UsersRouterMock.swift in Sources */,
@@ -1013,7 +1014,6 @@
 				DEAC78ED210C933C00D4445E /* Utils.swift in Sources */,
 				DEAC78EA210C70FC00D4445E /* UIImage+Extension.swift in Sources */,
 				CDBC9732230EC11800160306 /* SavedUsersModuleBuilder.swift in Sources */,
-				DEFB669822E9FDAE00AA6E73 /* NiblessTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
