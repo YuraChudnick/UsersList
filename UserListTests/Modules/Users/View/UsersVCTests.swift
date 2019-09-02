@@ -14,10 +14,7 @@ import RxSwift
 
 class UsersVCTests: XCTestCase, RootVCForTesting {
     
-    lazy var vc: UIViewController = {
-        return UINavigationController(rootViewController: UsersVC(viewModel: self.viewModel))
-    }()
-    
+    lazy var vc: UIViewController = UsersVC(viewModel: self.viewModel)
     let viewModel = UserViewModelMock()
     
     override func setUp() {
@@ -26,6 +23,19 @@ class UsersVCTests: XCTestCase, RootVCForTesting {
     
     override func tearDown() {
         resetRootVC()
+    }
+    
+    func testTitle() {
+        XCTAssertEqual(vc.title, "Users")
+    }
+    
+    func testRefreshing() {
+        viewModel.isRefreshing.accept(false)
+        let view = (vc.view as! UsersRootView)
+        XCTAssertFalse(view.refreshControl.isRefreshing)
+        viewModel.isRefreshing.accept(true)
+        XCTAssertEqual(try viewModel.isRefreshing.toBlocking().first(), true)
+        XCTAssertNotNil(try view.refreshControl.rx.controlEvent(.valueChanged).toBlocking().first())
     }
     
 }

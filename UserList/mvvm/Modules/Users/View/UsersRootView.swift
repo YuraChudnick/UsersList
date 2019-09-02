@@ -83,7 +83,8 @@ class UsersRootView: NiblessView {
         tableView.rx.willDisplayCell
             .subscribe(onNext: { (_ , indexPath) in
             self.viewModel.willDisplayUser(at: indexPath)
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
         
         viewModel.isRefreshing
             .delay(RxTimeInterval.milliseconds(300), scheduler: MainScheduler())

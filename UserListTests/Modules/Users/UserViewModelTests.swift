@@ -52,8 +52,6 @@ class UserViewModelTests: BaseTestCase {
         XCTAssertEqual(try userViewModel.name.toBlocking().first(), name)
         XCTAssertEqual(try userViewModel.phone.toBlocking().first(), phone)
         XCTAssertEqual(try userViewModel.imageUrl.toBlocking().first()??.absoluteString, imageUrl)
-        
-        
     }
     
 }
