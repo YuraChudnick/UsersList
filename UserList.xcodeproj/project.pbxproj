@@ -10,6 +10,8 @@
 		30B7469F838347E7FB99006C /* Pods_UserList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281DE734927B71A83264FA5E /* Pods_UserList.framework */; };
 		6248CB86872B12F975863138 /* Pods_UserList_UserListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFBB06A9C6DEAAFD2F8E68A /* Pods_UserList_UserListTests.framework */; };
 		CD03FBA5231D3D6E00997D5A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */; };
+		CD03FBA8231D519200997D5A /* UsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA7231D519200997D5A /* UsersVCTests.swift */; };
+		CD03FBAA231D521800997D5A /* UserViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA9231D521800997D5A /* UserViewModelMock.swift */; };
 		CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */; };
 		CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */; };
 		CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EE522B393E1008533B4 /* RealmProvider.swift */; };
@@ -113,6 +115,8 @@
 		92549C066177402573F77026 /* Pods-UserList-UserListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList-UserListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserList-UserListTests/Pods-UserList-UserListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A01F7124AFDC373F9A94AEFB /* Pods-UserList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserList.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserList/Pods-UserList.release.xcconfig"; sourceTree = "<group>"; };
 		CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
+		CD03FBA7231D519200997D5A /* UsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVCTests.swift; sourceTree = "<group>"; };
+		CD03FBA9231D521800997D5A /* UserViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelMock.swift; sourceTree = "<group>"; };
 		CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVCTests.swift; sourceTree = "<group>"; };
 		CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModelMock.swift; sourceTree = "<group>"; };
 		CD432EE522B393E1008533B4 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -269,6 +273,14 @@
 				5DFBB06A9C6DEAAFD2F8E68A /* Pods_UserList_UserListTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD03FBA6231D516F00997D5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD03FBA7231D519200997D5A /* UsersVCTests.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CD2499502316C35300950E25 /* Modules */ = {
@@ -635,6 +647,7 @@
 		DEA6CA39231C1AC400CD40C8 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				CD03FBA6231D516F00997D5A /* View */,
 				DEE8F5A2231C1AF400391A60 /* UsersViewModelTests.swift */,
 				CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */,
 			);
@@ -733,6 +746,7 @@
 			children = (
 				DEE8F5A5231C1B7800391A60 /* UsersRepositoryMock.swift */,
 				DEE8F5A7231C1D8300391A60 /* UsersRouterMock.swift */,
+				CD03FBA9231D521800997D5A /* UserViewModelMock.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -948,6 +962,7 @@
 				DE358FE8231BF864006DA786 /* ImageCacheManagerTests.swift in Sources */,
 				CD03FBA5231D3D6E00997D5A /* UserViewModelTests.swift in Sources */,
 				DEA6CA38231C1A1600CD40C8 /* SavedUsersViewModelTests.swift in Sources */,
+				CD03FBA8231D519200997D5A /* UsersVCTests.swift in Sources */,
 				DEA6CA2F231C08B100CD40C8 /* EditUserVCMock.swift in Sources */,
 				DEE8F5A8231C1D8300391A60 /* UsersRouterMock.swift in Sources */,
 				DEE27A072315B44700423F7C /* UserRepositoryTests.swift in Sources */,
@@ -956,6 +971,7 @@
 				DEA6CA2C231C082F00CD40C8 /* EditUserRouterTests.swift in Sources */,
 				CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */,
 				CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */,
+				CD03FBAA231D521800997D5A /* UserViewModelMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
