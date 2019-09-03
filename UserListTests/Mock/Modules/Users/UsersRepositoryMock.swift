@@ -17,7 +17,7 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
     let realmProvider = RealmProvider.usersTest
     
     var withoutSaving = false
-    var isUserSaved = false
+    var newValues: (first: String, last: String, email: String, phone: String, image: String)?
     
     func getUsers(page: Int) -> Promise<UsersResponse> {
         let deferredPromise = Promise<UsersResponse>.pending()
@@ -41,7 +41,7 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
     
     func save(user: User, with newValues: (first: String, last: String, email: String, phone: String, image: String)) {
         if withoutSaving {
-            isUserSaved = true
+            self.newValues = newValues
             return
         }
         if user.realm != nil {

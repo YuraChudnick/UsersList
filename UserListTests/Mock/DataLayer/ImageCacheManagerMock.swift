@@ -13,19 +13,30 @@ class ImageCacheManagerMock: ImageCacheManagerProtocol {
     
     let image = UIImage(named: "tab_users")!
     
+    var withKeyError = false
+    var withURLError = false
+    
     var savedImage: UIImage?
     var key: String?
     
     func loadImage(url: URL) -> Promise<UIImage> {
         let deferredPromise = Promise<UIImage>.pending()
-        deferredPromise.resolver.fulfill(image)
+        if withURLError {
+            deferredPromise.resolver.reject(ImageCacheError.noImageFor(key: "test"))
+        } else {
+            deferredPromise.resolver.fulfill(image)
+        }
         return deferredPromise.promise
     }
     
     func loadImage(key: String) -> Promise<UIImage> {
         self.key = key
         let deferredPromise = Promise<UIImage>.pending()
-        deferredPromise.resolver.fulfill(image)
+        if withKeyError {
+            deferredPromise.resolver.reject(ImageCacheError.noImageFor(key: "test"))
+        } else {
+            deferredPromise.resolver.fulfill(image)
+        }
         return deferredPromise.promise
     }
     
