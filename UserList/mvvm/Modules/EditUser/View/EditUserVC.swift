@@ -30,11 +30,11 @@ class EditUserVC: NiblessViewController {
     }
     
     fileprivate func setupSaveButton() {
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(pressedSave(_:)))
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(pressedSave))
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
-    @objc private func pressedSave(_ sender: UIBarButtonItem) {
+    @objc func pressedSave() {
         viewModel.pressedSave()
     }
     

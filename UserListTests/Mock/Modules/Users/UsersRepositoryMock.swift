@@ -15,7 +15,9 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
     var page = -1
     
     let realmProvider = RealmProvider.usersTest
-    let deferredPromise = Promise<UsersResponse>.pending()
+    
+    var withoutSaving = false
+    var isUserSaved = false
     
     func getUsers(page: Int) -> Promise<UsersResponse> {
         let deferredPromise = Promise<UsersResponse>.pending()
@@ -33,25 +35,15 @@ class UsersRepositoryMock: UsersRepositoryProtocol {
         return deferredPromise.promise
     }
     
-    func fullFillUser() {
-        let user = User()
-        user.fillMockData()
-        var response = UsersResponse()
-        response.results.append(user)
-        deferredPromise.resolver.fulfill(response)
-//        self.page = page
-//        if page == 2 {
-//            deferredPromise.resolver.reject(NetworkError.unknown(reason: "unknown"))
-//        } else {
-//            deferredPromise.resolver.fulfill(response)
-//        }
-    }
-    
     func getSavedUsers() -> Results<User> {
         return realmProvider.realm.objects(User.self)
     }
     
     func save(user: User, with newValues: (first: String, last: String, email: String, phone: String, image: String)) {
+        if withoutSaving {
+            isUserSaved = true
+            return
+        }
         if user.realm != nil {
             user.update(in: realmProvider, with: newValues)
         } else {

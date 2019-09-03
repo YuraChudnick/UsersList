@@ -12,6 +12,10 @@
 		CD03FBA5231D3D6E00997D5A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */; };
 		CD03FBA8231D519200997D5A /* UsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA7231D519200997D5A /* UsersVCTests.swift */; };
 		CD03FBAA231D521800997D5A /* UserViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBA9231D521800997D5A /* UserViewModelMock.swift */; };
+		CD03FBAE231E3EC700997D5A /* EditUserViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBAD231E3EC700997D5A /* EditUserViewModelMock.swift */; };
+		CD03FBB8231EA8F000997D5A /* EditUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBB7231EA8F000997D5A /* EditUserViewModelTests.swift */; };
+		CD03FBBB231EAAB100997D5A /* ImageCacheManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBBA231EAAB100997D5A /* ImageCacheManagerMock.swift */; };
+		CD03FBBD231EACCA00997D5A /* EditUserRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03FBBC231EACCA00997D5A /* EditUserRouterMock.swift */; };
 		CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */; };
 		CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */; };
 		CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD432EE522B393E1008533B4 /* RealmProvider.swift */; };
@@ -25,7 +29,6 @@
 		CD5D08B922E2047500EF7E01 /* UIVIew+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D088922E1F4B800EF7E01 /* UIVIew+AutoLayout.swift */; };
 		CD5D08BA22E2047800EF7E01 /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD663FC22DCC7D500894166 /* NiblessView.swift */; };
 		CD5D08BB22E2047900EF7E01 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD663FE22DCC80E00894166 /* NiblessViewController.swift */; };
-		CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6640022DCC83200894166 /* NiblessNavigationController.swift */; };
 		CD5D08BF22E2079E00EF7E01 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D08BE22E2079E00EF7E01 /* UserTableViewCell.swift */; };
 		CD5D08C122E2083D00EF7E01 /* NiblessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D08C022E2083D00EF7E01 /* NiblessTableViewCell.swift */; };
 		CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D08C222E58E0C00EF7E01 /* NSObejct+ClassName.swift */; };
@@ -116,6 +119,10 @@
 		CD03FBA4231D3D6E00997D5A /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		CD03FBA7231D519200997D5A /* UsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVCTests.swift; sourceTree = "<group>"; };
 		CD03FBA9231D521800997D5A /* UserViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelMock.swift; sourceTree = "<group>"; };
+		CD03FBAD231E3EC700997D5A /* EditUserViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewModelMock.swift; sourceTree = "<group>"; };
+		CD03FBB7231EA8F000997D5A /* EditUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewModelTests.swift; sourceTree = "<group>"; };
+		CD03FBBA231EAAB100997D5A /* ImageCacheManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManagerMock.swift; sourceTree = "<group>"; };
+		CD03FBBC231EACCA00997D5A /* EditUserRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRouterMock.swift; sourceTree = "<group>"; };
 		CD2499532316C3A100950E25 /* SavedUsersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersVCTests.swift; sourceTree = "<group>"; };
 		CD2499572316C44400950E25 /* SavedUsersViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUsersViewModelMock.swift; sourceTree = "<group>"; };
 		CD432EE522B393E1008533B4 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -171,7 +178,6 @@
 		CDD44337230AEAFD00F189DE /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		CDD663FC22DCC7D500894166 /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		CDD663FE22DCC80E00894166 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
-		CDD6640022DCC83200894166 /* NiblessNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessNavigationController.swift; sourceTree = "<group>"; };
 		CDD6642722DCCB0400894166 /* UsersRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRootView.swift; sourceTree = "<group>"; };
 		CDFCB62121D75C030038E5D1 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CDFCB62321D75C4D0038E5D1 /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
@@ -279,6 +285,14 @@
 				CD03FBA7231D519200997D5A /* UsersVCTests.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CD03FBB9231EAA8700997D5A /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CD03FBBA231EAAB100997D5A /* ImageCacheManagerMock.swift */,
+			);
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
 		CD2499502316C35300950E25 /* Modules */ = {
@@ -534,6 +548,7 @@
 		CDBC975E2315340B00160306 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				CD03FBB9231EAA8700997D5A /* DataLayer */,
 				CD2499552316C42B00950E25 /* Modules */,
 				CDBC97652315377500160306 /* Model */,
 				CDBC975F2315342000160306 /* NetworkLayer */,
@@ -591,7 +606,6 @@
 			children = (
 				CDD663FC22DCC7D500894166 /* NiblessView.swift */,
 				CDD663FE22DCC80E00894166 /* NiblessViewController.swift */,
-				CDD6640022DCC83200894166 /* NiblessNavigationController.swift */,
 				CD5D08C022E2083D00EF7E01 /* NiblessTableViewCell.swift */,
 			);
 			path = NiblessComponents;
@@ -621,6 +635,7 @@
 				DEA6CA2B231C082F00CD40C8 /* EditUserRouterTests.swift */,
 				DEA6CA30231C105900CD40C8 /* EditUserModuleBuilderTests.swift */,
 				DEA6CA32231C123400CD40C8 /* EditUserVCTests.swift */,
+				CD03FBB7231EA8F000997D5A /* EditUserViewModelTests.swift */,
 			);
 			path = EditUser;
 			sourceTree = "<group>";
@@ -629,6 +644,8 @@
 			isa = PBXGroup;
 			children = (
 				DEA6CA2E231C08B100CD40C8 /* EditUserVCMock.swift */,
+				CD03FBAD231E3EC700997D5A /* EditUserViewModelMock.swift */,
+				CD03FBBC231EACCA00997D5A /* EditUserRouterMock.swift */,
 			);
 			path = EditUser;
 			sourceTree = "<group>";
@@ -950,6 +967,7 @@
 			files = (
 				DEA6CA33231C123400CD40C8 /* EditUserVCTests.swift in Sources */,
 				CDBC97672315378900160306 /* User+MockData.swift in Sources */,
+				CD03FBBB231EAAB100997D5A /* ImageCacheManagerMock.swift in Sources */,
 				DEE27A0C2315B5BD00423F7C /* RootVCForTesting.swift in Sources */,
 				CDBC97612315343D00160306 /* NetworkTaskMock.swift in Sources */,
 				DEE8F5A6231C1B7800391A60 /* UsersRepositoryMock.swift in Sources */,
@@ -962,9 +980,12 @@
 				CD03FBA8231D519200997D5A /* UsersVCTests.swift in Sources */,
 				DEA6CA2F231C08B100CD40C8 /* EditUserVCMock.swift in Sources */,
 				DEE8F5A8231C1D8300391A60 /* UsersRouterMock.swift in Sources */,
+				CD03FBB8231EA8F000997D5A /* EditUserViewModelTests.swift in Sources */,
 				DEE27A072315B44700423F7C /* UserRepositoryTests.swift in Sources */,
+				CD03FBBD231EACCA00997D5A /* EditUserRouterMock.swift in Sources */,
 				DEA6CA31231C105900CD40C8 /* EditUserModuleBuilderTests.swift in Sources */,
 				DEA6CA36231C128900CD40C8 /* BaseTestCase.swift in Sources */,
+				CD03FBAE231E3EC700997D5A /* EditUserViewModelMock.swift in Sources */,
 				DEA6CA2C231C082F00CD40C8 /* EditUserRouterTests.swift in Sources */,
 				CD2499542316C3A100950E25 /* SavedUsersVCTests.swift in Sources */,
 				CD2499582316C44400950E25 /* SavedUsersViewModelMock.swift in Sources */,
@@ -980,7 +1001,6 @@
 				DEF0ED3723129FAD0063BCB2 /* Array+Extension.swift in Sources */,
 				CDFCB62221D75C030038E5D1 /* Request.swift in Sources */,
 				CDBC9742230FCD0F00160306 /* RxSimpleAnimatableDataSource.swift in Sources */,
-				CD5D08BC22E2047B00EF7E01 /* NiblessNavigationController.swift in Sources */,
 				CD5D08C322E58E0C00EF7E01 /* NSObejct+ClassName.swift in Sources */,
 				DE5FE79722B438B800708187 /* UserViewModel.swift in Sources */,
 				CD432EE622B393E1008533B4 /* RealmProvider.swift in Sources */,
